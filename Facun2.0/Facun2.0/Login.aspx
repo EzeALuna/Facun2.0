@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login</title>
+  	<title>Iniciar Sesión</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -21,17 +21,19 @@
 		<div class="container">
         		<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Login</h2>
+					<h2 class="heading-section">Facundo</h2>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-7 col-lg-5">
 					<div class="wrap">
-						<div class="img" style="background-image: url(Estilos/images/inst.png); "></div>
+                        <asp:Image ID="Image1" runat="server" Height="150px" 
+                            ImageUrl="~/Estilos/images/inst.png" Width="150px" ></asp:Image>
+						<%--<div class="img" style="background-image: url('Estilos/images/inst.png'); width: 458px; height:500px;"></div>--%>
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">Inicio de sesion</h3>
+			      			<h3 class="mb-4">Usuario</h3>
 			      		</div>
 								<div class="w-100">
 									<p class="social-media d-flex justify-content-end">
@@ -65,7 +67,7 @@
                     <div class="form-group">
 		            	<%--<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>--%>
                         <asp:Button ID="btnLogin" CssClass="form-control btn btn-primary rounded submit px-3" runat="server" 
-                            Text="Login" onclick="btnLogin_Click"></asp:Button>
+                            Text="Iniciar Sesión" onclick="btnLogin_Click"></asp:Button>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
 		            </div>
 		            <div class="form-group d-md-flex">
@@ -75,13 +77,13 @@
 									  <span class="checkmark"></span>
 										</label>
 									</div>
-									<%--<div class="w-50 text-md-right">
-										<a href="#">Forgot Password</a>
-									</div>--%>
+									<div class="w-50 text-md-right">
+										<a href="#">Has olvidado tu contraseña</a>
+									</div>
 		            </div>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		          </form>
-		          <%--<p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>--%>
+		          <p class="text-center"><a href="RegistroUsuario.aspx">Registrase</a></p>
 		        </div>
 		      </div>
 				</div>
@@ -96,4 +98,3 @@
 
 	</body>
 </html>
-

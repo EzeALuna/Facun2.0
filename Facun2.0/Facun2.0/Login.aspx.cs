@@ -26,10 +26,15 @@ namespace Facun2._0
                 {
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                     //EZE
-                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+
+                    //HUGO
+
+                    builder.DataSource = "DESKTOP-L84NEUL";
+
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -46,7 +51,7 @@ namespace Facun2._0
                         string query = "SELECT TipoUsuario FROM Usuario WHERE DNI = " + txtDNI.Text + " AND Contraseña = '" + txtContraseña.Text + "'";
 
                         SqlCommand commando = new SqlCommand(query, conn);
-                        
+
                         //connection.Open();
                         conn.Open();
 
@@ -56,33 +61,35 @@ namespace Facun2._0
                         int count = (int)command.ExecuteScalar();
 
                         using (SqlDataReader reader = commando.ExecuteReader())
-                        //if (filas < 0)
-                        if (count > 0)
-                        {
-                            
-                            if (reader.Read())  
+                            //if (filas < 0)
+                            if (count > 0)
                             {
-                                string Tipo = reader["Tipo"].ToString(); // Obtener el valor del atributo 'Tipo'
 
-                                // Verificar si el Tipo = "A" (mayúscula)
-                                if (Tipo.Equals("A"))
+                                if (reader.Read())
                                 {
-                                    // Redirigir a la página de inicio si cumple la condición
-                                    Response.Redirect("InicioAlumno.aspx"); 
+                                    string Tipo = reader["TipoUsuario"].ToString(); // Obtener el valor del atributo 'Tipo'
+
+                                    // Verificar si el Tipo = "A" (mayúscula)
+                                    if (Tipo.Equals("A"))
+                                    {
+                                        // Redirigir a la página de inicio si cumple la condición
+                                        Session["Usuario"] = txtDNI.Text;
+                                        Response.Redirect("InicioAlumno.aspx");
+                                    }
+                                    else if (Tipo.Equals("a"))
+                                    {
+                                        // Verificar si el Tipo = "a" (minuscula)
+                                        Session["Usuario"] = txtDNI.Text;
+                                        Response.Redirect("InicioAlumno.aspx");
+                                    }
                                 }
-                                else if (Tipo.Equals("a"))
-                                {
-                                    // Verificar si el Tipo = "a" (minuscula)
-                                    Response.Redirect("InicioAlumno.aspx"); 
-                                }
+                                else Session["Usuario"] = txtDNI.Text;
+                                Page.Response.Redirect("InicioProfesor.aspx");
+                                //Response.Redirect("Inicio.aspx", true);
                             }
-                            Session["Usuario"] = txtDNI.Text;
-                            Page.Response.Redirect("InicioProfesor.aspx");
-                            //Response.Redirect("Inicio.aspx", true);
-                        }
 
-                        else
-                            lblTexto.Text = "Usuario o Contraseña incorrectos.";
+                            else
+                                lblTexto.Text = "Usuario o Contraseña incorrectos.";
                         lblTexto.ForeColor = System.Drawing.Color.Red;
                         lblTexto.Focus();
                         conn.Close();

@@ -27,7 +27,9 @@
 			<div class="row justify-content-center">
 				<div class="col-md-7 col-lg-5">
 					<div class="wrap">
-						<div class="img" style="background-image: url(Estilos/images/inst.png); "></div>
+                        <asp:Image ID="Image1" runat="server" Height="200px" 
+                            ImageUrl="~/Estilos/images/inst.png" Width="200px"></asp:Image>
+						<%--<div class="img" style="background-image: url(Estilos/images/inst.png); "></div>--%>
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
@@ -40,7 +42,7 @@
 									</p>
 								</div>
 			      	</div>
-							<form action="#" class="signin-form" runat="server">
+							<form id="Form1" action="#" class="signin-form" runat="server">
 			      		<div class="form-group mt-3">
                             <asp:Label ID="LabelNombre" runat="server" Text="Nombre"></asp:Label>
 			      			<%--<input type="text" class="form-control" required>--%>
@@ -130,18 +132,18 @@
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
-			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+			            	<%--<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
 									  <input type="checkbox" checked>
 									  <span class="checkmark"></span>
-										</label>
+										</label>--%>
 									</div>
-									<div class="w-50 text-md-right">
+									<%--<div class="w-50 text-md-right">
 										<a href="#">Forgot Password</a>
-									</div>
+									</div>--%>
 		            </div>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		          </form>
-		          <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>
+		         <%-- <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>--%>
 		        </div>
 		      </div>
 				</div>
@@ -156,4 +158,3 @@
 
 	</body>
 </html>
-

@@ -34,6 +34,9 @@ namespace Facun2._0
                 //ESCUELA
                 //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
+                //HUGO
+                builder.DataSource = "DESKTOP-L84NEUL";
+
                 //Nombre de la base de datos
                 builder.InitialCatalog = "Facun2DB";
                 //Indicamos que se trata de Seguridad Integrada
@@ -51,7 +54,7 @@ namespace Facun2._0
 
                     SqlCommand command = new SqlCommand(script, conn);
 
-                    int resp = command.ExecuteNonQuery(); 
+                    int resp = command.ExecuteNonQuery();
 
                     if (resp > 0)
                     {
@@ -80,11 +83,11 @@ namespace Facun2._0
                 }
 
             }
-            else
-            {
-                lblTexto.Text = "Todos los campos son obligatorios";
-            }
-        }
+                else
+                {
+                    lblTexto.Text = "Todos los campos son obligatorios";
+                }
             }
         }
     }
+}

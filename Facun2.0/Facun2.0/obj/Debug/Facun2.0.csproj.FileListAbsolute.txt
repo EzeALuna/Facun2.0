@@ -8,3 +8,8 @@ C:\Users\Eze\Desktop\Facun2.0\Facun2.0\Facun2.0\Facun2.0\obj\Debug\Facun2.0.dll
 C:\Users\Eze\Desktop\Facun2.0\Facun2.0\Facun2.0\Facun2.0\obj\Debug\Facun2.0.pdb
 C:\Users\Eze\Desktop\Facun2.0\Facun2.0\Facun2.0\Facun2.0\bin\Facun2.0.dll
 C:\Users\Eze\Desktop\Facun2.0\Facun2.0\Facun2.0\Facun2.0\bin\Facun2.0.pdb
+C:\Users\Lourdes\Downloads\Estudio Hugo\Practicas P\Repositorio\Facun2.0\Facun2.0\Facun2.0\bin\Facun2.0.dll
+C:\Users\Lourdes\Downloads\Estudio Hugo\Practicas P\Repositorio\Facun2.0\Facun2.0\Facun2.0\bin\Facun2.0.pdb
+C:\Users\Lourdes\Downloads\Estudio Hugo\Practicas P\Repositorio\Facun2.0\Facun2.0\Facun2.0\obj\Debug\Facun2.0.csprojResolveAssemblyReference.cache
+C:\Users\Lourdes\Downloads\Estudio Hugo\Practicas P\Repositorio\Facun2.0\Facun2.0\Facun2.0\obj\Debug\Facun2.0.dll
+C:\Users\Lourdes\Downloads\Estudio Hugo\Practicas P\Repositorio\Facun2.0\Facun2.0\Facun2.0\obj\Debug\Facun2.0.pdb
