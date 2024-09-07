@@ -15,52 +15,53 @@ namespace Facun2._0
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(Cadena))
             {
-                try
+
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                //EZE
+                builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+
+                //ESCUELA
+                //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+
+                //HUGO
+                //builder.DataSource = "DESKTOP-L84NEUL";
+
+
+                //Nombre de la base de datos
+                builder.InitialCatalog = "Facun2DB";
+                //Indicamos que se trata de Seguridad Integrada
+                builder.IntegratedSecurity = true;
+                builder.PersistSecurityInfo = true;
+                builder.ApplicationName = "Facun2DB";
+
+                using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                 {
-                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                    //EZE
-                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
-                    //ESCUELA
-                    //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+                    string script = "SELECT COUNT(*) FROM USUARIO WHERE DNI = " + txtDNI.Text + " AND" +
+                            " CONTRASEÑA = '" + txtContraseña.Text + "'";
+                    string query = "SELECT TipoUsuario FROM Usuario WHERE DNI = " + txtDNI.Text + " AND Contraseña = '" + txtContraseña.Text + "'";
 
-                    //HUGO
+                    SqlCommand commando = new SqlCommand(query, conn);
 
-                    builder.DataSource = "DESKTOP-L84NEUL";
+                    //connection.Open();
+                    conn.Open();
 
+                    SqlCommand command = new SqlCommand(script, conn);
 
-                    //Nombre de la base de datos
-                    builder.InitialCatalog = "Facun2DB";
-                    //Indicamos que se trata de Seguridad Integrada
-                    builder.IntegratedSecurity = true;
-                    builder.PersistSecurityInfo = true;
-                    builder.ApplicationName = "Facun2DB";
+                    //int filas = command.ExecuteNonQuery();
+                    int count = (int)command.ExecuteScalar();
 
-                    using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
-                    {
+                    using (SqlDataReader reader = commando.ExecuteReader())
 
-                        string script = "SELECT COUNT(*) FROM USUARIO WHERE DNI = " + txtDNI.Text + " AND" +
-                                " CONTRASEÑA = '" + txtContraseña.Text + "'";
-                        string query = "SELECT TipoUsuario FROM Usuario WHERE DNI = " + txtDNI.Text + " AND Contraseña = '" + txtContraseña.Text + "'";
-
-                        SqlCommand commando = new SqlCommand(query, conn);
-
-                        //connection.Open();
-                        conn.Open();
-
-                        SqlCommand command = new SqlCommand(script, conn);
-
-                        //int filas = command.ExecuteNonQuery();
-                        int count = (int)command.ExecuteScalar();
-
-                        using (SqlDataReader reader = commando.ExecuteReader())
+                        try
+                        {
                             //if (filas < 0)
                             if (count > 0)
                             {
@@ -68,7 +69,7 @@ namespace Facun2._0
                                 if (reader.Read())
                                 {
                                     string Tipo = reader["TipoUsuario"].ToString(); // Obtener el valor del atributo 'Tipo'
-
+                                    //verifica alumno
                                     // Verificar si el Tipo = "A" (mayúscula)
                                     if (Tipo.Equals("A"))
                                     {
@@ -82,6 +83,19 @@ namespace Facun2._0
                                         Session["Usuario"] = txtDNI.Text;
                                         Response.Redirect("InicioAlumno.aspx");
                                     }
+                                    //verifica profesor
+                                    if (Tipo.Equals("P"))
+                                    {
+                                        // Redirigir a la página de inicio si cumple la condición
+                                        Session["Usuario"] = txtDNI.Text;
+                                        Response.Redirect("InicioProfesor.aspx");
+                                    }
+                                    else if (Tipo.Equals("p"))
+                                    {
+                                        // Verificar si el Tipo = "a" (minuscula)
+                                        Session["Usuario"] = txtDNI.Text;
+                                        Response.Redirect("InicioProfesor.aspx");
+                                    }
                                 }
                                 else Session["Usuario"] = txtDNI.Text;
                                 Page.Response.Redirect("InicioProfesor.aspx");
@@ -90,17 +104,18 @@ namespace Facun2._0
 
                             else
                                 lblTexto.Text = "Usuario o Contraseña incorrectos.";
-                        lblTexto.ForeColor = System.Drawing.Color.Red;
-                        lblTexto.Focus();
-                        conn.Close();
-                    }
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine(exception.Message);
-                }
-            }
+                            lblTexto.ForeColor = System.Drawing.Color.Red;
+                            lblTexto.Focus();
+                            conn.Close();
 
+                        }
+                        catch (Exception exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                        }
+                }
+
+            }
         }
     }
 }

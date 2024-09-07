@@ -43,7 +43,8 @@
 								</div>
 			      	</div>
 							<form id="Form1" action="#" class="signin-form" runat="server">
-			      		<div class="form-group mt-3">
+			      		<asp:Label ID="lblAlerta" runat="server" Text=""></asp:Label>
+                        <div class="form-group mt-3">
                             <asp:Label ID="LabelNombre" runat="server" Text="Nombre"></asp:Label>
 			      			<%--<input type="text" class="form-control" required>--%>
                              <asp:TextBox ID="textNombre" CssClass="form-control" runat="server"></asp:TextBox>
@@ -127,7 +128,7 @@
                     <div class="form-group">
 		            	<%--<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>--%>
                         <asp:Button ID="btnLogin" CssClass="form-control btn btn-primary rounded submit px-3" runat="server" 
-                            Text="Login" onclick="btnLogin_Click"></asp:Button>
+                            Text="Registrar" onclick="btnLogin_Click"></asp:Button>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
 		            </div>
 		            <div class="form-group d-md-flex">
