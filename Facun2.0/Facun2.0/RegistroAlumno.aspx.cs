@@ -47,19 +47,19 @@ namespace Facun2._0
 
                     using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                     {
-                        string script = String.Format("INSERT INTO USUARIO (Nombre, Apellido, Email, Contraseña, TipoUsuario, Nacimiento, DNI, IdCarrera, IdMateria) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, {7}, {8})",
-                                                        textNombre.Text, textApellido.Text, textEmail.Text, textContraseña.Text, textTipo.Text, textNacimiento.Text, textDNI.Text, textCarrera.Text, textMateria.Text);
+                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, estado, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9}, '{10}')",
+                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, textTipo.Text, textEstado.Text, DDLCarrera);
 
                         conn.Open();
-                        try
-                        {
+                        //try
+                        //{
                         SqlCommand command = new SqlCommand(script, conn);
 
                         int resp = command.ExecuteNonQuery();
                        
                             if (resp > 0)
                             {
-                                LabelNombre.Text = "Se ha generado el usuario " + textApellido.Text + " DNI: " + textDNI.Text;
+                                LabelNombre.Text = "Se ha generado el Alumno " + textApellido.Text + " DNI: " + textDNI.Text;
                                 lblTexto.ForeColor = System.Drawing.Color.Green;
                                 lblTexto.Focus();
                                 textNombre.Text = "";
@@ -70,8 +70,9 @@ namespace Facun2._0
                                 textDNI.Text = "";
                                 textTipo.Text = "";
                                 textNacimiento.Text = "";
-                                textMateria.Text = "";
-                                textCarrera.Text = "";
+                                textTelefono.Text = "";
+                                textEstado.Text = "";
+                                DDLCarrera.Text = "";
                             }
                             else
                             {
@@ -85,15 +86,15 @@ namespace Facun2._0
                             conn.Close();
 
                         }
-                        catch (Exception exception)
-                        {
-                            Console.WriteLine(exception.Message);
-                            lblTexto.Text = "El DNI ya fue ingresado"; 
-                            lblTexto.ForeColor = System.Drawing.Color.Red;
-                            lblAlerta.Text = "El DNI ya fue ingresado";
-                            lblAlerta.ForeColor = System.Drawing.Color.Red;
-                        }
-                    }
+                        //catch (Exception exception)
+                        //{
+                        //    Console.WriteLine(exception.Message);
+                        //    lblTexto.Text = "El DNI ya fue ingresado"; 
+                        //    lblTexto.ForeColor = System.Drawing.Color.Red;
+                        //    lblAlerta.Text = "El DNI ya fue ingresado";
+                        //    lblAlerta.ForeColor = System.Drawing.Color.Red;
+                        //}
+                    //}
                 }
                 else
                 {
@@ -101,6 +102,11 @@ namespace Facun2._0
                 }
                 
             }
+        }
+
+        protected void textNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

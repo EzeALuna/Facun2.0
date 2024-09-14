@@ -70,31 +70,25 @@ namespace Facun2._0
                                 {
                                     string Tipo = reader["TipoUsuario"].ToString(); // Obtener el valor del atributo 'Tipo'
                                     //verifica alumno
-                                    // Verificar si el Tipo = "A" (mayúscula)
+                                    // Verificar si el Tipo = "A" 
                                     if (Tipo.Equals("A"))
                                     {
                                         // Redirigir a la página de inicio si cumple la condición
                                         Session["Usuario"] = txtDNI.Text;
                                         Response.Redirect("InicioAlumno.aspx");
                                     }
-                                    else if (Tipo.Equals("a"))
-                                    {
-                                        // Verificar si el Tipo = "a" (minuscula)
-                                        Session["Usuario"] = txtDNI.Text;
-                                        Response.Redirect("InicioAlumno.aspx");
-                                    }
-                                    //verifica profesor
-                                    if (Tipo.Equals("P"))
+                                     //verifica profesor
+                                    else if (Tipo.Equals("P"))
                                     {
                                         // Redirigir a la página de inicio si cumple la condición
                                         Session["Usuario"] = txtDNI.Text;
                                         Response.Redirect("InicioProfesor.aspx");
                                     }
-                                    else if (Tipo.Equals("p"))
+                                    else if (Tipo.Equals("D"))
                                     {
                                         // Verificar si el Tipo = "a" (minuscula)
                                         Session["Usuario"] = txtDNI.Text;
-                                        Response.Redirect("InicioProfesor.aspx");
+                                        Response.Redirect("InicioAdmin.aspx");
                                     }
                                 }
                                 else Session["Usuario"] = txtDNI.Text;

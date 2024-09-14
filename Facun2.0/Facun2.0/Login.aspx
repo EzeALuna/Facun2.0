@@ -17,7 +17,7 @@
 
 	</head>
 	<body style="paddin=0px">
-	<section class="ftco-section">
+	<section >
 		<div class="container">
         		<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -26,7 +26,7 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-7 col-lg-5">
-					<div class="wrap">
+					<div >
                         <asp:Image ID="Image1" runat="server" Height="150px" 
                             ImageUrl="~/Estilos/images/inst.png" Width="150px" ></asp:Image>
 						<%--<div class="img" style="background-image: url('Estilos/images/inst.png'); width: 458px; height:500px;"></div>--%>
@@ -83,7 +83,7 @@
 		            </div>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		          </form>
-		          <p class="text-center"><a href="RegistroUsuario.aspx">Registrase</a></p>
+		          <p class="text-center"><a href="RegistroAlumno.aspx">Registrase</a></p>
 		        </div>
 		      </div>
 				</div>

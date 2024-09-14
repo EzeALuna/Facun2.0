@@ -77,10 +77,11 @@
     <Content Include="Estilos\js\jquery.min.js" />
     <Content Include="Estilos\js\main.js" />
     <Content Include="Estilos\js\popper.js" />
+    <Content Include="InicioAdmin.aspx" />
     <Content Include="InicioAlumno.aspx" />
     <Content Include="InicioProfesor.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="RegistroUsuario.aspx" />
+    <Content Include="RegistroAlumno.aspx" />
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Facun2.0.dll" />
     <Content Include="obj\Debug\Facun2.0.pdb" />
@@ -96,6 +97,13 @@
     <Content Include="SituacionAcademica.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InicioAdmin.aspx.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioAdmin.aspx.designer.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioAlumno.aspx.cs">
       <DependentUpon>InicioAlumno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -117,12 +125,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegistroUsuario.aspx.cs">
-      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    <Compile Include="RegistroAlumno.aspx.cs">
+      <DependentUpon>RegistroAlumno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegistroUsuario.aspx.designer.cs">
-      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    <Compile Include="RegistroAlumno.aspx.designer.cs">
+      <DependentUpon>RegistroAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
