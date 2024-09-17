@@ -148,7 +148,7 @@
 
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
-                            SelectCommand="SELECT * FROM [Carreras]"></asp:SqlDataSource>
+                            SelectCommand="SELECT [id_carrera], [nombre] FROM [Carreras]"></asp:SqlDataSource>
 
                     <%--  <div class="form-group">
                     <asp:Label ID="LabelMateria" runat="server" Text="Materias"></asp:Label>

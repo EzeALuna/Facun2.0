@@ -47,7 +47,7 @@ namespace Facun2._0
 
                     using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                     {
-                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, estado, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9}, '{10}')",
+                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, estado, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', '{9}', {10})",
                                                         textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, textTipo.Text, textEstado.Text, DDLCarrera);
 
                         conn.Open();
