@@ -47,19 +47,45 @@ namespace Facun2._0
 
                     using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                     {
-                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, estado, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', '{9}', {10})",
-                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, textTipo.Text, textEstado.Text, DDLCarrera);
+                        connection.Open();
+
+                        // Primero, verificamos si el email o el DNI ya existen
+                        string checkQuery = "SELECT COUNT(*) FROM Alumnos WHERE email = @Email OR dni = @DNI";
+                        SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                        checkCommand.Parameters.AddWithValue("@Email", textEmail.Text);
+                        checkCommand.Parameters.AddWithValue("@DNI", textDNI.Text);
+
+                        int count = (int)checkCommand.ExecuteScalar();  // Devuelve el número de coincidencias
+
+                        if (count > 0)  // Si ya existe un registro con ese email o DNI
+                        {
+                            //lblTexto.Text = "El email o DNI ya están registrados";
+                            //lblTexto.ForeColor = System.Drawing.Color.Red;
+                            //return;  // Salimos del método para no continuar con la inserción
+                            string scriptA = "Swal.fire({ icon: 'warning', title: 'Oops...', text: 'El email o DNI ya están registrados', confirmButtonColor: '#3085d6', confirmButtonText: 'OK' })";
+                            ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
+                            return;
+                        }
+
+
+                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9})",
+                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'A', DDLCarrera.SelectedValue);
 
                         conn.Open();
-                        //try
-                        //{
-                        SqlCommand command = new SqlCommand(script, conn);
 
-                        int resp = command.ExecuteNonQuery();
-                       
+                        try
+                        {
+                            SqlCommand command = new SqlCommand(script, conn);
+
+                            int resp = command.ExecuteNonQuery();
+
                             if (resp > 0)
                             {
-                                LabelNombre.Text = "Se ha generado el Alumno " + textApellido.Text + " DNI: " + textDNI.Text;
+                                //LabelNombre.Text = "Se ha generado el Alumno " + textApellido.Text + " DNI: " + textDNI.Text;
+                                string scriptA = "Swal.fire({ icon: 'success', title: 'Alumno registrado', text: 'El alumno ha sido registrado con éxito.', confirmButtonColor: '#3085d6', confirmButtonText: 'OK' })";
+                                ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
+
+
                                 lblTexto.ForeColor = System.Drawing.Color.Green;
                                 lblTexto.Focus();
                                 textNombre.Text = "";
@@ -68,45 +94,42 @@ namespace Facun2._0
                                 textContraseña2.Text = "";
                                 textEmail.Text = "";
                                 textDNI.Text = "";
-                                textTipo.Text = "";
+                                //textTipo.Text = "";
                                 textNacimiento.Text = "";
                                 textTelefono.Text = "";
-                                textEstado.Text = "";
-                                DDLCarrera.Text = "";
+                                //DDLCarrera.SelectedValue = "";
+                                lblAlerta.Text = "";
                             }
                             else
                             {
-                                lblTexto.Text = "Ha ocurrido un error";
-                                lblTexto.ForeColor = System.Drawing.Color.Red;
-                                lblAlerta.Text = "Ha ocurrido un error";
-                                lblAlerta.ForeColor = System.Drawing.Color.Red;
-                                lblTexto.Focus();
+                                //lblTexto.Text = "Ha ocurrido un error";
+                                //lblTexto.ForeColor = System.Drawing.Color.Red;
+                                //lblAlerta.Text = "Ha ocurrido un error";
+                                //lblAlerta.ForeColor = System.Drawing.Color.Red;
+                                //lblTexto.Focus();
+                                string scriptA = "Swal.fire({ icon: 'error', title: 'Error', text: 'Ha ocurrido un error al registrar el alumno.', confirmButtonColor: '#d33', confirmButtonText: 'Intentar de nuevo' })";
+                                ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
                             }
 
                             conn.Close();
 
                         }
-                        //catch (Exception exception)
-                        //{
-                        //    Console.WriteLine(exception.Message);
-                        //    lblTexto.Text = "El DNI ya fue ingresado"; 
-                        //    lblTexto.ForeColor = System.Drawing.Color.Red;
-                        //    lblAlerta.Text = "El DNI ya fue ingresado";
-                        //    lblAlerta.ForeColor = System.Drawing.Color.Red;
-                        //}
-                    //}
+
+                        catch (Exception exception)
+                        {
+                            Console.WriteLine(exception.Message);
+
+                        }
+                    }
                 }
                 else
                 {
                     lblTexto.Text = "Todos los campos son obligatorios";
                 }
-                
+
+                    }
+                }
             }
-        }
-
-        protected void textNombre_TextChanged(object sender, EventArgs e)
-        {
 
         }
-    }
-}
+    

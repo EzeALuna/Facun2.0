@@ -23,9 +23,8 @@ CREATE TABLE Admin (
     email VARCHAR(100) UNIQUE,
     contraseña VARCHAR(20),
     telefono VARCHAR(20),
-	tipo CHAR(1),
-    estado VARCHAR(10) DEFAULT 'Activo' CHECK (estado IN ('Activo', 'Inactivo')),
-	cargo VARCHAR(20)
+    tipo CHAR(1),
+    cargo VARCHAR(20)
 );
 
 CREATE TABLE Alumnos (
@@ -37,8 +36,7 @@ CREATE TABLE Alumnos (
     email VARCHAR(100) UNIQUE,
     contraseña VARCHAR(20),
     telefono VARCHAR(20),
-	tipo CHAR(1),
-    estado VARCHAR(10) DEFAULT 'Activo' CHECK (estado IN ('Activo', 'Inactivo')),
+    tipo CHAR(1),
     id_carrera INT,
     FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
 );
@@ -52,8 +50,7 @@ CREATE TABLE Profesores (
     email VARCHAR(100) UNIQUE,
     contraseña VARCHAR(20),
     telefono VARCHAR(20),
-	tipo CHAR(1),
-    estado VARCHAR(10) DEFAULT 'Activo' CHECK (estado IN ('Activo', 'Inactivo')),
+    tipo CHAR(1),
     id_materia INT,
     FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
@@ -65,7 +62,6 @@ CREATE TABLE Licencias_Profesores (
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE NOT NULL,
     descripcion VARCHAR(50),
-    estado VARCHAR(10) DEFAULT 'Activo' CHECK (estado IN ('Activo', 'Inactivo')),
     FOREIGN KEY (dni_profesor) REFERENCES Profesores(dni)
 );
 
