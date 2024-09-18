@@ -103,7 +103,7 @@
                            ControlToValidate="textContraseña2" runat="server" Text="*" ForeColor="Red"/>
                       <asp:CompareValidator ID="CompareContraseña" runat="server" ErrorMessage="Las contraseñas deben ser iguales"
                            ControlToValidate="textContraseña" ControlToCompare="textContraseña2" Text="*" ForeColor="Red"></asp:CompareValidator>
-		            </div>
+		           <%-- </div>--%>
 
                    <%-- <div class="form-group">
                     <asp:Label ID="LabelTipo" runat="server" Text="Tipo (A-lumno / P-rofesor)"></asp:Label>
@@ -112,8 +112,8 @@
                      <asp:RequiredFieldValidator ID="rfvTipo" ErrorMessage="Debe ingresar Tipo" 
                            ControlToValidate="textTipo" runat="server" Text="*" ForeColor="Red"/>
                     </div>--%>
-                   
-                   <div class="form-group">
+                   <br>
+                   <%--<div class="form-group">--%>
                      <asp:Label ID="LabelNacimiento" runat="server" Text="Nacimiento"></asp:Label>
 		             <asp:TextBox ID="textNacimiento" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="rfvNacimiento" ErrorMessage="Debe ingresar Nacimiento" 
