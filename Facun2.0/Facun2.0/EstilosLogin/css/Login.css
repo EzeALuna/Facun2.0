@@ -206,13 +206,10 @@ button,
 select,
 optgroup,
 textarea {
+  margin: 0;
   font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-}
+  line-height: inherit; }
 
 button,
 input {
@@ -506,10 +503,7 @@ pre {
   position: relative;
   width: 100%;
   padding-right: 15px;
-  padding-left: 15px;
-    top: 0px;
-    left: 85px;
-}
+  padding-left: 15px; }
 
 .col {
   -ms-flex-preferred-size: 0;
@@ -8213,10 +8207,7 @@ h1, h2, h3, h4, h5,
 .form-group {
   position: relative;
   z-index: 0;
-  margin-bottom: 20px !important;
-    top: 4px;
-    left: -100px;
-}
+  margin-bottom: 20px !important; }
   .form-group a {
     color: gray; }
 

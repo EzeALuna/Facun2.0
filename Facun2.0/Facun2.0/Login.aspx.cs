@@ -25,13 +25,13 @@ namespace Facun2._0
 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 //EZE
-                builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                 //ESCUELA
                 //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                 //HUGO
-                //builder.DataSource = "DESKTOP-L84NEUL";
+                builder.DataSource = "DESKTOP-L84NEUL";
 
 
                 //Nombre de la base de datos
@@ -44,9 +44,9 @@ namespace Facun2._0
                 using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                 {
 
-                    string script = "SELECT COUNT(*) FROM USUARIO WHERE DNI = " + txtDNI.Text + " AND" +
+                    string script = "SELECT COUNT(*) FROM Alumnos WHERE DNI = " + txtDNI.Text + " AND" +
                             " CONTRASEÑA = '" + txtContraseña.Text + "'";
-                    string query = "SELECT TipoUsuario FROM Usuario WHERE DNI = " + txtDNI.Text + " AND Contraseña = '" + txtContraseña.Text + "'";
+                    string query = "SELECT Tipo FROM Alumnos WHERE DNI = " + txtDNI.Text + " AND Contraseña = '" + txtContraseña.Text + "'";
 
                     SqlCommand commando = new SqlCommand(query, conn);
 
@@ -68,30 +68,30 @@ namespace Facun2._0
 
                                 if (reader.Read())
                                 {
-                                    string Tipo = reader["TipoUsuario"].ToString(); // Obtener el valor del atributo 'Tipo'
+                                    string Tipo = reader["Tipo"].ToString(); // Obtener el valor del atributo 'Tipo'
                                     //verifica alumno
                                     // Verificar si el Tipo = "A" 
                                     if (Tipo.Equals("A"))
                                     {
                                         // Redirigir a la página de inicio si cumple la condición
-                                        Session["Usuario"] = txtDNI.Text;
+                                        Session["DNI"] = txtDNI.Text;
                                         Response.Redirect("InicioAlumno.aspx");
                                     }
                                      //verifica profesor
                                     else if (Tipo.Equals("P"))
                                     {
                                         // Redirigir a la página de inicio si cumple la condición
-                                        Session["Usuario"] = txtDNI.Text;
+                                        Session["DNI"] = txtDNI.Text;
                                         Response.Redirect("InicioProfesor.aspx");
                                     }
                                     else if (Tipo.Equals("D"))
                                     {
                                         // Verificar si el Tipo = "a" (minuscula)
-                                        Session["Usuario"] = txtDNI.Text;
+                                        Session["DNI"] = txtDNI.Text;
                                         Response.Redirect("InicioAdmin.aspx");
                                     }
                                 }
-                                else Session["Usuario"] = txtDNI.Text;
+                                else Session["DNI"] = txtDNI.Text;
                                 Page.Response.Redirect("InicioProfesor.aspx");
                                 //Response.Redirect("Inicio.aspx", true);
                             }

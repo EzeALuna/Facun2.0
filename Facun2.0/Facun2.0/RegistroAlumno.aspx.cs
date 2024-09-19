@@ -29,13 +29,13 @@ namespace Facun2._0
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                     //EZE
-                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                     //HUGO
-                    //builder.DataSource = "DESKTOP-L84NEUL";
+                    builder.DataSource = "DESKTOP-L84NEUL";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -81,10 +81,11 @@ namespace Facun2._0
 
                             if (resp > 0)
                             {
+                                
                                 //LabelNombre.Text = "Se ha generado el Alumno " + textApellido.Text + " DNI: " + textDNI.Text;
                                 string scriptA = "Swal.fire({ icon: 'success', title: 'Alumno registrado', text: 'El alumno ha sido registrado con éxito.', confirmButtonColor: '#3085d6', confirmButtonText: 'OK' })";
                                 ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
-
+                                
 
                                 lblTexto.ForeColor = System.Drawing.Color.Green;
                                 lblTexto.Focus();
@@ -99,6 +100,7 @@ namespace Facun2._0
                                 textTelefono.Text = "";
                                 //DDLCarrera.SelectedValue = "";
                                 lblAlerta.Text = "";
+                                //Response.Redirect("Login.aspx");
                             }
                             else
                             {
@@ -112,12 +114,13 @@ namespace Facun2._0
                             }
 
                             conn.Close();
-
+                            
                         }
 
                         catch (Exception exception)
                         {
                             Console.WriteLine(exception.Message);
+                            
 
                         }
                     }
@@ -128,8 +131,10 @@ namespace Facun2._0
                 }
 
                     }
+           
                 }
+        
             }
-
+        
         }
     
