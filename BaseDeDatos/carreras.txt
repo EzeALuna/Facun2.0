@@ -1,0 +1,14 @@
+
+
+------------------------------------------------------------
+
+
+INSERT INTO Carreras (nombre, descripcion) 
+VALUES ('Programacion', 'Programacion'), 
+('Historia', 'Historia'), 
+('Matematica', 'Matematica');
+
+SELECT * FROM Alumnos
+
+DELETE Alumnos FROM Alumnos;
+
