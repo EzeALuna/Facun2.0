@@ -81,6 +81,7 @@
     <Content Include="InicioAlumno.aspx" />
     <Content Include="InicioProfesor.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="RegistroAdmin.aspx" />
     <Content Include="RegistroAlumno.aspx" />
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Facun2.0.dll" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroAdmin.aspx.cs">
+      <DependentUpon>RegistroAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroAdmin.aspx.designer.cs">
+      <DependentUpon>RegistroAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroAlumno.aspx.cs">
       <DependentUpon>RegistroAlumno.aspx</DependentUpon>

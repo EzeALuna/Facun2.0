@@ -9,20 +9,17 @@ using System.Configuration;
 
 namespace Facun2._0
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class RegistroAdmin : System.Web.UI.Page
     {
         private static string Cadena = ConfigurationManager.ConnectionStrings["CadenaConexionPP2024"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(Cadena))
             {
-
 
                 if (!String.IsNullOrEmpty(textApellido.Text) && !String.IsNullOrEmpty(textDNI.Text))
                 {
@@ -50,7 +47,7 @@ namespace Facun2._0
                         connection.Open();
 
                         // Primero, verificamos si el email o el DNI ya existen
-                        string checkQuery = "SELECT COUNT(*) FROM Alumnos WHERE email = @Email OR dni = @DNI";
+                        string checkQuery = "SELECT COUNT(*) FROM Admin WHERE email = @Email OR dni = @DNI";
                         SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
                         checkCommand.Parameters.AddWithValue("@Email", textEmail.Text);
                         checkCommand.Parameters.AddWithValue("@DNI", textDNI.Text);
@@ -59,17 +56,14 @@ namespace Facun2._0
 
                         if (count > 0)  // Si ya existe un registro con ese email o DNI
                         {
-                            //lblTexto.Text = "El email o DNI ya están registrados";
-                            //lblTexto.ForeColor = System.Drawing.Color.Red;
-                            //return;  // Salimos del método para no continuar con la inserción
                             string scriptA = "Swal.fire({ icon: 'warning', title: 'Oops...', text: 'El email o DNI ya están registrados', confirmButtonColor: '#3085d6', confirmButtonText: 'OK' })";
                             ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
                             return;
                         }
 
 
-                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9})",
-                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'A', DDLCarrera.SelectedValue);
+                        string script = String.Format("INSERT INTO Admin (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, cargo) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}', {7}, '{8}', '{9}')",
+                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'D', textCargo.Text);
 
                         conn.Open();
 
@@ -81,19 +75,19 @@ namespace Facun2._0
 
                             if (resp > 0)
                             {
-                                
-                                //LabelNombre.Text = "Se ha generado el Alumno " + textApellido.Text + " DNI: " + textDNI.Text;
+                                //LabelNombre.Text = "Se ha generado el Admin " + textApellido.Text + " DNI: " + textDNI.Text;
                                 string scriptA = @"
-                                Swal.fire({icon: 'success', 
+                            Swal.fire({icon: 'success', 
                                 title: 'Admin registrado', 
                                 text: 'El Admin ha sido registrado con éxito.', 
                                 confirmButtonColor: '#3085d6', 
                                 confirmButtonText: 'OK'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = 'InicioAlumno.aspx'; } });";
+                                    window.location.href = 'InicioAdmin.aspx'; } });";
                                 ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
-                                                         
+
+
                                 lblTexto.ForeColor = System.Drawing.Color.Green;
                                 lblTexto.Focus();
                                 textNombre.Text = "";
@@ -107,27 +101,21 @@ namespace Facun2._0
                                 textTelefono.Text = "";
                                 //DDLCarrera.SelectedValue = "";
                                 lblAlerta.Text = "";
-                                //Response.Redirect("Login.aspx");
+                                
                             }
                             else
                             {
-                                //lblTexto.Text = "Ha ocurrido un error";
-                                //lblTexto.ForeColor = System.Drawing.Color.Red;
-                                //lblAlerta.Text = "Ha ocurrido un error";
-                                //lblAlerta.ForeColor = System.Drawing.Color.Red;
-                                //lblTexto.Focus();
-                                string scriptA = "Swal.fire({ icon: 'error', title: 'Error', text: 'Ha ocurrido un error al registrar el alumno.', confirmButtonColor: '#d33', confirmButtonText: 'Intentar de nuevo' })";
+                                string scriptA = "Swal.fire({ icon: 'error', title: 'Error', text: 'Ha ocurrido un error al registrar el Admin.', confirmButtonColor: '#d33', confirmButtonText: 'Intentar de nuevo' })";
                                 ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
                             }
 
                             conn.Close();
-                            
+
                         }
 
                         catch (Exception exception)
                         {
                             Console.WriteLine(exception.Message);
-                            
 
                         }
                     }
@@ -136,12 +124,9 @@ namespace Facun2._0
                 {
                     lblTexto.Text = "Todos los campos son obligatorios";
                 }
-
-                    }
-           
-                }
-        
+                
             }
-        
+            
         }
-    
+    }
+}

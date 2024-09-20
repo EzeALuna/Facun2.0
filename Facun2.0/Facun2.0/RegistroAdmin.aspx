@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/RegistroAlumno.aspx.cs" Inherits="Facun2._0.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistroAdmin.aspx.cs" Inherits="Facun2._0.RegistroAdmin" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -14,11 +14,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="EstilosLogin/css/Login.css">
-
       <!-- SweetAlert2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 	</head>
 	<body style="paddin=0px">
 	<section class="ftco-section">
@@ -113,14 +113,7 @@
                            ControlToValidate="textContraseña" ControlToCompare="textContraseña2" Text="*" ForeColor="Red"></asp:CompareValidator>
 		           <%-- </div>--%>
 
-                   <%-- <div class="form-group">
-                    <asp:Label ID="LabelTipo" runat="server" Text="Tipo (A-lumno / P-rofesor)"></asp:Label>
-                    <%--<asp:ListBox ID="ListTipo" runat="server"></asp:ListBox>--%>
-                   <%-- <asp:TextBox ID="textTipo" CssClass="form-control" runat="server"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="rfvTipo" ErrorMessage="Debe ingresar Tipo" 
-                           ControlToValidate="textTipo" runat="server" Text="*" ForeColor="Red"/>
-                    </div>--%>
-                   <br>
+                  <br>
                    <div class="form-group">
                      <asp:Label ID="LabelNacimiento" runat="server" Text="Nacimiento"></asp:Label>
 		             <asp:TextBox ID="textNacimiento" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
@@ -137,27 +130,24 @@
                      ControlToValidate="textDNI" runat="server" ErrorMessage="Debe ingresar un DNI valido" Text="*" ForeColor="Red"></asp:RangeValidator>
 		            </div>
                     
+                    <div class="form-group mt-3">
+                            <asp:Label ID="LblCargo" runat="server" Text="Cargo"></asp:Label>
+			      			<%--<input type="text" class="form-control" required>--%>
+                             <asp:TextBox ID="textCargo" CssClass="form-control" runat="server"></asp:TextBox>
+			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
+                            <asp:RequiredFieldValidator ID="rfvCargo" ControlToValidate="textCargo" runat="server"
+                                 ErrorMessage="Debe ingresar Cargo" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+			      		</div>
+
                     <div class="form-group">
                     <asp:Label ID="LabelCarrera" runat="server" Text="Carrera"></asp:Label>
-                    <%--<asp:ListBox ID="ListCarrera" runat="server"></asp:ListBox>--%>
-                    <%--<asp:TextBox ID="textCarrera" CssClass="form-control" runat="server"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="rfvCarrera" ErrorMessage="Debe ingresar Carrera" 
-                           ControlToValidate="textCarrera" runat="server" Text="*" ForeColor="Red"/>
-                    </div>--%>
                     <asp:DropDownList CssClass="form-control" ID="DDLCarrera" runat="server" DataSourceID="SqlDataSource1" 
                             DataTextField="nombre" DataValueField="id_carrera"></asp:DropDownList>
-
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
                             SelectCommand="SELECT [id_carrera], [nombre] FROM [Carreras]"></asp:SqlDataSource>
                     </div>
-                    <%--  <div class="form-group">
-                    <asp:Label ID="LabelMateria" runat="server" Text="Materias"></asp:Label>
-                    <%--<asp:ListBox ID="ListMateria" runat="server"></asp:ListBox>--%>
-                    <%--<asp:TextBox ID="textMateria" CssClass="form-control" runat="server"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="rfvMateria" ErrorMessage="Debe ingresar Materias" 
-                           ControlToValidate="textMateria" runat="server" Text="*" ForeColor="Red"/>
-                    </div>--%> 
+                    
                         <b></b>               
                     <div class="form-group">
 		            	<%--<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>--%>
@@ -166,17 +156,7 @@
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
                         
 		            </div>
-		            <%--<div class="form-group d-md-flex">
-		         <%--   	<div class="w-50 text-left">
-			            	<%--<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-										</label>--%>
-									<%--</div>--%>
-									<%--<div class="w-50 text-md-right">
-										<a href="#">Forgot Password</a>
-									</div>--%>
-		            <%--</div>--%>
+		           
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		                    </form>
                             <p class="text-center"><a href="Login.aspx">Volver</a></p>
@@ -195,3 +175,4 @@
 
 	</body>
 </html>
+

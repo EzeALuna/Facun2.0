@@ -20,9 +20,19 @@
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(Estilos/images/inst.png);"></a>
 	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
-              <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
-              </li>
+	      
+           <li class="active">
+	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Perfiles</a>
+	            <ul class="collapse list-unstyled" id="Ul1">
+                <li>
+                    <a href="InicioAlumnos.apsx">Alumnos</a>
+                </li>
+                <li>
+                    <a href="InicioPorfesor.aspx">Profesores</a>
+                </li>
+	            </ul>
+	          </li>
+
               <li class="active">
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registrar</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -37,9 +47,7 @@
                 </li>
 	            </ul>
 	          </li>
-	          <li>
-	              
-	          </li>
+	      
 	          <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Calendario</a>
               <ul class="collapse list-unstyled" id="pageSubmenu">
