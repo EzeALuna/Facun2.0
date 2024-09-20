@@ -152,7 +152,6 @@
     <None Include="EstilosLogin\css\bootstrap\.DS_Store" />
     <None Include="EstilosLogin\css\bootstrap\mixins\.DS_Store" />
     <None Include="EstilosLogin\fonts\.DS_Store" />
-    <None Include="EstilosLogin\js\.DS_Store" />
     <None Include="EstilosLogin\scss\.DS_Store" />
     <None Include="EstilosLogin\scss\bootstrap\.DS_Store" />
     <None Include="EstilosLogin\scss\bootstrap\bootstrap-grid.scss" />
@@ -250,7 +249,6 @@
     <None Include="Estilos\css\bootstrap\mixins\.DS_Store" />
     <None Include="Estilos\fonts\.DS_Store" />
     <None Include="Estilos\images\.DS_Store" />
-    <None Include="Estilos\js\.DS_Store" />
     <None Include="Estilos\scss\.DS_Store" />
     <None Include="Estilos\scss\bootstrap\.DS_Store" />
     <None Include="Estilos\scss\bootstrap\bootstrap-grid.scss" />
