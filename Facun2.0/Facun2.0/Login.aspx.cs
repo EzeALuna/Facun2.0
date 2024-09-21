@@ -33,7 +33,6 @@ namespace Facun2._0
                 //HUGO
                 //builder.DataSource = "DESKTOP-L84NEUL";
 
-
                 //Nombre de la base de datos
                 builder.InitialCatalog = "Facun2DB";
                 //Indicamos que se trata de Seguridad Integrada
@@ -43,70 +42,64 @@ namespace Facun2._0
 
                 using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                 {
-
-                    string script = "SELECT COUNT(*) FROM Alumnos WHERE DNI = " + txtDNI.Text + " AND" +
-                            " CONTRASEÑA = '" + txtContraseña.Text + "'";
-                    string query = "SELECT Tipo FROM Alumnos WHERE DNI = " + txtDNI.Text + " AND Contraseña = '" + txtContraseña.Text + "'";
-
-                    SqlCommand commando = new SqlCommand(query, conn);
-
-                    //connection.Open();
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand(script, conn);
+                    // Consulta las tres tablas
+                    string queryAlumnos = "SELECT Tipo FROM Alumnos WHERE DNI = " + txtDNI.Text + " AND" + " CONTRASEÑA = '" + txtContraseña.Text + "'"; ;
+                    string queryProfesores = "SELECT Tipo FROM Profesores WHERE DNI = " + txtDNI.Text + " AND" + " CONTRASEÑA = '" + txtContraseña.Text + "'"; ;
+                    string queryAdmin = "SELECT Tipo FROM Admin WHERE DNI = " + txtDNI.Text + " AND" + " CONTRASEÑA = '" + txtContraseña.Text + "'"; ;
 
-                    //int filas = command.ExecuteNonQuery();
-                    int count = (int)command.ExecuteScalar();
+                    // 
+                    SqlCommand commandAlumnos = new SqlCommand(queryAlumnos, conn);
+                    SqlCommand commandProfesores = new SqlCommand(queryProfesores, conn);
+                    SqlCommand commandAdmin = new SqlCommand(queryAdmin, conn);
 
-                    using (SqlDataReader reader = commando.ExecuteReader())
+                    // parámetros para las tres consultas
+                    //commandAlumnos.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    //commandAlumnos.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
 
-                        try
+                    //commandProfesores.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    //commandProfesores.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
+
+                    //commandAdmin.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    //commandAdmin.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
+
+                    // Verificar si el usuario es un Alumno
+                    using (SqlDataReader readerAlumnos = commandAlumnos.ExecuteReader())
+                    {
+                        if (readerAlumnos.Read())
                         {
-                            //if (filas < 0)
-                            if (count > 0)
-                            {
-
-                                if (reader.Read())
-                                {
-                                    string Tipo = reader["Tipo"].ToString(); // Obtener el valor del atributo 'Tipo'
-                                    //verifica alumno
-                                    // Verificar si el Tipo = "A" 
-                                    if (Tipo.Equals("A"))
-                                    {
-                                        // Redirigir a la página de inicio si cumple la condición
-                                        Session["DNI"] = txtDNI.Text;
-                                        Response.Redirect("InicioAlumno.aspx");
-                                    }
-                                     //verifica profesor
-                                    else if (Tipo.Equals("P"))
-                                    {
-                                        // Redirigir a la página de inicio si cumple la condición
-                                        Session["DNI"] = txtDNI.Text;
-                                        Response.Redirect("InicioProfesor.aspx");
-                                    }
-                                    else if (Tipo.Equals("D"))
-                                    {
-                                        // Verificar si el Tipo = "a" (minuscula)
-                                        Session["DNI"] = txtDNI.Text;
-                                        Response.Redirect("InicioAdmin.aspx");
-                                    }
-                                }
-                                else Session["DNI"] = txtDNI.Text;
-                                Page.Response.Redirect("InicioProfesor.aspx");
-                                //Response.Redirect("Inicio.aspx", true);
-                            }
-
-                            else
-                                lblTexto.Text = "Usuario o Contraseña incorrectos.";
-                            lblTexto.ForeColor = System.Drawing.Color.Red;
-                            lblTexto.Focus();
-                            conn.Close();
-
+                            string tipo = readerAlumnos["Tipo"].ToString();
+                            Session["DNI"] = txtDNI.Text;
+                            Response.Redirect("InicioAlumno.aspx");
                         }
-                        catch (Exception exception)
+                    }
+
+                    // Verificar si el usuario es un Profe
+                    using (SqlDataReader readerProfesores = commandProfesores.ExecuteReader())
+                    {
+                        if (readerProfesores.Read())
                         {
-                            Console.WriteLine(exception.Message);
+                            string tipo = readerProfesores["Tipo"].ToString();
+                            Session["DNI"] = txtDNI.Text;
+                            Response.Redirect("InicioProfesor.aspx");
                         }
+                    }
+
+                    // Verificar si el usuario es un Admin
+                    using (SqlDataReader readerAdmin = commandAdmin.ExecuteReader())
+                    {
+                        if (readerAdmin.Read())
+                        {
+                            string tipo = readerAdmin["Tipo"].ToString();
+                            Session["DNI"] = txtDNI.Text;
+                            Response.Redirect("InicioAdmin.aspx");
+                        }
+                    }
+
+                    lblTexto.Text = "Usuario o Contraseña incorrectos.";
+                    lblTexto.ForeColor = System.Drawing.Color.Red;
+                    lblTexto.Focus();
                 }
 
             }
