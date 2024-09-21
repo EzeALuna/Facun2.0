@@ -56,7 +56,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  text-align: left; }
+  text-align: left;
+  background-color: #fff; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -902,13 +903,11 @@ pre {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%; }
-
   .col-md-7 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 58.33333%;
     flex: 0 0 58.33333%;
-    max-width: 78.33333%;}
-
+    max-width: 78.33333%; }
   .col-md-8 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 66.66667%;
@@ -5775,7 +5774,6 @@ button.bg-dark:focus {
   justify-content: flex-end !important; }
 
 .justify-content-center {
-  
   -webkit-box-pack: center !important;
   -ms-flex-pack: center !important;
   justify-content: center !important; }
@@ -8151,14 +8149,14 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #4756CA; }
+  color: #01d28e; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
     -webkit-box-shadow: none;
     box-shadow: none; }
   a:hover, a:active, a:focus {
-    color: #0FC9E7;
+    color: #01d28e;
     outline: none !important;
     text-decoration: none !important; }
 
@@ -8172,18 +8170,8 @@ h1, h2, h3, h4, h5,
 .bg-primary {
   background: #01d28e !important; }
 
-/*!
-.ftco-section
- Cambio de color de fondo del body
- */
-.ftco-section 
-{
-  background-image: url('../images/Banderafondonegro.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center, center;
-  background-size: Cover;  
-  padding: 30px }
+.ftco-section {
+  padding: 7em 0; }
 
 .ftco-no-pt {
   padding-top: 0; }
@@ -8191,13 +8179,9 @@ h1, h2, h3, h4, h5,
 .ftco-no-pb {
   padding-bottom: 0; }
 
-.heading-section
-{
-    font-size: 50px;
-    text-shadow: 2px 2px 6px white;
-    color: #FCFCFC;
-    font-family: Arial, Helvetica, sans-serif;
-}
+.heading-section {
+  font-size: 28px;
+  color: #000; }
 
 .img {
   background-size: cover;
@@ -8218,8 +8202,6 @@ h1, h2, h3, h4, h5,
 .login-wrap {
   position: relative; }
   .login-wrap h3 {
-font-weight: normal;
-color:#4756CA;
     font-weight: 300; }
 
 .form-group {
@@ -8228,10 +8210,6 @@ color:#4756CA;
   margin-bottom: 20px !important; }
   .form-group a {
     color: gray; }
-    .form-group a:hover
-{
-color: #3186B2;
-}
 
 .form-control {
   height: 48px;
@@ -8303,11 +8281,11 @@ color: #3186B2;
     margin-right: 5px;
     border-radius: 50%; }
     .social-media .social-icon span {
-      color:#4756CA;}
+      color: #999999; }
     .social-media .social-icon:hover, .social-media .social-icon:focus {
-      background: #0FC9E7; }
+      background: #01d28e; }
       .social-media .social-icon:hover span, .social-media .social-icon:focus span {
-        color: #FCFCFC; }
+        color: #fff; }
 
 .checkbox-wrap {
   display: block;
@@ -8362,9 +8340,9 @@ color: #3186B2;
 
 /* Style the checkmark/indicator */
 .checkbox-primary {
-  color: #4756CA; }
+  color: #01d28e; }
   .checkbox-primary input:checked ~ .checkmark:after {
-    color: #4756CA; }
+    color: #01d28e; }
 
 .btn {
   cursor: pointer;
@@ -8375,9 +8353,9 @@ color: #3186B2;
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #4756CA !important;
-    border: 1px solid #4756CA !important;
-    color: #FCFCFC !important; }
+    background: #01d28e !important;
+    border: 1px solid #01d28e !important;
+    color: #fff !important; }
     .btn.btn-primary:hover {
       border: 1px solid #01d28e;
       background: transparent;

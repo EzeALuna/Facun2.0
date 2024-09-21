@@ -86,7 +86,7 @@
 		            </div>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		          </form>
-		          <p class="text-center"><a href="RegistroAlumno.aspx">Registrase</a></p>
+		          <p class="text-center"><a href="SeleccionRegistro.aspx">Registrase</a></p>
 		        </div>
 		      </div>
 				</div>

@@ -56,7 +56,10 @@
     <Content Include="EstilosLogin\css\bootstrap\mixins\_visibility.css" />
     <Content Include="EstilosLogin\css\bootstrap\utilities\_stretched-link.css" />
     <Content Include="EstilosLogin\css\bootstrap\_media.css" />
+    <Content Include="EstilosLogin\css\RegistroLogin.css" />
     <Content Include="EstilosLogin\css\Login.css" />
+    <Content Include="EstilosLogin\css\SeleccionRegistro.css" />
+    <Content Include="EstilosLogin\images\Banderafondonegro.jpg" />
     <Content Include="EstilosLogin\images\bg-1.jpg" />
     <Content Include="EstilosLogin\js\bootstrap.min.js" />
     <Content Include="EstilosLogin\js\jquery.min.js" />
@@ -86,6 +89,7 @@
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Facun2.0.dll" />
     <Content Include="obj\Debug\Facun2.0.pdb" />
+    <Content Include="SeleccionRegistro.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -141,6 +145,13 @@
       <DependentUpon>RegistroAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleccionRegistro.aspx.cs">
+      <DependentUpon>SeleccionRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionRegistro.aspx.designer.cs">
+      <DependentUpon>SeleccionRegistro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
