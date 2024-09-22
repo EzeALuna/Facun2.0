@@ -22,10 +22,10 @@
 	        <ul class="list-unstyled components mb-5">
 	      
            <li class="active">
-	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Perfiles</a>
+	            <a href="#Ul1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Perfiles</a>
 	            <ul class="collapse list-unstyled" id="Ul1">
                 <li>
-                    <a href="InicioAlumnos.apsx">Alumnos</a>
+                    <a href="InicioAlumno.apsx">Alumnos</a>
                 </li>
                 <li>
                     <a href="InicioPorfesor.aspx">Profesores</a>
@@ -37,13 +37,13 @@
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registrar</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Administradores</a>
+                    <a href="RegistroAdmin">Administradores</a>
                 </li>
                 <li>
                     <a href="RegistroAlumno.aspx">Alumnos</a>
                 </li>
                 <li>
-                    <a href="#">Profesores</a>
+                    <a href="RegistroProfesor">Profesores</a>
                 </li>
 	            </ul>
 	          </li>
@@ -57,10 +57,7 @@
                 <li>
                     <a href="#">Page 2</a>
                 </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-              </ul>
+             </ul>
 	          </li>
 	          <li>
               <a href="#">Mis Datos</a>
