@@ -14,18 +14,18 @@
 		<link rel="stylesheet" href="Estilos/css/style.css">
 
   </head>
-  <body style="background-image: url(Estilos/images/malvi.jpg);" />
+  <body/>
 		
 		<div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(Estilos/images/inst.png);"></a>
 	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
-              <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Archivos</a>
+	          <li>
+              <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
               </li>
-              <li class="active">
-	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
+              <li>
+	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inscripcion Anual</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
                     <a href="#">Materias</a>
@@ -88,14 +88,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Situacion Academica</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inscripción</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Calendario</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mis Datos</a>

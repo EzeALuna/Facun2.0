@@ -17,15 +17,18 @@
                             ImageUrl="~/Estilos/images/inst.png" Width="125px" ></asp:Image>
             <br />
             <br />
-            <br />
+          
             <br />
          <asp:Button class="botton1" ID="Button1" runat="server" Text="Alumno" 
                 onclick="Button1_Click"/>
           <br />
-            <br /><br /><br />
+            <br /><br />
          <asp:Button class="botton1" ID="Button2" runat="server" Text="Profesor" 
                 onclick="Button2_Click"  />
     
+            <br /><br /><br />
+            <br />
+            <asp:HyperLink class="label2" ID="HyperLink1" runat="server" href="Login.aspx">Volver</asp:HyperLink>
         </div>
 
     </div>

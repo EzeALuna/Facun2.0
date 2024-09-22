@@ -61,6 +61,7 @@
     <Content Include="EstilosLogin\css\SeleccionRegistro.css" />
     <Content Include="EstilosLogin\images\Banderafondonegro.jpg" />
     <Content Include="EstilosLogin\images\bg-1.jpg" />
+    <Content Include="EstilosLogin\images\madera.jpg" />
     <Content Include="EstilosLogin\js\bootstrap.min.js" />
     <Content Include="EstilosLogin\js\jquery.min.js" />
     <Content Include="EstilosLogin\js\main.js" />
@@ -89,6 +90,7 @@
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Facun2.0.dll" />
     <Content Include="obj\Debug\Facun2.0.pdb" />
+    <Content Include="RegistroProfesor.aspx" />
     <Content Include="SeleccionRegistro.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -145,6 +147,13 @@
       <DependentUpon>RegistroAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroProfesor.aspx.cs">
+      <DependentUpon>RegistroProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroProfesor.aspx.designer.cs">
+      <DependentUpon>RegistroProfesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionRegistro.aspx.cs">
       <DependentUpon>SeleccionRegistro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

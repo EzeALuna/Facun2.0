@@ -57,7 +57,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #000; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -133,7 +133,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #007bff;
+  color: #FCFCFC;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -3709,9 +3709,9 @@ input[type="button"].btn-block {
     color: rgba(0, 0, 0, 0.9); }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5); }
+  color: #4756CA; }
   .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-    color: rgba(0, 0, 0, 0.7); }
+    color: #0FC9E7; }
   .navbar-light .navbar-nav .nav-link.disabled {
     color: rgba(0, 0, 0, 0.3); }
 
@@ -3719,7 +3719,7 @@ input[type="button"].btn-block {
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(0, 0, 0, 0.9); }
+  color: #4756CA; }
 
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.5);
@@ -8132,19 +8132,24 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.8;
-  font-weight: normal;
-  background: #fafafa;
-  color: gray; }
+body
+{
+    font-family: "Poppins" , Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: normal;
+    background-image: url('../images/malvi.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center, center;
+    background-size: Cover;
+}
 
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f8b739; }
+  color: #0FC9E7; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
@@ -8212,14 +8217,20 @@ h1, h2, h3, h4, h5,
 .wrapper {
   width: 100%; }
 
-#sidebar {
-  min-width: 300px;
-  max-width: 300px;
-  background: #1d1919;
-  color: #fff;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s; }
+#sidebar
+{
+    min-width: 300px;
+    max-width: 300px;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-image: url('../../EstilosLogin/images/madera.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center, center;
+    background-size: Cover;
+}
   #sidebar.active {
     margin-left: -300px; }
   #sidebar .logo {
@@ -8240,13 +8251,13 @@ h1, h2, h3, h4, h5,
     #sidebar ul li a {
       padding: 10px 0;
       display: block;
-      color: rgba(255, 255, 255, 0.8);
+      color: #FCFCFC;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
       #sidebar ul li a:hover {
-        color: #f8b739; }
+        color: #3186B2; }
     #sidebar ul li.active > a {
       background: transparent;
-      color: #f8b739; }
+      color: #FCFCFC; }
   @media (max-width: 991.98px) {
     #sidebar {
       margin-left: -300px; }
@@ -8278,11 +8289,11 @@ a[data-toggle="collapse"] {
   transition: all 0.3s; }
 
 .btn.btn-primary {
-  background: #f8b739;
-  border-color: #f8b739; }
+  background: #4756CA;
+  border-color: #4756CA; }
   .btn.btn-primary:hover, .btn.btn-primary:focus {
-    background: #f8b739 !important;
-    border-color: #f8b739 !important; }
+    background: #3186B2 !important;
+    border-color: #4756CA !important; }
 
 .footer p {
-  color: rgba(255, 255, 255, 0.5); }
+  color: #FCFCFC; }
