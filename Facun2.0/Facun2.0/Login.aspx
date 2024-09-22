@@ -27,9 +27,9 @@
 			<div class="row justify-content-center">
 				<div class="col-md-7 col-lg-5">
 					<div class="wrap">
-                    <div align="center" style="padding: 10px">
-                    <asp:Image ID="Image1" runat="server" Height="150px" 
-                            ImageUrl="~/Estilos/images/inst.png" Width="150px" ></asp:Image>
+                    <div align="center" style="padding-top: 10px">
+                    <asp:Image ID="Image1" runat="server" Height="135px" 
+                            ImageUrl="~/Estilos/images/inst.png" Width="135px" ></asp:Image>
                     </div>
                         
 						<%--<div class="img" style="background-image: url('Estilos/images/inst.png'); width: 458px; height:500px;"></div>--%>
