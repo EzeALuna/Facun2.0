@@ -50,6 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Calendario.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_transition.css" />
@@ -103,6 +104,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calendario.aspx.cs">
+      <DependentUpon>Calendario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendario.aspx.designer.cs">
+      <DependentUpon>Calendario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioAdmin.aspx.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

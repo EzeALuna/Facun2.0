@@ -25,13 +25,13 @@ namespace Facun2._0
 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 //EZE
-                //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                 //ESCUELA
                 //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                 //HUGO
-                builder.DataSource = "DESKTOP-L84NEUL";
+                //builder.DataSource = "DESKTOP-L84NEUL";
 
                 //Nombre de la base de datos
                 builder.InitialCatalog = "Facun2DB";
@@ -104,5 +104,6 @@ namespace Facun2._0
 
             }
         }
+               
     }
 }
