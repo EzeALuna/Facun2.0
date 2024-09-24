@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Facun2._0
 {
-    public partial class InicioAdmin : System.Web.UI.Page
+    public partial class PaginaPrincipalAdmin : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

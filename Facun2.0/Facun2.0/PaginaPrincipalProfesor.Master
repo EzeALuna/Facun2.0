@@ -1,6 +1,7 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Facun2._0.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaPrincipalProfesor.master.cs" Inherits="Facun2._0.PaginaPrincipalProfesor" %>
 
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html lang="en">
   <head>
   	<title>Sistema Facundo</title>
@@ -8,31 +9,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
+		 <%--mensajebox--%>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="Estilos/css/style.css">
-  </head>
-  <body style="background-image: url(Estilos/images/malvi.jpg);" />
-		
-		<div class="wrapper d-flex align-items-stretch">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+<body>
+    <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(Estilos/images/inst.png);"></a>
 	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
+	          <li>
               <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
               </li>
-              <li class="active">
-	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inscripción</a>
+              <li>
+	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inscripcion Anual</a>
 	            <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Home 1</a>
+                    <a href="#">Materias</a>
                 </li>
                 <li>
-                    <a href="#">Home 2</a>
+                    <a href="RegistroAlumno.aspx">Notas</a>
                 </li>
                 <li>
-                    <a href="#">Home 3</a>
+                    <a href="#">Profesores</a>
                 </li>
 	            </ul>
 	          </li>
@@ -56,7 +57,7 @@
 	          <li>
               <a href="#">Mis Datos</a>
 	          </li>
-              <li>
+	          <li>
               <a href="Login.aspx">Salir</a>
 	          </li>
 	        </ul>
@@ -80,32 +81,27 @@
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <%--<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
-           <Button--%> 
-            
-             <%--<div class="collapse navbar-collapse" id="navbarSupportedContent">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Situacion Academica</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inscripción</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Calendario</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Mis Datos</a>
                 </li>
               </ul>
-            </div>--%>
+            </div>
           </div>
         </nav>
-
+    <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
         </asp:ContentPlaceHolder>
-
+    </div>
     <script src="Estilos/js/jquery.min.js"></script>
     <script src="Estilos/js/popper.js"></script>
     <script src="Estilos/js/bootstrap.min.js"></script>

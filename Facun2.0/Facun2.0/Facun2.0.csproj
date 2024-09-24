@@ -101,7 +101,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="SituacionAcademica.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InicioAdmin.aspx.cs">
@@ -132,6 +131,27 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PaginaPrincipalAdmin.Master.cs">
+      <DependentUpon>PaginaPrincipalAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaPrincipalAdmin.Master.designer.cs">
+      <DependentUpon>PaginaPrincipalAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaPrincipalAlumnos.Master.cs">
+      <DependentUpon>PaginaPrincipalAlumnos.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaPrincipalAlumnos.Master.designer.cs">
+      <DependentUpon>PaginaPrincipalAlumnos.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaPrincipalProfesor.Master.cs">
+      <DependentUpon>PaginaPrincipalProfesor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaPrincipalProfesor.Master.designer.cs">
+      <DependentUpon>PaginaPrincipalProfesor.Master</DependentUpon>
+    </Compile>
     <Compile Include="RegistroAdmin.aspx.cs">
       <DependentUpon>RegistroAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,20 +180,6 @@
     </Compile>
     <Compile Include="SeleccionRegistro.aspx.designer.cs">
       <DependentUpon>SeleccionRegistro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="SituacionAcademica.aspx.cs">
-      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SituacionAcademica.aspx.designer.cs">
-      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -370,7 +376,9 @@
     <None Include="Estilos\scss\bootstrap\_variables.scss" />
     <None Include="Estilos\scss\style.scss" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="Site.Master" />
+    <Content Include="PaginaPrincipalAlumnos.Master" />
+    <Content Include="PaginaPrincipalProfesor.Master" />
+    <Content Include="PaginaPrincipalAdmin.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
