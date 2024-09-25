@@ -50,7 +50,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Calendario.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_transition.css" />
@@ -86,6 +85,8 @@
     <Content Include="InicioAlumno.aspx" />
     <Content Include="InicioProfesor.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="PerfilAdmin.aspx" />
+    <Content Include="PerfilAlumno.aspx" />
     <Content Include="RegistroAdmin.aspx" />
     <Content Include="RegistroAlumno.aspx" />
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
@@ -104,13 +105,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendario.aspx.cs">
-      <DependentUpon>Calendario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Calendario.aspx.designer.cs">
-      <DependentUpon>Calendario.aspx</DependentUpon>
-    </Compile>
     <Compile Include="InicioAdmin.aspx.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +153,20 @@
     </Compile>
     <Compile Include="PaginaPrincipalProfesor.Master.designer.cs">
       <DependentUpon>PaginaPrincipalProfesor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilAdmin.aspx.cs">
+      <DependentUpon>PerfilAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAdmin.aspx.designer.cs">
+      <DependentUpon>PerfilAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilAlumno.aspx.cs">
+      <DependentUpon>PerfilAlumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAlumno.aspx.designer.cs">
+      <DependentUpon>PerfilAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroAdmin.aspx.cs">
       <DependentUpon>RegistroAdmin.aspx</DependentUpon>
