@@ -1,8 +1,7 @@
 REATE TABLE Carreras (
     id_carrera INT PRIMARY KEY identity,
     nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(100),
-    estado VARCHAR(10) DEFAULT 'Activo' CHECK (estado IN ('Activo', 'Inactivo'))
+    descripcion VARCHAR(100)
 );
 
 CREATE TABLE Materias (
@@ -10,7 +9,7 @@ CREATE TABLE Materias (
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(100),
     id_carrera INT,
-    estado VARCHAR(10) DEFAULT 'Activo' CHECK (estado IN ('Activo', 'Inactivo')),
+    estado VARCHAR(10),
     año INT,
     FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
 );
