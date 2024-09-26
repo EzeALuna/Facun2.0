@@ -92,6 +92,7 @@
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Facun2.0.dll" />
     <Content Include="obj\Debug\Facun2.0.pdb" />
+    <Content Include="RegistroMateria.aspx" />
     <Content Include="RegistroProfesor.aspx" />
     <Content Include="SeleccionRegistro.aspx" />
     <Content Include="Web.config">
@@ -183,6 +184,13 @@
       <DependentUpon>RegistroAlumno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroMateria.aspx.cs">
+      <DependentUpon>RegistroMateria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroMateria.aspx.designer.cs">
+      <DependentUpon>RegistroMateria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegistroProfesor.aspx.cs">
       <DependentUpon>RegistroProfesor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
