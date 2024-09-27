@@ -49,25 +49,25 @@
 			      	</div>
 							<form id="Form1" action="#" class="signin-form" runat="server">
 			      		<asp:Label ID="lblAlerta" runat="server" Text=""></asp:Label>
-                        <div class="form-group mt-3">
-                            <asp:Label ID="LabelNombre" runat="server" Text="Nombre"></asp:Label>
+                        <%--div class="form-group mt-3">--%>
+                            <asp:Label ID="LabelNombre" runat="server" Text=" Nombre"></asp:Label>
 			      			<%--<input type="text" class="form-control" required>--%>
                              <asp:TextBox ID="textNombre" CssClass="form-control" runat="server"></asp:TextBox>
 			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
                             <asp:RequiredFieldValidator ID="rfvNombre" ControlToValidate="textNombre" runat="server"
                                  ErrorMessage="Debe ingresar nombre" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-			      		</div>
+			      		<%--</div>
 
-                      	<div class="form-group mt-3">
+                      	<div class="form-group mt-3">--%>
                             <asp:Label ID="LabelDescripcion" runat="server" Text="Descripcion"></asp:Label>
 			      			<%--<input type="text" class="form-control" required>--%>
                              <asp:TextBox ID="textDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
 			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
                             <asp:RequiredFieldValidator ID="rfvDescripcion" ControlToValidate="textDescripcion" runat="server"
                                  ErrorMessage="Debe ingresar Descripcion" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-			      		</div>
+			      	<%--	</div>--%>
                      
-                    <div class="form-group">
+                    <%--<div class="form-group">--%>
                     <asp:Label ID="LabelCarrera" runat="server" Text="Carrera"></asp:Label>
 
                     <asp:DropDownList CssClass="form-control" ID="DDLCarrera" runat="server" DataSourceID="SqlDataSource1" 
@@ -76,16 +76,9 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
                             SelectCommand="SELECT [id_carrera], [nombre] FROM [Carreras]"></asp:SqlDataSource>
-                    </div>
+                    <%--</div>--%>
 
-                  <%--  <div class="form-group">
-                     <asp:Label ID="LblAño" runat="server" Text="Año"></asp:Label>
-		             <asp:TextBox ID="textAño" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="rfvAño" ErrorMessage="Debe ingresar Año" 
-                           ControlToValidate="textAño" runat="server" Text="*" ForeColor="Red"/>
-                     <asp:RangeValidator ID="rvAño" MinimumValue="1" MaximumValue="4" Type="Integer" 
-                     ControlToValidate="textAño" runat="server" ErrorMessage="Debe ingresar un Año valido" Text="*" ForeColor="Red"></asp:RangeValidator>
-		            </div>--%>
+                    <asp:Label ID="lblAño" runat="server" Text=" Año"></asp:Label>
                      <asp:DropDownList CssClass="form-control" ID="DDLAño" runat="server">
                         <asp:ListItem Value="1" Text="1°"></asp:ListItem>
                         <asp:ListItem Value="2" Text="2°"></asp:ListItem>
@@ -93,21 +86,22 @@
                          <asp:ListItem Value="4" Text="4°"></asp:ListItem>
                         </asp:DropDownList>
 
-                    <b></b>               
-                    <div class="form-group">
+                    <br />            
+                   <%-- <div class="form-group">--%>
 		            	<%--<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>--%>
                         <asp:Button ID="btnLogin" CssClass="form-control btn btn-primary rounded submit px-3" runat="server" 
-                         Text="Crear Materia" onclick="btnLogin_Click" />
+                         Text="Registrar Materia" onclick="btnLogin_Click" />
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
-                     </div>
-                     
-
+                     <%--</div>--%>
+                 
 		         
 		            <%--</div>--%>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		                    </form>
-                            <p class="text-center"><a href="Login.aspx">Volver</a></p>
-		         <%-- <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>--%>
+                            <br />
+                            <p class="btn btn-outline-primary"><a href="PerfilMateria.aspx">Ver/editar materias</a></p>
+                            <br />
+                            <p class="btn btn-outline-danger"><a href="Login.aspx">Volver</a></p>
 		        </div>
 		
 				</div>

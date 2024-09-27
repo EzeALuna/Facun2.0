@@ -15,7 +15,19 @@ namespace Facun2._0
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                if (Session["Usuario"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    if (Session["Usuario"].ToString() == string.Empty)
+                        Response.Redirect("Login.aspx");
+                }
+                
+            }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -49,7 +61,7 @@ namespace Facun2._0
                         connection.Open();
 
                         // Primero, verificamos si el email o el DNI ya existen
-                        string checkQuery = "SELECT COUNT(*) FROM Materias WHERE nombre = @nombre AND año = @año and id_carrera = @carrera";
+                        string checkQuery = "SELECT COUNT(*) FROM Materias WHERE nombre = @nombre AND año = @año AND id_carrera = @carrera";
                         SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
                         checkCommand.Parameters.AddWithValue("@nombre", textNombre.Text);
                         checkCommand.Parameters.AddWithValue("@año", DDLAño.SelectedValue);
@@ -68,8 +80,8 @@ namespace Facun2._0
                         }
 
 
-                        string script = String.Format("INSERT INTO Materias (nombre, descripcion, id_carrera, estado, año) VALUES('{0}', '{1}', {2}, '{3}', {4})",
-                                                        textNombre.Text, textDescripcion.Text, DDLCarrera.SelectedValue, 'Activa', DDLAño.SelectedValue );
+                        string script = String.Format("INSERT INTO Materias (nombre, descripcion, id_carrera, año, estado) VALUES('{0}', '{1}', {2}, '{3}', 'Activa')",
+                                                        textNombre.Text, textDescripcion.Text, DDLCarrera.SelectedValue, DDLAño.SelectedValue );
 
                         conn.Open();
 

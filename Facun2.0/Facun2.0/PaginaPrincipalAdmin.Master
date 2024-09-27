@@ -31,13 +31,16 @@
                     <a href="PerfilAlumno.aspx">Alumno</a>
                 </li>
                 <li>
+                    <a href="PerfilMateria.aspx">Materias</a>
+                </li>
+                <li>
                     <a href="PerfilProfesor.aspx">Profesor</a>
                 </li>
 	            </ul>
 	          </li>
-	          <li>
+	          <%--<li>
               <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
-              </li>
+              </li>--%>
 	          <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Calendario</a>
               <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -49,7 +52,9 @@
               <a href="#">Mis Datos</a>
 	          </li>
 	          <li>
-              <a href="Login.aspx">Salir</a>
+             <%-- <a href="Login.aspx">Salir</a>--%>
+             <asp:LinkButton ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="btnCerrarSesion_Click"></asp:LinkButton>
+
 	          </li>
 	        </ul>
 

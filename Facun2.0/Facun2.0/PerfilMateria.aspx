@@ -91,6 +91,8 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
+
+
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
     DeleteCommand="DELETE FROM [Materias] WHERE [id_materia] = @id_materia" 
@@ -121,7 +123,12 @@
        <%-- tablacarrera--%>
      <asp:SqlDataSource ID="SqlDataSourceCarreras" runat="server" 
             ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
-            SelectCommand="SELECT id_carrera, nombre FROM Carreras">
+            SelectCommand="SELECT id_carrera, nombre FROM Carreras"> 
+        <%--onselecting="SqlDataSourceCarreras_Selecting">--%>
             </asp:SqlDataSource>
-    </form>
+            <br>
+            <br>
+    <asp:Button ID="btnMaterias" CssClass="btn btn-outline-primary" runat="server" 
+                            Text="Cargar materias" onclick="btnLogin_Click"></asp:Button>
+      </form>
 </asp:Content>
