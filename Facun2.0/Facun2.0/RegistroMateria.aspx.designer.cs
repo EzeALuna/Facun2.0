@@ -40,6 +40,15 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.Label lblAlerta;
         
         /// <summary>
+        /// Control rfvNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        
+        /// <summary>
         /// Control LabelNombre.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textNombre;
         
         /// <summary>
-        /// Control rfvNombre.
+        /// Control rfvDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
         
         /// <summary>
         /// Control LabelDescripcion.
@@ -85,13 +94,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textDescripcion;
         
         /// <summary>
-        /// Control rfvDescripcion.
+        /// Control rfvCarrerra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCarrerra;
         
         /// <summary>
         /// Control LabelCarrera.
@@ -119,6 +128,15 @@ namespace Facun2._0 {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// Control rfvAño.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAño;
         
         /// <summary>
         /// Control lblAño.

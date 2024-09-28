@@ -15,19 +15,19 @@ namespace Facun2._0
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                if (Session["Usuario"] == null)
-                {
-                    Response.Redirect("Login.aspx");
-                }
-                else
-                {
-                    if (Session["Usuario"].ToString() == string.Empty)
-                        Response.Redirect("Login.aspx");
-                }
+            //if (!Page.IsPostBack)
+            //{
+            //    if (Session["Usuario"] == null)
+            //    {
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //    else
+            //    {
+            //        if (Session["Usuario"].ToString() == string.Empty)
+            //            Response.Redirect("Login.aspx");
+            //    }
                 
-            }
+            //}
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {

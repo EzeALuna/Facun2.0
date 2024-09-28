@@ -40,51 +40,56 @@
 			      		<div class="w-100">
 			      			<h3 class="mb-4">Registro</h3>
 			      		</div>
-								<div class="w-100">
+								<%--<div class="w-100">--%>
 									<p class="social-media d-flex justify-content-end">
 										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
 										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
 									</p>
-								</div>
+								<%--</div>--%>
 			      	</div>
 							<form id="Form1" action="#" class="signin-form" runat="server">
 			      		<asp:Label ID="lblAlerta" runat="server" Text=""></asp:Label>
-                        <%--div class="form-group mt-3">--%>
+                        <div class="form-group mt-3">
+                         <asp:RequiredFieldValidator ID="rfvNombre" ControlToValidate="textNombre" runat="server" Display="Dynamic" 
+                                 ErrorMessage="Debe ingresar nombre" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                             <asp:Label ID="LabelNombre" runat="server" Text=" Nombre"></asp:Label>
 			      			<%--<input type="text" class="form-control" required>--%>
                              <asp:TextBox ID="textNombre" CssClass="form-control" runat="server"></asp:TextBox>
 			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
-                            <asp:RequiredFieldValidator ID="rfvNombre" ControlToValidate="textNombre" runat="server"
-                                 ErrorMessage="Debe ingresar nombre" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                           
 			      		<%--</div>
 
                       	<div class="form-group mt-3">--%>
+                         <asp:RequiredFieldValidator ID="rfvDescripcion" ControlToValidate="textDescripcion" runat="server" Display="Dynamic" 
+                                 ErrorMessage="Debe ingresar Descripcion" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                             <asp:Label ID="LabelDescripcion" runat="server" Text="Descripcion"></asp:Label>
 			      			<%--<input type="text" class="form-control" required>--%>
                              <asp:TextBox ID="textDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
 			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
-                            <asp:RequiredFieldValidator ID="rfvDescripcion" ControlToValidate="textDescripcion" runat="server"
-                                 ErrorMessage="Debe ingresar Descripcion" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                           
 			      	<%--	</div>--%>
                      
                     <%--<div class="form-group">--%>
+                    <asp:RequiredFieldValidator ControlToValidate="DDLCarrera" ID="rfvCarrerra" runat="server" ErrorMessage="Debe ingresar una carrera"
+                           InitialValue="" Display="Dynamic" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:Label ID="LabelCarrera" runat="server" Text="Carrera"></asp:Label>
-
                     <asp:DropDownList CssClass="form-control" ID="DDLCarrera" runat="server" DataSourceID="SqlDataSource1" 
-                            DataTextField="nombre" DataValueField="id_carrera"></asp:DropDownList>
-
+                            DataTextField="nombre" DataValueField="id_carrera" AppendDataBoundItems="True">
+                             <asp:ListItem Text="Seleccione una carrera" Value="" Selected="True"></asp:ListItem></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
                             SelectCommand="SELECT [id_carrera], [nombre] FROM [Carreras]"></asp:SqlDataSource>
                     <%--</div>--%>
 
+                    <asp:RequiredFieldValidator ControlToValidate="DDLAño" ID="rfvAño" runat="server" ErrorMessage="Debe ingresar un Año"
+                           InitialValue="" Display="Dynamic" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:Label ID="lblAño" runat="server" Text=" Año"></asp:Label>
-                     <asp:DropDownList CssClass="form-control" ID="DDLAño" runat="server">
+                     <asp:DropDownList CssClass="form-control" ID="DDLAño" runat="server"  AppendDataBoundItems="True">
                         <asp:ListItem Value="1" Text="1°"></asp:ListItem>
                         <asp:ListItem Value="2" Text="2°"></asp:ListItem>
                          <asp:ListItem Value="3" Text="3°"></asp:ListItem>
                          <asp:ListItem Value="4" Text="4°"></asp:ListItem>
-                        </asp:DropDownList>
+                         <asp:ListItem Text="Seleccione una carrera" Value="" Selected="True"></asp:ListItem></asp:DropDownList></asp:DropDownList>
 
                     <br />            
                    <%-- <div class="form-group">--%>
@@ -94,7 +99,7 @@
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
                      <%--</div>--%>
                  
-		         
+		         <br /><br />
 		            <%--</div>--%>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		                    </form>

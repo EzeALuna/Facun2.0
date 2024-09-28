@@ -15,16 +15,16 @@ namespace Facun2._0
         }
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            // Limpiar la sesión
-            Session.Clear();
-            Session.Abandon();
-            // Limpiar la cookie de autenticación
-            if (Request.Cookies["ASP.NET_SessionId"] != null)
-            {
-                Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddDays(-1);
-            }
-            // Redirigir a la página de inicio de sesión
-            Response.Redirect("Login.aspx");
+            //// Limpiar la sesión
+            //Session.Clear();
+            //Session.Abandon();
+            //// Limpiar la cookie de autenticación
+            //if (Request.Cookies["ASP.NET_SessionId"] != null)
+            //{
+            //    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddDays(-1);
+            //}
+            //// Redirigir a la página de inicio de sesión
+            //Response.Redirect("Login.aspx");
         }
 
     }

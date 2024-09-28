@@ -40,6 +40,15 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.Label lblAlerta;
         
         /// <summary>
+        /// Control rfvNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        
+        /// <summary>
         /// Control LabelNombre.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textNombre;
         
         /// <summary>
-        /// Control rfvNombre.
+        /// Control rfvApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
         
         /// <summary>
         /// Control LabelApellido.
@@ -85,13 +94,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textApellido;
         
         /// <summary>
-        /// Control rfvApellido.
+        /// Control rfvDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDireccion;
         
         /// <summary>
         /// Control LabelDireccion.
@@ -112,13 +121,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textDireccion;
         
         /// <summary>
-        /// Control rfvDireccion.
+        /// Control rvEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDireccion;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvEmail;
         
         /// <summary>
         /// Control LblEmail.
@@ -139,13 +148,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textEmail;
         
         /// <summary>
-        /// Control rvEmail.
+        /// Control rfvTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
         
         /// <summary>
         /// Control LabelTelefono.
@@ -166,13 +175,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textTelefono;
         
         /// <summary>
-        /// Control rfvTelefono.
+        /// Control rvContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvContraseña;
         
         /// <summary>
         /// Control LblContraseña.
@@ -193,6 +202,24 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textContraseña;
         
         /// <summary>
+        /// Control rvContraseña2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvContraseña2;
+        
+        /// <summary>
+        /// Control CompareContraseña.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareContraseña;
+        
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -211,31 +238,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textContraseña2;
         
         /// <summary>
-        /// Control rvContraseña.
+        /// Control rfvNacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvContraseña;
-        
-        /// <summary>
-        /// Control rvContraseña2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvContraseña2;
-        
-        /// <summary>
-        /// Control CompareContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareContraseña;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNacimiento;
         
         /// <summary>
         /// Control LabelNacimiento.
@@ -256,13 +265,22 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textNacimiento;
         
         /// <summary>
-        /// Control rfvNacimiento.
+        /// Control rfvDNI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNacimiento;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDNI;
+        
+        /// <summary>
+        /// Control rvDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvDNI;
         
         /// <summary>
         /// Control LblDNI.
@@ -283,22 +301,13 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textDNI;
         
         /// <summary>
-        /// Control rfvDNI.
+        /// Control rfvCarrerra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDNI;
-        
-        /// <summary>
-        /// Control rvDNI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvDNI;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCarrerra;
         
         /// <summary>
         /// Control LabelCarrera.
