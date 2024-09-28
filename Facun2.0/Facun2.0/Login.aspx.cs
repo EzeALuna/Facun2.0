@@ -71,6 +71,7 @@ namespace Facun2._0
                         {
                             string tipo = readerAlumnos["Tipo"].ToString();
                             Session["DNI"] = txtDNI.Text;
+                            Session["Usuario"] = "alumno";
                             Response.Redirect("InicioAlumno.aspx");
                         }
                     }
@@ -82,6 +83,7 @@ namespace Facun2._0
                         {
                             string tipo = readerProfesores["Tipo"].ToString();
                             Session["DNI"] = txtDNI.Text;
+                            Session["Usuario"] = "profesor";
                             Response.Redirect("InicioProfesor.aspx");
                         }
                     }
@@ -93,6 +95,7 @@ namespace Facun2._0
                         {
                             string tipo = readerAdmin["Tipo"].ToString();
                             Session["DNI"] = txtDNI.Text;
+                            Session["Usuario"] = "admin";
                             Response.Redirect("InicioAdmin.aspx");
                         }
                     }
