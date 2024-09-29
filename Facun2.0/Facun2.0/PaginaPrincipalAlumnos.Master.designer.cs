@@ -22,15 +22,6 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// Control btnCerrarSesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCerrarSesion;
-        
-        /// <summary>
         /// Control ContentPlaceHolder1.
         /// </summary>
         /// <remarks>

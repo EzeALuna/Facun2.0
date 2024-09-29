@@ -15,16 +15,44 @@ namespace Facun2._0
         }
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            //// Limpiar la sesión
-            //Session.Clear();
-            //Session.Abandon();
-            //// Limpiar la cookie de autenticación
-            //if (Request.Cookies["ASP.NET_SessionId"] != null)
-            //{
-            //    Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddDays(-1);
-            //}
-            //// Redirigir a la página de inicio de sesión
-            //Response.Redirect("Login.aspx");
+            if (!Page.IsPostBack)
+            {
+                // Verifica el usuario 
+                if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+                {
+                    // Si no hay sesión
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    // Verifica rol 
+                    string rol = Session["Usuario"].ToString().ToLower(); // Obtenee rol
+
+                    // Redirigir o permitir acceso
+                    if (rol == "admin")
+                    {
+                        // Si es admin ingresa
+                    }
+                    else if (rol == "profesor")
+                    {
+                        // Si es profesor ingresa
+                        
+                    }
+                    else if (rol == "alumno")
+                    {
+                        // Si es alumno
+                        if (Request.Url.AbsolutePath.EndsWith("InicioAlumno.aspx"))
+                        {
+                            Response.Redirect("InicioAlumno.aspx");
+                        }
+                    }
+                    else
+                    {
+                        // Si el rol no es valido
+                        Response.Redirect("Login.aspx");
+                    }
+                }
+            }
         }
     }
 }

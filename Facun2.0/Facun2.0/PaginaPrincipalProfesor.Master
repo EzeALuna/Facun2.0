@@ -58,9 +58,9 @@
               <a href="#">Mis Datos</a>
 	          </li>
 	          <li>
-               <form id="Form1" runat="server">
+<%--               <form id="Form1" runat="server">
                <asp:LinkButton ID="btnCerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="btnCerrarSesion_Click"></asp:LinkButton>
-	           </form>
+	           </form>--%>
                </li>
 	        </ul>
 
