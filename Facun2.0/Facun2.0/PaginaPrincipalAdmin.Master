@@ -28,13 +28,13 @@
                     <a href="PerfilAdmin.aspx">Administrador</a>
                 </li>
                 <li>
+                 <a href="PerfilProfesor.aspx">Profesor</a> 
+                </li>
+                <li>
                     <a href="PerfilAlumno.aspx">Alumno</a>
                 </li>
                 <li>
-                    <a href="PerfilMateria.aspx">Materias</a>
-                </li>
-                <li>
-                    <a href="PerfilProfesor.aspx">Profesor</a>
+                   <a href="PerfilMateria.aspx">Materias</a>
                 </li>
 	            </ul>
 	          </li>

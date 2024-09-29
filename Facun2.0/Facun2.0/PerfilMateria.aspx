@@ -11,9 +11,9 @@
         ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="nombre" HeaderText="nombre" 
+            <asp:BoundField DataField="nombre" HeaderText="Nombre" 
                 SortExpression="nombre" />
-            <asp:BoundField DataField="descripcion" HeaderText="descripcion" 
+            <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
                 SortExpression="descripcion" />
             <%--asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
@@ -63,18 +63,18 @@
              <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
                     <!-- Botón Editar -->
-                    <asp:LinkButton ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:LinkButton>
-
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
+                    <p></p>
                     <!-- Botón Eliminar con confirmación -->
-                    <asp:LinkButton ID="DeleteButton" runat="server" CommandName="Delete" Text="Eliminar" 
-                        OnClientClick="return confirm('¿Está seguro que desea eliminar este registro?');"></asp:LinkButton>
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Eliminar" 
+                        OnClientClick="return confirm('¿Está seguro que desea eliminar este registro?');"></asp:Button>
                 </ItemTemplate>
                 <EditItemTemplate>
                     <!-- Botón Actualizar -->
-                    <asp:LinkButton ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar"></asp:LinkButton>
-
+                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar"></asp:Button>
+                    <p></p>
                     <!-- Botón Cancelar -->
-                    <asp:LinkButton ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:Button>
                 </EditItemTemplate>
             </asp:TemplateField>
 

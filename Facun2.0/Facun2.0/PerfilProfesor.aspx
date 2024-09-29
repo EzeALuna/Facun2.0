@@ -1,23 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaPrincipalAdmin.Master" AutoEventWireup="true" CodeBehind="PerfilAdmin.aspx.cs" Inherits="Facun2._0.PerfilAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaPrincipalAdmin.Master" AutoEventWireup="true" CodeBehind="PerfilProfesor.aspx.cs" Inherits="Facun2._0.PerfilProfesor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="dni" DataSourceID="SqlDataSource1" 
         EmptyDataText="No hay registros de datos para mostrar." CellPadding="4" 
-        ForeColor="#333333" GridLines="None" 
-        onselectedindexchanged="GridView1_SelectedIndexChanged">
+        ForeColor="#333333" GridLines="None" Width="80%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <%--<asp:BoundField DataField="contraseña" HeaderText="contraseña" 
-                SortExpression="contraseña" />--%>
-            <%--<asp:BoundField DataField="tipo" HeaderText="tipo" SortExpression="tipo" />--%>
             <asp:BoundField DataField="nombre" HeaderText="Nombre" 
                 SortExpression="nombre" />
             <asp:BoundField DataField="apellido" HeaderText="Apellido" 
                 SortExpression="apellido" />
-            <asp:BoundField DataField="cargo" HeaderText="Cargo" SortExpression="cargo" />
             <asp:BoundField DataField="dni" HeaderText="DNI" ReadOnly="True" 
                 SortExpression="dni" />
             <asp:BoundField DataField="fecha_nacimiento" HeaderText="Fecha de Nacimiento" 
@@ -25,13 +20,16 @@
             <asp:BoundField DataField="direccion" HeaderText="Direccion" 
                 SortExpression="direccion" />
             <asp:BoundField DataField="email" HeaderText="E-mail" SortExpression="email" />
+            <asp:BoundField DataField="contraseña" HeaderText="Contraseña" 
+                SortExpression="contraseña" />
             <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
-           <%-- <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
+
+           <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
                 ButtonType="Button" >
-            <ControlStyle BorderStyle="Solid" Font-Bold="True" ForeColor="Red" />
+            <ControlStyle BorderStyle="Solid" ForeColor="Red" />
             </asp:CommandField>--%>
-             <asp:TemplateField HeaderText="Acciones">
+            <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
                     <!-- Botón Editar -->
                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
@@ -48,6 +46,7 @@
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:Button>
                 </EditItemTemplate>
             </asp:TemplateField>
+
         </Columns>
 
         <EditRowStyle BackColor="#2461BF" />
@@ -60,17 +59,16 @@
         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    
+
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
-        DeleteCommand="DELETE FROM [Admin] WHERE [dni] = @dni" 
-        InsertCommand="INSERT INTO [Admin] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [contraseña], [telefono], [tipo], [cargo]) VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @contraseña, @telefono, @tipo, @cargo)" 
-        ProviderName="<%$ ConnectionStrings:Facun2DBConnectionString1.ProviderName %>" 
-        SelectCommand="SELECT [nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [contraseña], [telefono], [tipo], [cargo] FROM [Admin]" 
-        UpdateCommand="UPDATE [Admin] SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, [direccion] = @direccion, [email] = @email, [contraseña] = @contraseña, [telefono] = @telefono, [tipo] = @tipo, [cargo] = @cargo WHERE [dni] = @dni">
+        DeleteCommand="DELETE FROM [Profesores] WHERE [dni] = @dni" 
+        InsertCommand="INSERT INTO [Profesores] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [contraseña], [telefono], [tipo], [id_materia]) VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @contraseña, @telefono, @tipo, @id_materia)" 
+        SelectCommand="SELECT [nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [contraseña], [telefono], [tipo], [id_materia] FROM [Profesores] ORDER BY [dni]" 
+        UpdateCommand="UPDATE [Profesores] SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, [direccion] = @direccion, [email] = @email, [contraseña] = @contraseña, [telefono] = @telefono, [tipo] = @tipo, [id_materia] = @id_materia WHERE [dni] = @dni">
         <DeleteParameters>
-            <asp:Parameter Name="dni" Type="Int32"  />
+            <asp:Parameter Name="dni" Type="Int32" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="nombre" Type="String" />
@@ -82,7 +80,7 @@
             <asp:Parameter Name="contraseña" Type="String" />
             <asp:Parameter Name="telefono" Type="String" />
             <asp:Parameter Name="tipo" Type="String" />
-            <asp:Parameter Name="cargo" Type="String" />
+            <asp:Parameter Name="id_materia" Type="Int32" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="nombre" Type="String" />
@@ -93,7 +91,7 @@
             <asp:Parameter Name="contraseña" Type="String" />
             <asp:Parameter Name="telefono" Type="String" />
             <asp:Parameter Name="tipo" Type="String" />
-            <asp:Parameter Name="cargo" Type="String" />
+            <asp:Parameter Name="id_materia" Type="Int32" />
             <asp:Parameter Name="dni" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>

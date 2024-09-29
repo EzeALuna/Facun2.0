@@ -9,18 +9,18 @@
         ForeColor="#333333" GridLines="None" Width="80%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="nombre" HeaderText="nombre" 
+            <asp:BoundField DataField="nombre" HeaderText="Nombre" 
                 SortExpression="nombre" />
-            <asp:BoundField DataField="apellido" HeaderText="apellido" 
+            <asp:BoundField DataField="apellido" HeaderText="Apellido" 
                 SortExpression="apellido" />
-            <asp:BoundField DataField="dni" HeaderText="dni" ReadOnly="True" 
+            <asp:BoundField DataField="dni" HeaderText="DNI" ReadOnly="True" 
                 SortExpression="dni" />
-            <asp:BoundField DataField="fecha_nacimiento" HeaderText="fecha_nacimiento" 
-                SortExpression="fecha_nacimiento" />
-            <asp:BoundField DataField="direccion" HeaderText="direccion" 
+            <asp:BoundField DataField="fecha_nacimiento" HeaderText="Fecha de Nacimiento" 
+                SortExpression="fecha_nacimiento" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="direccion" HeaderText="Direccion" 
                 SortExpression="direccion" />
-            <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
-            <asp:BoundField DataField="telefono" HeaderText="telefono" 
+            <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
+            <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
             <%--<asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
@@ -42,21 +42,21 @@
                 ButtonType="Button" >
             <ControlStyle BorderStyle="Solid" ForeColor="Red" />
             </asp:CommandField>--%>
-            <asp:TemplateField HeaderText="Acciones">
+           <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
                     <!-- Botón Editar -->
-                    <asp:LinkButton ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:LinkButton>
-
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
+                    <p></p>
                     <!-- Botón Eliminar con confirmación -->
-                    <asp:LinkButton ID="DeleteButton" runat="server" CommandName="Delete" Text="Eliminar" 
-                        OnClientClick="return confirm('¿Está seguro que desea eliminar este registro?');"></asp:LinkButton>
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Eliminar" 
+                        OnClientClick="return confirm('¿Está seguro que desea eliminar este registro?');"></asp:Button>
                 </ItemTemplate>
                 <EditItemTemplate>
                     <!-- Botón Actualizar -->
-                    <asp:LinkButton ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar"></asp:LinkButton>
-
+                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar"></asp:Button>
+                    <p></p>
                     <!-- Botón Cancelar -->
-                    <asp:LinkButton ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:Button>
                 </EditItemTemplate>
             </asp:TemplateField>
 
@@ -78,7 +78,8 @@
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
         DeleteCommand="DELETE FROM [Alumnos] WHERE [dni] = @dni" 
         InsertCommand="INSERT INTO [Alumnos] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [telefono], [id_carrera]) VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @telefono, @id_carrera)" 
-        SelectCommand="SELECT A.[nombre], A.[apellido], A.[dni], A.[fecha_nacimiento], A.[direccion], A.[email], A.[telefono], A.[id_carrera], C.nombre AS NombreCarrera FROM [Alumnos] A INNER JOIN [Carreras] C ON A.id_carrera = C.id_carrera" 
+        SelectCommand="SELECT DISTINCT A.id_carrera, C.nombre, C.estado, C.año FROM Alumnos AS A INNER JOIN Carreras AS B ON A.id_carrera = B.id_carrera INNER JOIN Materias AS C ON B.id_carrera = C.id_carrera WHERE (A.dni = @DNI) ORDER BY C.año" 
+        
         UpdateCommand="UPDATE [Alumnos] SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, [direccion] = @direccion, [email] = @email, [telefono] = @telefono, [id_carrera] = @id_carrera WHERE [dni] = @dni">
         <DeleteParameters>
             <asp:Parameter Name="dni" Type="Int32" />
@@ -93,6 +94,10 @@
             <asp:Parameter Name="telefono" Type="String" />
             <asp:Parameter Name="id_carrera" Type="Int32" />
         </InsertParameters>
+        <SelectParameters>
+            <asp:CookieParameter CookieName="DNI" DbType="Int32" DefaultValue="0" 
+                Name="DNI" Type="Int32" />
+        </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="nombre" Type="String" />
             <asp:Parameter Name="apellido" Type="String" />

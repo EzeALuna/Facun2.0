@@ -50,6 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SituacionAcademica.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_transition.css" />
@@ -87,6 +88,7 @@
     <Content Include="Login.aspx" />
     <Content Include="PerfilAdmin.aspx" />
     <Content Include="PerfilAlumno.aspx" />
+    <Content Include="PerfilProfesor.aspx" />
     <Content Include="RegistroAdmin.aspx" />
     <Content Include="RegistroAlumno.aspx" />
     <Content Include="obj\Debug\Facun2.0.csproj.FileListAbsolute.txt" />
@@ -107,6 +109,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SituacionAcademica.aspx.cs">
+      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SituacionAcademica.aspx.designer.cs">
+      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioAdmin.aspx.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -169,6 +178,13 @@
     </Compile>
     <Compile Include="PerfilAlumno.aspx.designer.cs">
       <DependentUpon>PerfilAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilProfesor.aspx.cs">
+      <DependentUpon>PerfilProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilProfesor.aspx.designer.cs">
+      <DependentUpon>PerfilProfesor.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroAdmin.aspx.cs">
       <DependentUpon>RegistroAdmin.aspx</DependentUpon>
@@ -423,7 +439,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54618</DevelopmentServerPort>
+          <DevelopmentServerPort>51514</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
