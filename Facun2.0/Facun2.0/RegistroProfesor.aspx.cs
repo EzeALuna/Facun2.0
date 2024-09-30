@@ -66,13 +66,13 @@ namespace Facun2._0
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                     //EZE
-                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                     //HUGO
-                    builder.DataSource = "DESKTOP-L84NEUL";
+                    //builder.DataSource = "DESKTOP-L84NEUL";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -87,7 +87,7 @@ namespace Facun2._0
                         connection.Open();
 
                         // Primero, verificamos si el email o el DNI ya existen
-                        string checkQuery = "SELECT COUNT(*) FROM Alumnos WHERE email = @Email OR dni = @DNI";
+                        string checkQuery = "SELECT COUNT(*) FROM Profesores WHERE email = @Email OR dni = @DNI";
                         SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
                         checkCommand.Parameters.AddWithValue("@Email", textEmail.Text);
                         checkCommand.Parameters.AddWithValue("@DNI", textDNI.Text);
@@ -105,8 +105,8 @@ namespace Facun2._0
                         }
 
 
-                        string script = String.Format("INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, id_carrera) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9})",
-                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'A', DDLCarrera.SelectedValue);
+                        string script = String.Format("INSERT INTO Profesores (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, id_materia) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9})",
+                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'A', DDLMateria.SelectedValue);
 
                         conn.Open();
 
@@ -119,16 +119,16 @@ namespace Facun2._0
                             if (resp > 0)
                             {
 
-                                //LabelNombre.Text = "Se ha generado el Alumno " + textApellido.Text + " DNI: " + textDNI.Text;
+                                //LabelNombre.Text = "Se ha generado el Profesor " + textApellido.Text + " DNI: " + textDNI.Text;
                                 string scriptA = @"
                                 Swal.fire({icon: 'success', 
-                                title: 'Admin registrado', 
-                                text: 'El Admin ha sido registrado con éxito.', 
+                                title: 'Profesor registrado', 
+                                text: 'El Profesor ha sido registrado con éxito.', 
                                 confirmButtonColor: '#3085d6', 
                                 confirmButtonText: 'OK'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = 'InicioAlumno.aspx'; } });";
+                                    window.location.href = 'InicioProfesor.aspx'; } });";
                                 ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
 
                                 lblTexto.ForeColor = System.Drawing.Color.Green;
@@ -153,7 +153,7 @@ namespace Facun2._0
                                 //lblAlerta.Text = "Ha ocurrido un error";
                                 //lblAlerta.ForeColor = System.Drawing.Color.Red;
                                 //lblTexto.Focus();
-                                string scriptA = "Swal.fire({ icon: 'error', title: 'Error', text: 'Ha ocurrido un error al registrar el alumno.', confirmButtonColor: '#d33', confirmButtonText: 'Intentar de nuevo' })";
+                                string scriptA = "Swal.fire({ icon: 'error', title: 'Error', text: 'Ha ocurrido un error al registrar el Profesor.', confirmButtonColor: '#d33', confirmButtonText: 'Intentar de nuevo' })";
                                 ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptA, true);
                             }
 

@@ -53,8 +53,8 @@
 			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
                             <asp:RequiredFieldValidator ID="rfvusuario" ControlToValidate="txtDNI" runat="server"
                                  ErrorMessage="Debe ingresar DNI" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-
 			      		</div>
+
 		            <div class="form-group">
                      <asp:Label ID="LabelContraseña" runat="server" Text="Contraseña"></asp:Label>
 		             <%-- <input id="password-field" type="password" class="form-control" required>--%>
@@ -75,10 +75,10 @@
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
-			            	<label class="checkbox-wrap checkbox-primary mb-0">Recordar Usuario
+			          <%--  	<label class="checkbox-wrap checkbox-primary mb-0">Recordar Usuario
 									  <input type="checkbox" checked>
 									  <span class="checkmark"></span>
-										</label>
+										</label>--%>
 									</div>
 									<div class="w-50 text-md-right">
 										<a href="#">Has olvidado tu contraseña</a>

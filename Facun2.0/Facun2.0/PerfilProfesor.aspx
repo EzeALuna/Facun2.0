@@ -20,8 +20,6 @@
             <asp:BoundField DataField="direccion" HeaderText="Direccion" 
                 SortExpression="direccion" />
             <asp:BoundField DataField="email" HeaderText="E-mail" SortExpression="email" />
-            <asp:BoundField DataField="contraseña" HeaderText="Contraseña" 
-                SortExpression="contraseña" />
             <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
 
@@ -61,39 +59,44 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
     </asp:GridView>
+
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
-        DeleteCommand="DELETE FROM [Profesores] WHERE [dni] = @dni" 
-        InsertCommand="INSERT INTO [Profesores] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [contraseña], [telefono], [tipo], [id_materia]) VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @contraseña, @telefono, @tipo, @id_materia)" 
-        SelectCommand="SELECT [nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [contraseña], [telefono], [tipo], [id_materia] FROM [Profesores] ORDER BY [dni]" 
-        UpdateCommand="UPDATE [Profesores] SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, [direccion] = @direccion, [email] = @email, [contraseña] = @contraseña, [telefono] = @telefono, [tipo] = @tipo, [id_materia] = @id_materia WHERE [dni] = @dni">
-        <DeleteParameters>
-            <asp:Parameter Name="dni" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="nombre" Type="String" />
-            <asp:Parameter Name="apellido" Type="String" />
-            <asp:Parameter Name="dni" Type="Int32" />
-            <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
-            <asp:Parameter Name="direccion" Type="String" />
-            <asp:Parameter Name="email" Type="String" />
-            <asp:Parameter Name="contraseña" Type="String" />
-            <asp:Parameter Name="telefono" Type="String" />
-            <asp:Parameter Name="tipo" Type="String" />
-            <asp:Parameter Name="id_materia" Type="Int32" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="nombre" Type="String" />
-            <asp:Parameter Name="apellido" Type="String" />
-            <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
-            <asp:Parameter Name="direccion" Type="String" />
-            <asp:Parameter Name="email" Type="String" />
-            <asp:Parameter Name="contraseña" Type="String" />
-            <asp:Parameter Name="telefono" Type="String" />
-            <asp:Parameter Name="tipo" Type="String" />
-            <asp:Parameter Name="id_materia" Type="Int32" />
-            <asp:Parameter Name="dni" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
+    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
+    DeleteCommand="DELETE FROM [Profesores] WHERE [dni] = @dni" 
+    InsertCommand="INSERT INTO [Profesores] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [telefono]) 
+                   VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @telefono)" 
+    ProviderName="<%$ ConnectionStrings:Facun2DBConnectionString1.ProviderName %>" 
+    SelectCommand="SELECT [nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [telefono] 
+                   FROM [Profesores] ORDER BY [dni]" 
+    UpdateCommand="UPDATE [Profesores] 
+                   SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, 
+                       [direccion] = @direccion, [email] = @email, [telefono] = @telefono WHERE [dni] = @dni">
+                   
+    <DeleteParameters>
+        <asp:Parameter Name="dni" Type="Int32" />
+    </DeleteParameters>
+    <InsertParameters>
+        <asp:Parameter Name="nombre" Type="String" />
+        <asp:Parameter Name="apellido" Type="String" />
+        <asp:Parameter Name="dni" Type="Int32" />
+        <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
+        <asp:Parameter Name="direccion" Type="String" />
+        <asp:Parameter Name="email" Type="String" />
+        <asp:Parameter Name="telefono" Type="String" />
+    </InsertParameters>
+    <UpdateParameters>
+        <asp:Parameter Name="nombre" Type="String" />
+        <asp:Parameter Name="apellido" Type="String" />
+        <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
+        <asp:Parameter Name="direccion" Type="String" />
+        <asp:Parameter Name="email" Type="String" />
+        <asp:Parameter Name="telefono" Type="String" />
+        <asp:Parameter Name="dni" Type="Int32" />
+    </UpdateParameters>
+</asp:SqlDataSource>
+
+    <br> <br>
+            <asp:Button ID="btnProfesor" CssClass="btn btn-outline-primary" runat="server" 
+                            Text="Cargar Profesor" onclick="btnLogin_Click"></asp:Button>
     </form>
 </asp:Content>

@@ -301,31 +301,31 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.TextBox textDNI;
         
         /// <summary>
-        /// Control rfvCarrerra.
+        /// Control rfvMateria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCarrerra;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMateria;
         
         /// <summary>
-        /// Control LabelCarrera.
+        /// Control LabelMateria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCarrera;
+        protected global::System.Web.UI.WebControls.Label LabelMateria;
         
         /// <summary>
-        /// Control DDLCarrera.
+        /// Control DDLMateria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLCarrera;
+        protected global::System.Web.UI.WebControls.DropDownList DDLMateria;
         
         /// <summary>
         /// Control SqlDataSource1.

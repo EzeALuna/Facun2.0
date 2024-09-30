@@ -22,6 +22,21 @@
             <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
             <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
+
+                    <asp:TemplateField HeaderText="Materia">
+            <ItemTemplate>
+                <%# Eval("NombreMateria") %> <!-- Muestra el nombre de la materia -->
+            </ItemTemplate>
+               <EditItemTemplate>
+            <asp:DropDownList ID="ddlMateria" runat="server" 
+            SelectedValue='<%# Bind("id_materia") %>'
+            DataSourceID="SqlDataSourceMaterias" 
+            DataTextField="nombre" 
+            DataValueField="id_materia">
+            </asp:DropDownList>
+            </EditItemTemplate>
+        </asp:TemplateField>
+
             <%--<asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
                 <asp:TemplateField HeaderText="Carrera">
@@ -74,45 +89,48 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
     </asp:GridView>
+    
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
-        DeleteCommand="DELETE FROM [Alumnos] WHERE [dni] = @dni" 
-        InsertCommand="INSERT INTO [Alumnos] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [telefono], [id_carrera]) VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @telefono, @id_carrera)" 
-        SelectCommand="SELECT DISTINCT A.id_carrera, C.nombre, C.estado, C.año FROM Alumnos AS A INNER JOIN Carreras AS B ON A.id_carrera = B.id_carrera INNER JOIN Materias AS C ON B.id_carrera = C.id_carrera WHERE (A.dni = @DNI) ORDER BY C.año" 
-        
-        UpdateCommand="UPDATE [Alumnos] SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, [direccion] = @direccion, [email] = @email, [telefono] = @telefono, [id_carrera] = @id_carrera WHERE [dni] = @dni">
-        <DeleteParameters>
-            <asp:Parameter Name="dni" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="nombre" Type="String" />
-            <asp:Parameter Name="apellido" Type="String" />
-            <asp:Parameter Name="dni" Type="Int32" />
-            <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
-            <asp:Parameter Name="direccion" Type="String" />
-            <asp:Parameter Name="email" Type="String" />
-            <asp:Parameter Name="telefono" Type="String" />
-            <asp:Parameter Name="id_carrera" Type="Int32" />
-        </InsertParameters>
-        <SelectParameters>
-            <asp:CookieParameter CookieName="DNI" DbType="Int32" DefaultValue="0" 
-                Name="DNI" Type="Int32" />
-        </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="nombre" Type="String" />
-            <asp:Parameter Name="apellido" Type="String" />
-            <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
-            <asp:Parameter Name="direccion" Type="String" />
-            <asp:Parameter Name="email" Type="String" />
-            <asp:Parameter Name="telefono" Type="String" />
-            <asp:Parameter Name="id_carrera" Type="Int32" />
-            <asp:Parameter Name="dni" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
-   <%-- tablacarrera--%>
-     <asp:SqlDataSource ID="SqlDataSourceCarreras" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
-            SelectCommand="SELECT id_carrera, nombre FROM Carreras">
-            </asp:SqlDataSource>
+    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
+    DeleteCommand="DELETE FROM [Alumnos] WHERE [dni] = @dni" 
+    InsertCommand="INSERT INTO [Alumnos] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [telefono], [id_carrera]) 
+                   VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @telefono, @id_carrera)" 
+    SelectCommand="SELECT A.dni, A.nombre, A.apellido, A.fecha_nacimiento, A.direccion, A.email, A.telefono, 
+                          C.nombre AS NombreCarrera, M.nombre AS NombreMateria
+                   FROM Alumnos A 
+                   INNER JOIN Carreras C ON A.id_carrera = C.id_carrera
+                   LEFT JOIN Materias M ON C.id_carrera = M.id_carrera" 
+    UpdateCommand="UPDATE [Alumnos] 
+                   SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, 
+                       [direccion] = @direccion, [email] = @email, [telefono] = @telefono, [id_carrera] = @id_carrera 
+                   WHERE [dni] = @dni">
+    <DeleteParameters>
+        <asp:Parameter Name="dni" Type="Int32" />
+    </DeleteParameters>
+    <InsertParameters>
+        <asp:Parameter Name="nombre" Type="String" />
+        <asp:Parameter Name="apellido" Type="String" />
+        <asp:Parameter Name="dni" Type="Int32" />
+        <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
+        <asp:Parameter Name="direccion" Type="String" />
+        <asp:Parameter Name="email" Type="String" />
+        <asp:Parameter Name="telefono" Type="String" />
+        <asp:Parameter Name="id_carrera" Type="Int32" />
+    </InsertParameters>
+    <UpdateParameters>
+        <asp:Parameter Name="nombre" Type="String" />
+        <asp:Parameter Name="apellido" Type="String" />
+        <asp:Parameter DbType="Date" Name="fecha_nacimiento" />
+        <asp:Parameter Name="direccion" Type="String" />
+        <asp:Parameter Name="email" Type="String" />
+        <asp:Parameter Name="telefono" Type="String" />
+        <asp:Parameter Name="id_carrera" Type="Int32" />
+        <asp:Parameter Name="dni" Type="Int32" />
+    </UpdateParameters>
+</asp:SqlDataSource>
+
+ <br> <br>
+    <asp:Button ID="btnAlumno" CssClass="btn btn-outline-primary" runat="server" 
+                            Text="Cargar Alumnos" onclick="btnLogin_Click"></asp:Button>
     </form>
 </asp:Content>

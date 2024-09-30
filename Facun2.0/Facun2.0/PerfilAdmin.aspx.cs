@@ -54,9 +54,9 @@ namespace Facun2._0
             }
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("RegistroAdmin.aspx");
         }
     }
 }

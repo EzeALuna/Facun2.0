@@ -97,5 +97,9 @@
             <asp:Parameter Name="dni" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    
+    <br> <br>
+    <asp:Button ID="btnAdmin" CssClass="btn btn-outline-primary" runat="server" 
+                            Text="Cargar Administradores" onclick="btnLogin_Click"></asp:Button>
     </form>
 </asp:Content>

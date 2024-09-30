@@ -126,9 +126,9 @@
             SelectCommand="SELECT id_carrera, nombre FROM Carreras"> 
         <%--onselecting="SqlDataSourceCarreras_Selecting">--%>
             </asp:SqlDataSource>
-            <br>
-            <br>
-    <asp:Button ID="btnMaterias" CssClass="btn btn-outline-primary" runat="server" 
+
+            <br> <br>
+            <asp:Button ID="btnMaterias" CssClass="btn btn-outline-primary" runat="server" 
                             Text="Cargar materias" onclick="btnLogin_Click"></asp:Button>
       </form>
 </asp:Content>

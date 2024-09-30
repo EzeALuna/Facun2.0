@@ -129,21 +129,21 @@
 		        <%--    </div>
                     
                     <div class="form-group">--%>
-                     <asp:RequiredFieldValidator ControlToValidate="DDLCarrera" ID="rfvCarrerra" runat="server" ErrorMessage="Debe ingresar una carrera"
+                     <asp:RequiredFieldValidator ControlToValidate="DDLMateria" ID="rfvMateria" runat="server" ErrorMessage="Debe ingresar una Materia"
                            InitialValue="" Display="Dynamic" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:Label ID="LabelCarrera" runat="server" Text="Carrera"></asp:Label>
-                    <asp:DropDownList CssClass="form-control" ID="DDLCarrera" runat="server" DataSourceID="SqlDataSource1" 
-                            DataTextField="nombre" DataValueField="id_carrera" AppendDataBoundItems="True">
-                             <asp:ListItem Text="Seleccione una carrera" Value="" Selected="True"></asp:ListItem></asp:DropDownList>
+                    <asp:Label ID="LabelMateria" runat="server" Text="Materia"></asp:Label>
+                    <asp:DropDownList CssClass="form-control" ID="DDLMateria" runat="server" DataSourceID="SqlDataSource1" 
+                            DataTextField="nombre" DataValueField="id_Materia" AppendDataBoundItems="True">
+                             <asp:ListItem Text="Seleccione una Materia" Value="" Selected="True"></asp:ListItem></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
-                            SelectCommand="SELECT [id_carrera], [nombre] FROM [Carreras]"></asp:SqlDataSource>
+                            SelectCommand="SELECT [id_materia], [nombre] FROM [Materias]"></asp:SqlDataSource>
                     </div>
          
                     <div class="form-group">
 		            	<%--<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>--%>
                         <asp:Button ID="btnLoginprofesor" CssClass="form-control btn btn-primary rounded submit px-3" runat="server" 
-                            Text="Crear Usuario" onclick="btnLoginprofesor_Click"></asp:Button>
+                            Text="Crear Profesor" onclick="btnLoginprofesor_Click"></asp:Button>
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
                         
 		            </div>
