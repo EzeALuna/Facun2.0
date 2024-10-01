@@ -6,8 +6,7 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="dni" DataSourceID="SqlDataSource1" 
         EmptyDataText="No hay registros de datos para mostrar." CellPadding="4" 
-        ForeColor="#333333" GridLines="None" 
-        onselectedindexchanged="GridView1_SelectedIndexChanged">
+        ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <%--<asp:BoundField DataField="contraseña" HeaderText="contraseña" 

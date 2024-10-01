@@ -5,7 +5,8 @@
     <form id="form1" runat="server">
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" 
         EmptyDataText="No hay registros de datos para mostrar." CellPadding="4" 
-        ForeColor="#333333" GridLines="None" Width="80%" DataKeyNames="dni">
+        ForeColor="#333333" GridLines="None" Width="80%" DataKeyNames="dni" 
+        AllowSorting="True">
         <AlternatingRowStyle BackColor="White" />
     <Columns>
         <asp:BoundField DataField="dni" HeaderText="dni" 
@@ -31,9 +32,6 @@
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
-    
-        
-        
         SelectCommand="SELECT DISTINCT A.dni, C.nombre, C.estado, C.año FROM Alumnos AS A 
         INNER JOIN Carreras AS B ON A.id_carrera = B.id_carrera INNER JOIN Materias AS C 
         ON B.id_carrera = C.id_carrera 

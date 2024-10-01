@@ -1,4 +1,4 @@
-REATE TABLE Carreras (
+CREATE TABLE Carreras (
     id_carrera INT PRIMARY KEY identity,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(100)
@@ -73,6 +73,16 @@ CREATE TABLE Notas_Alumnos (
     nota int,
     fecha DATE NOT NULL,
     observaciones VARCHAR(50),
+    FOREIGN KEY (dni_alumno) REFERENCES Alumnos(dni),
+    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
+);
+
+CREATE TABLE Inscripciones (
+    id_inscripcion INT PRIMARY KEY IDENTITY,
+    dni_alumno INT,
+    id_materia INT,
+    fecha_inscripcion DATE DEFAULT GETDATE(),
+    estado VARCHAR(10)
     FOREIGN KEY (dni_alumno) REFERENCES Alumnos(dni),
     FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
