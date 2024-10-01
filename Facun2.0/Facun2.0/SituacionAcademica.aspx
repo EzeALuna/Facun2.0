@@ -30,12 +30,12 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+<%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
         SelectCommand="SELECT DISTINCT A.dni, C.nombre, C.estado, C.año FROM Alumnos AS A 
         INNER JOIN Carreras AS B ON A.id_carrera = B.id_carrera INNER JOIN Materias AS C 
         ON B.id_carrera = C.id_carrera 
-        WHERE (A.dni = @DNI) ORDER BY C.año">
+        WHERE (A.dni = @DNI) ORDER BY C.año">--%>
     <SelectParameters>
         <asp:CookieParameter CookieName="dni" Name="DNI" Type="Int32" />
     </SelectParameters>

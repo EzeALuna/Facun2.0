@@ -15,6 +15,8 @@
                 SortExpression="nombre" />
             <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
                 SortExpression="descripcion" />
+                <asp:BoundField DataField="estado" HeaderText="Estado" 
+                SortExpression="estado" />
             <%--asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
                 <asp:TemplateField HeaderText="Carrera">
@@ -32,7 +34,7 @@
             </asp:TemplateField>
 
             <%--<asp:BoundField DataField="estado" HeaderText="estado" SortExpression="estado" />--%>
-              <asp:TemplateField HeaderText="Estado">
+     <%--         <asp:TemplateField HeaderText="Estado">
              <ItemTemplate>
              <%# Eval("estado") %> <!-- Muestra el estado cuando no está en  edición -->
               </ItemTemplate>
@@ -43,7 +45,7 @@
              <asp:ListItem Value="Inactivo" Text="Inactivo"></asp:ListItem>
               </asp:DropDownList>
               </EditItemTemplate>
-             </asp:TemplateField>
+             </asp:TemplateField>--%>
 
             <%--<asp:BoundField DataField="año" HeaderText="año" SortExpression="año" />--%>
             <asp:TemplateField HeaderText="Año">

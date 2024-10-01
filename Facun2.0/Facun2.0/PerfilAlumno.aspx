@@ -23,7 +23,7 @@
             <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
 
-                    <asp:TemplateField HeaderText="Materia">
+                   <%-- <asp:TemplateField HeaderText="Materia">
             <ItemTemplate>
                 <%# Eval("NombreMateria") %> <!-- Muestra el nombre de la materia -->
             </ItemTemplate>
@@ -35,7 +35,7 @@
             DataValueField="id_materia">
             </asp:DropDownList>
             </EditItemTemplate>
-        </asp:TemplateField>
+        </asp:TemplateField>--%>
 
             <%--<asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
@@ -96,10 +96,9 @@
     InsertCommand="INSERT INTO [Alumnos] ([nombre], [apellido], [dni], [fecha_nacimiento], [direccion], [email], [telefono], [id_carrera]) 
                    VALUES (@nombre, @apellido, @dni, @fecha_nacimiento, @direccion, @email, @telefono, @id_carrera)" 
     SelectCommand="SELECT A.dni, A.nombre, A.apellido, A.fecha_nacimiento, A.direccion, A.email, A.telefono, 
-                          C.nombre AS NombreCarrera, M.nombre AS NombreMateria
+                          C.nombre AS NombreCarrera
                    FROM Alumnos A 
-                   INNER JOIN Carreras C ON A.id_carrera = C.id_carrera
-                   LEFT JOIN Materias M ON C.id_carrera = M.id_carrera" 
+                   INNER JOIN Carreras C ON A.id_carrera = C.id_carrera" 
     UpdateCommand="UPDATE [Alumnos] 
                    SET [nombre] = @nombre, [apellido] = @apellido, [fecha_nacimiento] = @fecha_nacimiento, 
                        [direccion] = @direccion, [email] = @email, [telefono] = @telefono, [id_carrera] = @id_carrera 
