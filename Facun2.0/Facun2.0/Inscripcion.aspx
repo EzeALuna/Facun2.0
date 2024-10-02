@@ -2,16 +2,29 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
-    <asp:GridView ID="GridView1" runat="server"
-        DataKeyNames="id_inscripcion" DataSourceID="SqlDataSource1"
-        EmptyDataText="No hay registros de datos para mostrar."
-        AutoGenerateEditButton="True">
+<form id="form1" runat="server">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
+        EmptyDataText="No hay registros para mostrar." AutoGenerateEditButton="True" >
         <Columns>
-            <!-- Columna para mostrar y editar el nombre de la materia -->
+            <asp:BoundField DataField="id_horario" HeaderText="ID Horario" ReadOnly="True" />
+
+            <asp:TemplateField HeaderText="Profesor">
+                <ItemTemplate>
+                    <%# Eval("NombreProfesor") %>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:DropDownList ID="ddlProfesor" runat="server" 
+                        SelectedValue='<%# Bind("dni_profesor") %>' 
+                        DataSourceID="SqlDataSourceProfesores" 
+                        DataTextField="nombre" 
+                        DataValueField="dni">
+                    </asp:DropDownList>
+                </EditItemTemplate>
+            </asp:TemplateField>
+
             <asp:TemplateField HeaderText="Materia">
                 <ItemTemplate>
-                    <%# Eval("Materia") %> <!-- Muestra el nombre de la materia -->
+                    <%# Eval("NombreMateria") %>
                 </ItemTemplate>
                 <EditItemTemplate>
                     <asp:DropDownList ID="ddlMateria" runat="server" 
@@ -23,69 +36,74 @@
                 </EditItemTemplate>
             </asp:TemplateField>
 
-            <!-- Columna para mostrar y editar la fecha de inscripción -->
-            <asp:TemplateField HeaderText="Fecha de Inscripción">
+            <asp:TemplateField HeaderText="Carrera">
                 <ItemTemplate>
-                    <%# Eval("fecha_inscripcion", "{0:yyyy-MM-dd}") %>
+                    <%# Eval("NombreCarrera") %>
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtFechaInscripcion" runat="server" 
-                        Text='<%# Bind("fecha_inscripcion", "{0:yyyy-MM-dd}") %>'></asp:TextBox>
-                </EditItemTemplate>
-            </asp:TemplateField>
-
-            <!-- Columna para mostrar y editar el estado -->
-            <asp:TemplateField HeaderText="Estado">
-                <ItemTemplate>
-                    <%# Eval("estado") %> <!-- Muestra el estado cuando no está en edición -->
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:DropDownList ID="ddlEstado" runat="server" 
-                        SelectedValue='<%# Bind("estado") %>'>
-                        <asp:ListItem Value="A cursar" Text="A cursar"></asp:ListItem>
-                        <asp:ListItem Value="Cursando" Text="Cursando"></asp:ListItem>
-                        <asp:ListItem Value="Finalizada" Text="Finalizada"></asp:ListItem>
+                    <asp:DropDownList ID="ddlCarrera" runat="server" 
+                        SelectedValue='<%# Bind("id_carrera") %>' 
+                        DataSourceID="SqlDataSourceCarreras" 
+                        DataTextField="nombre" 
+                        DataValueField="id_carrera">
                     </asp:DropDownList>
                 </EditItemTemplate>
             </asp:TemplateField>
+
+            <asp:BoundField DataField="dia" HeaderText="Día" />
+            <asp:BoundField DataField="modulo" HeaderText="Módulo" />
+            <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
         </Columns>
     </asp:GridView>
 
-    <!-- Fuente de datos para las inscripciones -->
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-        DeleteCommand="DELETE FROM [Inscripciones] WHERE [id_inscripcion] = @id_inscripcion"
-        InsertCommand="INSERT INTO [Inscripciones] ([dni_alumno], [id_materia], [fecha_inscripcion], [estado]) 
-                       VALUES (@dni_alumno, @id_materia, @fecha_inscripcion, @estado)"
-        SelectCommand="SELECT I.id_inscripcion, I.dni_alumno, I.id_materia, I.fecha_inscripcion, I.estado, 
-                              M.nombre AS Materia 
-                       FROM Inscripciones I 
-                       JOIN Materias M ON I.id_materia = M.id_materia"
-        UpdateCommand="UPDATE [Inscripciones] 
-                       SET [dni_alumno] = @dni_alumno, [id_materia] = @id_materia, [fecha_inscripcion] = @fecha_inscripcion, [estado] = @estado 
-                       WHERE [id_inscripcion] = @id_inscripcion">
-        <DeleteParameters>
-            <asp:Parameter Name="id_inscripcion" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="dni_alumno" Type="Int32" />
-            <asp:Parameter Name="id_materia" Type="Int32" />
-            <asp:Parameter DbType="Date" Name="fecha_inscripcion" />
-            <asp:Parameter Name="estado" Type="String" />
-        </InsertParameters>
+        SelectCommand="SELECT 
+                           H.id_horario,
+                            H.dni_profesor,
+                           P.nombre AS NombreProfesor,
+                           M.nombre AS NombreMateria,
+                           H.dia,
+                           H.modulo,
+                           C.nombre AS NombreCarrera,
+                           H.observaciones 
+                        FROM 
+                           HorariosMaterias H
+                        LEFT JOIN 
+                           Profesores P ON H.dni_profesor = P.dni
+                        LEFT JOIN 
+                           Materias M ON H.id_materia = M.id_materia
+                        LEFT JOIN 
+                           Carreras C ON M.id_carrera = C.id_carrera;"
+        UpdateCommand="UPDATE HorariosMaterias 
+                       SET dni_profesor=@dni_profesor, id_materia=@id_materia, dia=@dia, modulo=@modulo, 
+                           id_carrera=@id_carrera, observaciones=@observaciones 
+                       WHERE id_horario=@id_horario"
+        DeleteCommand="DELETE FROM HorariosMaterias WHERE id_horario=@id_horario">
         <UpdateParameters>
-            <asp:Parameter Name="dni_alumno" Type="Int32" />
+            <asp:Parameter Name="dni_profesor" Type="Int32" />
             <asp:Parameter Name="id_materia" Type="Int32" />
-            <asp:Parameter DbType="Date" Name="fecha_inscripcion" />
-            <asp:Parameter Name="estado" Type="String" />
-            <asp:Parameter Name="id_inscripcion" Type="Int32" />
+            <asp:Parameter Name="dia" Type="String" />
+            <asp:Parameter Name="modulo" Type="Int32" />
+            <asp:Parameter Name="id_carrera" Type="Int32" />
+            <asp:Parameter Name="observaciones" Type="String" />
+            <asp:Parameter Name="id_horario" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
 
-    <!-- Fuente de datos para las materias -->
     <asp:SqlDataSource ID="SqlDataSourceMaterias" runat="server"
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
         SelectCommand="SELECT id_materia, nombre FROM Materias">
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlDataSourceProfesores" runat="server"
+        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
+        SelectCommand="SELECT dni, nombre FROM Profesores">
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlDataSourceCarreras" runat="server"
+        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
+        SelectCommand="SELECT id_carrera, nombre FROM Carreras">
     </asp:SqlDataSource>
 </form>
 

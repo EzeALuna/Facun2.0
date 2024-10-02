@@ -23,7 +23,7 @@
             <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
 
-                    <asp:TemplateField HeaderText="Materia">
+            <%--        <asp:TemplateField HeaderText="Materia">
             <ItemTemplate>
                 <%# Eval("NombreMateria") %> <!-- Muestra el nombre de la materia -->
             </ItemTemplate>
@@ -35,7 +35,7 @@
             DataValueField="id_materia">
             </asp:DropDownList>
             </EditItemTemplate>
-        </asp:TemplateField>
+        </asp:TemplateField>--%>
 
             <%--<asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
