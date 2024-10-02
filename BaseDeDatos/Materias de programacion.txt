@@ -30,3 +30,17 @@ INSERT INTO Materias (nombre, descripcion, id_carrera, estado, año) VALUES ('BAS
 
 DELETE Materias FROM Materias
 
+INSERT INTO Carreras (nombre, descripcion) VALUES ('BIOLOGIA', 'Educación Secundaria en Biología');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('HISTORIA', 'Educación Secundaria en Historia');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('GEOGRAFIA', 'Educación Secundaria en Geografía');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('PRIMARIA', 'Educación Primaria');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('PSICOPEDAGOGIA', 'Psicopedagogía');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('PROGRAMACION', 'Análisis y Programación de Aplicaciones');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('HOTELERIA', 'Tecnicatura en Hoteleria');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('ECONOMIA', 'Economía Social para el Desarrollo Local');
+INSERT INTO Carreras (nombre, descripcion) VALUES ('PEDAGOGIA', 'Trayecto Formación Pedagógica');
+
+INSERT INTO Profesores(nombre, apellido, dni, fecha_nacimiento, email, contraseña, telefono ) VALUES ('DOGLIOTTI', 'MARIANO', 11111111, '11-11-1111', 'DOGLIOTTI@GAMIL.COM', 123, 1111111111);
+INSERT INTO Profesores(nombre, apellido, dni, fecha_nacimiento, email, contraseña, telefono ) VALUES ('BOSSERO', 'JULIO', 22222222, '11-11-1111', 'BOSSERO@GAMIL.COM', 123, 1111111111);
+INSERT INTO Profesores(nombre, apellido, dni, fecha_nacimiento, email, contraseña, telefono ) VALUES ('GORRINI', 'LUIS', 33333333, '11-11-1111', 'GORRINI@GAMIL.COM', 123, 1111111111);
+INSERT INTO Profesores(nombre, apellido, dni, fecha_nacimiento, email, contraseña, telefono ) VALUES ('VARGAS', 'MARIA', 44444444, '11-11-1111', 'VARGAS@GAMIL.COM', 123, 1111111111);

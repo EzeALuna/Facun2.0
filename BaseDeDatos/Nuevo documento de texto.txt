@@ -50,8 +50,8 @@ CREATE TABLE Profesores (
     email VARCHAR(100) UNIQUE,
     contraseña VARCHAR(20),
     telefono VARCHAR(20),
-    tipo CHAR(1),
     id_materia INT,
+    tipo VARCHAR(10)
     FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
 

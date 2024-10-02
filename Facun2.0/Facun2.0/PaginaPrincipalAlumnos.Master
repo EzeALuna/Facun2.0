@@ -22,7 +22,7 @@
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(Estilos/images/inst.png);"></a>
 	        <ul class="list-unstyled components mb-5">
 	          <li>
-              <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
+              <a href="Inscripcion.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
               </li>
               <li>
 	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inscripcion Anual</a>

@@ -50,7 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SituacionAcademica.aspx" />
+    <Content Include="Inscripcion.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_transition.css" />
@@ -109,12 +109,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SituacionAcademica.aspx.cs">
-      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
+    <Compile Include="Inscripcion.aspx.cs">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SituacionAcademica.aspx.designer.cs">
-      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
+    <Compile Include="Inscripcion.aspx.designer.cs">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
     </Compile>
     <Compile Include="InicioAdmin.aspx.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>

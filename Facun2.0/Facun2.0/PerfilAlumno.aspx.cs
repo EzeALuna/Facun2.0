@@ -32,10 +32,7 @@ namespace Facun2._0
                     else if (rol == "profesor")
                     {
                         // Si es profesor
-                        if (Request.Url.AbsolutePath.EndsWith("InicioProfesor.aspx"))
-                        {
                             Response.Redirect("InicioProfesor.aspx");
-                        }
                     }
                     else if (rol == "alumno")
                     {
