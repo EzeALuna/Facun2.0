@@ -9,7 +9,6 @@ CREATE TABLE Materias (
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(100),
     id_carrera INT,
-    estado VARCHAR(10),
     año INT,
     FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
 );
