@@ -3,6 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+    <div class="w-100">
+    <h1 class="heading-section" style="color:Blue">Materias</h1>
+    </div>
     <asp:GridView ID="GridView1" runat="server" 
         AutoGenerateColumns="False" DataKeyNames="id_materia" 
         DataSourceID="SqlDataSource1" 
@@ -10,13 +13,14 @@
         CellPadding="4" 
         ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
+
         <Columns>
             <asp:BoundField DataField="nombre" HeaderText="Nombre" 
                 SortExpression="nombre" />
             <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
                 SortExpression="descripcion" />
-                <asp:BoundField DataField="estado" HeaderText="Estado" 
-                SortExpression="estado" />
+               <%-- <asp:BoundField DataField="estado" HeaderText="Estado" 
+                SortExpression="estado" />--%>
             <%--asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
                 SortExpression="id_carrera" />--%>
                 <asp:TemplateField HeaderText="Carrera">
@@ -34,7 +38,7 @@
             </asp:TemplateField>
 
             <%--<asp:BoundField DataField="estado" HeaderText="estado" SortExpression="estado" />--%>
-              <asp:TemplateField HeaderText="Estado">
+              <%--<asp:TemplateField HeaderText="Estado">
              <ItemTemplate>
              <%# Eval("estado") %> <!-- Muestra el estado cuando no está en  edición -->
               </ItemTemplate>
@@ -45,7 +49,7 @@
              <asp:ListItem Value="Inactivo" Text="Inactivo"></asp:ListItem>
               </asp:DropDownList>
               </EditItemTemplate>
-             </asp:TemplateField>
+             </asp:TemplateField>--%>
 
             <%--<asp:BoundField DataField="año" HeaderText="año" SortExpression="año" />--%>
             <asp:TemplateField HeaderText="Año">
@@ -93,15 +97,13 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
-
-
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
     DeleteCommand="DELETE FROM [Materias] WHERE [id_materia] = @id_materia" 
-    InsertCommand="INSERT INTO [Materias] ([nombre], [descripcion], [id_carrera], [estado], [año]) VALUES (@nombre, @descripcion, @id_carrera, @estado, @año)" 
+    InsertCommand="INSERT INTO [Materias] ([nombre], [descripcion], [id_carrera], [año]) VALUES (@nombre, @descripcion, @id_carrera, @año)" 
     ProviderName="<%$ ConnectionStrings:Facun2DBConnectionString1.ProviderName %>" 
-    SelectCommand="SELECT M.[id_materia], M.[nombre], M.[descripcion], M.[id_carrera], C.[nombre] AS NombreCarrera, M.[estado], M.[año] FROM [Materias] M INNER JOIN [Carreras] C ON M.id_carrera = C.id_carrera" 
-    UpdateCommand="UPDATE [Materias] SET [nombre] = @nombre, [descripcion] = @descripcion, [id_carrera] = @id_carrera, [estado] = @estado, [año] = @año WHERE [id_materia] = @id_materia">
+    SelectCommand="SELECT M.[id_materia], M.[nombre], M.[descripcion], M.[id_carrera], C.[nombre] AS NombreCarrera, M.[año] FROM [Materias] M INNER JOIN [Carreras] C ON M.id_carrera = C.id_carrera" 
+    UpdateCommand="UPDATE [Materias] SET [nombre] = @nombre, [descripcion] = @descripcion, [id_carrera] = @id_carrera, [año] = @año WHERE [id_materia] = @id_materia">
         
         <DeleteParameters>
             <asp:Parameter Name="id_materia" Type="Int32" />
@@ -110,14 +112,12 @@
             <asp:Parameter Name="nombre" Type="String" />
             <asp:Parameter Name="descripcion" Type="String" />
             <asp:Parameter Name="id_carrera" Type="Int32" />
-            <asp:Parameter Name="estado" Type="String" />
             <asp:Parameter Name="año" Type="Int32" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="nombre" Type="String" />
             <asp:Parameter Name="descripcion" Type="String" />
             <asp:Parameter Name="id_carrera" Type="Int32" />
-            <asp:Parameter Name="estado" Type="String" />
             <asp:Parameter Name="año" Type="Int32" />
             <asp:Parameter Name="id_materia" Type="Int32" />
         </UpdateParameters>

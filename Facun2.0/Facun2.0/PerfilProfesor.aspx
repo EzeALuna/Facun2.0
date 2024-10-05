@@ -3,6 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+    <div class="w-100">
+    <h1 class="heading-section" style="color:Blue">Profesores</h1>
+    </div>
+
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="dni" DataSourceID="SqlDataSource1" 
         EmptyDataText="No hay registros de datos para mostrar." CellPadding="4" 
