@@ -77,11 +77,15 @@
 left JOIN 
     HorariosMaterias H ON H.id_materia = M.id_materia
 left JOIN 
-    Profesores P ON H.dni_profesor = P.dni;"
-
+    Profesores P ON H.dni_profesor = P.dni
+WHERE A.dni = @dniAlumno;;"
         UpdateCommand="UPDATE [Inscripciones] SET [estado] = @estado WHERE [id_inscripcion] = @id_inscripcion"
    
         DeleteCommand="DELETE FROM Inscripciones WHERE id_inscripcion=@id_inscripcion">
+        
+        <SelectParameters>
+            <asp:SessionParameter Name="dniAlumno" SessionField="dni" Type="String" />
+        </SelectParameters>
 
          <UpdateParameters>
         <asp:Parameter Name="estado" Type="String" />

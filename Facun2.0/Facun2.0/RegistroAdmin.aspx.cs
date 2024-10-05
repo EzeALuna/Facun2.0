@@ -102,6 +102,31 @@ namespace Facun2._0
 
                         conn.Open();
 
+                        // Obtener las materias de la carrera seleccionada
+                        string obtenerMaterias = "SELECT id_materia FROM Materias WHERE id_carrera = @idCarrera";
+                        SqlCommand cmdMaterias = new SqlCommand(obtenerMaterias, connection);
+                        cmdMaterias.Parameters.AddWithValue("@idCarrera", DDLCarrera.SelectedValue);
+
+                        SqlDataReader reader = cmdMaterias.ExecuteReader();
+
+                        // Insertar una inscripción por cada materia obtenida
+                        while (reader.Read())
+                        {
+                            int idMateria = (int)reader["id_materia"];
+
+                            string insertarInscripcion = "INSERT INTO Inscripciones (dni_alumno, id_materia, estado) " +
+                                                         "VALUES (@dni, @idMateria, 'A cursar')";
+
+                            SqlCommand cmdInscripcion = new SqlCommand(insertarInscripcion, connection);
+                            cmdInscripcion.Parameters.AddWithValue("@dni", textDNI.Text);
+                            cmdInscripcion.Parameters.AddWithValue("@idMateria", idMateria);
+
+                            cmdInscripcion.ExecuteNonQuery();
+                        }
+
+                        reader.Close();
+
+
                         try
                         {
                             SqlCommand command = new SqlCommand(script, conn);
