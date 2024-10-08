@@ -13,5 +13,10 @@ namespace Facun2._0
         {
 
         }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

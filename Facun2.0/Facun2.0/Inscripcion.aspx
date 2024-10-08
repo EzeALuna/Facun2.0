@@ -15,7 +15,45 @@
             <asp:BoundField DataField="dia" HeaderText="Día" ReadOnly="True" />
             <asp:BoundField DataField="modulo" HeaderText="Módulo" ReadOnly="True" />
 
-            <asp:TemplateField HeaderText="Estado">
+          
+
+<%--<asp:TemplateField HeaderText="Acciones">
+                <ItemTemplate>
+                    <!-- Botón Editar -->
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <!-- Botón Actualizar -->
+                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar"></asp:Button>
+                    <p></p>
+                    <!-- Botón Cancelar -->
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:Button>
+                </EditItemTemplate>
+            </asp:TemplateField>--%>
+        </Columns>
+
+         <EditRowStyle BackColor="#bdc9f2" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+    </asp:GridView>
+
+    <br />
+
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="id_materia" DataSourceID="SqlDataSourceMaterias" 
+        onselectedindexchanged="GridView2_SelectedIndexChanged">
+        <Columns>
+            <asp:BoundField DataField="nombre" HeaderText="nombre" 
+                SortExpression="nombre" />
+
+                  <asp:TemplateField HeaderText="Estado">
     <ItemTemplate>
         <%# Eval("estado") %>
     </ItemTemplate>
@@ -27,8 +65,7 @@
         </asp:DropDownList>
     </EditItemTemplate>
 </asp:TemplateField>
-
-<asp:TemplateField HeaderText="Acciones">
+            <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
                     <!-- Botón Editar -->
                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
@@ -42,17 +79,6 @@
                 </EditItemTemplate>
             </asp:TemplateField>
         </Columns>
-
-         <EditRowStyle BackColor="#bdc9f2" />
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"

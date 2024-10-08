@@ -60,11 +60,19 @@ namespace Facun2._0
             {
                 if (!String.IsNullOrEmpty(textApellido.Text) && !String.IsNullOrEmpty(textDNI.Text))
                 {
+                    //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";  // Ajusta según tu servidor
+                    //builder.InitialCatalog = "Facun2DB";
+                    //builder.IntegratedSecurity = true;
+                    //builder.PersistSecurityInfo = true;
+
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";  // Ajusta según tu servidor
+                    builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";  // Ajusta según tu servidor
                     builder.InitialCatalog = "Facun2DB";
                     builder.IntegratedSecurity = true;
                     builder.PersistSecurityInfo = true;
+
+
 
                     try
                     {
@@ -101,6 +109,9 @@ namespace Facun2._0
                         cmdAlumno.Parameters.AddWithValue("@Contraseña", textContraseña.Text);
                         cmdAlumno.Parameters.AddWithValue("@Telefono", textTelefono.Text);
                         cmdAlumno.Parameters.AddWithValue("@IdCarrera", DDLCarrera.SelectedValue);
+
+
+
 
                         // Ejecutar la inserción del alumno
                         int filasAfectadasAlumno = cmdAlumno.ExecuteNonQuery();
