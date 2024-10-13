@@ -54,9 +54,9 @@
                 SortExpression="nombre" />
 
                   <asp:TemplateField HeaderText="Estado">
-    <ItemTemplate>
+<%--    <ItemTemplate>
         <%# Eval("estado") %>
-    </ItemTemplate>
+    </ItemTemplate>--%>
     <EditItemTemplate>
         <asp:DropDownList ID="ddlEstado" runat="server" 
             SelectedValue='<%# Bind("estado") %>'>
