@@ -96,3 +96,11 @@ CREATE TABLE HorariosMaterias (
     observaciones VARCHAR(50),
     FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
+
+CREATE TABLE Correlativas (
+    id_materia INT,
+    id_materia_requisito INT,
+    PRIMARY KEY (id_materia, id_materia_requisito),
+    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia),
+    FOREIGN KEY (id_materia_requisito) REFERENCES Materias(id_materia)
+);

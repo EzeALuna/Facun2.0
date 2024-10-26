@@ -129,7 +129,7 @@
 		        <%--    </div>
                     
                     <div class="form-group">--%>
-                     <asp:RequiredFieldValidator ControlToValidate="DDLMateria" ID="rfvMateria" runat="server" ErrorMessage="Debe ingresar una Materia"
+                     <%--<asp:RequiredFieldValidator ControlToValidate="DDLMateria" ID="rfvMateria" runat="server" ErrorMessage="Debe ingresar una Materia"
                            InitialValue="" Display="Dynamic" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:Label ID="LabelMateria" runat="server" Text="Materia"></asp:Label>
                     <asp:DropDownList CssClass="form-control" ID="DDLMateria" runat="server" DataSourceID="SqlDataSource1" 
@@ -137,7 +137,7 @@
                              <asp:ListItem Text="Seleccione una Materia" Value="" Selected="True"></asp:ListItem></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
-                            SelectCommand="SELECT [id_materia], [nombre] FROM [Materias]"></asp:SqlDataSource>
+                            SelectCommand="SELECT [id_materia], [nombre] FROM [Materias]"></asp:SqlDataSource>--%>
                     </div>
          
                     <div class="form-group">

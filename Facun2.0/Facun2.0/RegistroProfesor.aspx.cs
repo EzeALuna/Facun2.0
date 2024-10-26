@@ -15,40 +15,40 @@ namespace Facun2._0
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                // Verifica el usuario 
-                if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
-                {
-                    // Si no hay sesión
-                    Response.Redirect("Login.aspx");
-                }
-                else
-                {
-                    // Verifica rol 
-                    string rol = Session["Usuario"].ToString().ToLower(); // Obtenee rol
+            //if (!Page.IsPostBack)
+            //{
+            //    // Verifica el usuario 
+            //    if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+            //    {
+            //        // Si no hay sesión
+            //        Response.Redirect("Login.aspx");
+            //    }
+            //    else
+            //    {
+            //        // Verifica rol 
+            //        string rol = Session["Usuario"].ToString().ToLower(); // Obtenee rol
 
-                    // Redirigir o permitir acceso
-                    if (rol == "admin")
-                    {
-                        // Si es admin ingresa
-                    }
-                    else if (rol == "profesor")
-                    {
-                        // Si es profesor
-                    }
-                    else if (rol == "alumno")
-                    {
-                        // Si es alumno ingresa
-                        Response.Redirect("InicioAlumno.aspx");
-                    }
-                    else
-                    {
-                        // Si el rol no es valido
-                        Response.Redirect("Login.aspx");
-                    }
-                }
-            }
+            //        // Redirigir o permitir acceso
+            //        if (rol == "admin")
+            //        {
+            //            // Si es admin ingresa
+            //        }
+            //        else if (rol == "profesor")
+            //        {
+            //            // Si es profesor
+            //        }
+            //        else if (rol == "alumno")
+            //        {
+            //            // Si es alumno ingresa
+            //            Response.Redirect("InicioAlumno.aspx");
+            //        }
+            //        else
+            //        {
+            //            // Si el rol no es valido
+            //            Response.Redirect("Login.aspx");
+            //        }
+            //    }
+            //}
         }
 
         protected void btnLoginprofesor_Click(object sender, EventArgs e)
@@ -62,13 +62,13 @@ namespace Facun2._0
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                     //EZE
-                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                     //HUGO
-                    builder.DataSource = "DESKTOP-044COGN";
+                    //builder.DataSource = "DESKTOP-044COGN";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -101,13 +101,13 @@ namespace Facun2._0
                         }
 
 
-                        string script = String.Format("INSERT INTO Profesores (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, id_materia) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', {6}, '{7}', '{8}', {9})",
-                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'A', DDLMateria.SelectedValue);
+                        string script = String.Format("INSERT INTO Profesores (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}', {7}, '{8}')",
+                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'P');
 
                         conn.Open();
 
-                        try
-                        {
+                        //try
+                        //{
                             SqlCommand command = new SqlCommand(script, conn);
 
                             int resp = command.ExecuteNonQuery();
@@ -155,14 +155,14 @@ namespace Facun2._0
 
                             conn.Close();
 
-                        }
+                        //}
 
-                        catch (Exception exception)
-                        {
-                            Console.WriteLine(exception.Message);
+                        //catch (Exception exception)
+                        //{
+                        //    Console.WriteLine(exception.Message);
 
 
-                        }
+                        //}
                     }
                 }
                 else

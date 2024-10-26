@@ -4,6 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <form id="form1" runat="server">
+    <div class="w-100">
+    <h2 class="mb-4">Situacion Actual</h2>
+    </div>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
         EmptyDataText="No hay registros para mostrar." 
         DataKeyNames="id_inscripcion" CellPadding="4" ForeColor="#333333" 
@@ -27,7 +30,7 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="Acciones">
+           <%-- <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
                 </ItemTemplate>
@@ -36,7 +39,7 @@
                     <p></p>
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:Button>
                 </EditItemTemplate>
-            </asp:TemplateField>
+            </asp:TemplateField>--%>
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -52,6 +55,9 @@
     
 <br />
 <br />
+    <div class="w-100">
+    <h2 class="mb-4">Inscripcion a materias</h2>
+    </div>
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="id_materia"
         DataSourceID="SqlDataSource2" 
         EmptyDataText="No hay registros de datos para mostrar." 
@@ -100,9 +106,37 @@
         </UpdateParameters>
     </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+   <%-- <asp:SqlDataSource ID="SqlDataSource2" runat="server"
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
         SelectCommand="SELECT id_materia, nombre, descripcion FROM Materias">
-    </asp:SqlDataSource>
+    </asp:SqlDataSource>--%>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
+    SelectCommand="
+        SELECT M.id_materia, M.nombre, M.descripcion 
+        FROM Materias M
+        WHERE M.año = (
+            SELECT CASE 
+                WHEN COUNT(*) BETWEEN 0 AND 10 THEN 1
+                WHEN COUNT(*) BETWEEN 11 AND 20 THEN 2
+                WHEN COUNT(*) BETWEEN 21 AND 30 THEN 3
+                ELSE 4
+            END AS anio_actual
+            FROM Inscripciones I
+            WHERE I.dni_alumno = @dniAlumno AND I.estado = 'Aprobado'
+        )
+        AND M.id_materia NOT IN (
+            SELECT C.id_materia
+            FROM Correlativas C
+            LEFT JOIN Inscripciones I ON C.id_materia_requisito = I.id_materia 
+            AND I.dni_alumno = @dniAlumno AND I.estado = 'Aprobado'
+            WHERE I.id_materia IS NULL
+        )">
+    <SelectParameters>
+        <asp:SessionParameter Name="dniAlumno" SessionField="dni" Type="String" />
+    </SelectParameters>
+</asp:SqlDataSource>
+
+
 </form>
 </asp:Content>
