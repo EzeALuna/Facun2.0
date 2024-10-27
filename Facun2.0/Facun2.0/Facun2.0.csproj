@@ -50,6 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CargarNotas.aspx" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />
@@ -109,6 +110,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargarNotas.aspx.cs">
+      <DependentUpon>CargarNotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarNotas.aspx.designer.cs">
+      <DependentUpon>CargarNotas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inscripcion.aspx.cs">
       <DependentUpon>Inscripcion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
