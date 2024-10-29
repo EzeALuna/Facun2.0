@@ -68,10 +68,10 @@ namespace Facun2._0
                     //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
-                    //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+                    builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                     //HUGO
-                    builder.DataSource = "DESKTOP-044COGN";
+                    //builder.DataSource = "DESKTOP-044COGN";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";

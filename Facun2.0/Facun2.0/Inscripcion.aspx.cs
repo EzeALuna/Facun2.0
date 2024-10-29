@@ -13,7 +13,40 @@ namespace Facun2._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                // Verifica el usuario 
+                if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+                {
+                    // Si no hay sesión
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    // Verifica rol 
+                    string rol = Session["Usuario"].ToString().ToLower(); // Obtenee rol
 
+                    // Redirigir o permitir acceso
+                    if (rol == "admin")
+                    {
+                        // Si es admin ingresa
+                    }
+                    else if (rol == "profesor")
+                    {
+                        // Si es profesor
+                        Response.Redirect("InicioProfesor.aspx");
+                    }
+                    else if (rol == "alumno")
+                    {
+                        // Si es alumno ingresa
+                    }
+                    else
+                    {
+                        // Si el rol no es valido
+                        Response.Redirect("Login.aspx");
+                    }
+                }
+            }
         }
 
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -43,6 +76,7 @@ namespace Facun2._0
                     }
 
                     // Recarga Inscripciones
+                    
                     GridView1.DataBind();
                 }
                 else
@@ -51,6 +85,8 @@ namespace Facun2._0
                 }
             }
         }
+
+
 
     }
 }

@@ -113,25 +113,25 @@
     <asp:SqlDataSource ID="SqlDataSource2" runat="server"
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
     SelectCommand="
-        SELECT M.id_materia, M.nombre, M.descripcion 
-        FROM Materias M
-        WHERE M.año = (
-            SELECT CASE 
-                WHEN COUNT(*) BETWEEN 0 AND 10 THEN 1
-                WHEN COUNT(*) BETWEEN 11 AND 20 THEN 2
-                WHEN COUNT(*) BETWEEN 21 AND 30 THEN 3
-                ELSE 4
-            END AS anio_actual
+    SELECT M.id_materia, M.nombre, M.descripcion 
+FROM Materias M
+WHERE M.año = 1 
+    AND M.id_materia NOT IN (
+        SELECT I.id_materia FROM Inscripciones I
+        WHERE I.dni_alumno = @dniAlumno AND I.estado = 'Aprobado' OR I.estado = 'Cursando' AND I.dni_alumno = @dniAlumno
+    )   UNION
+SELECT M.id_materia, M.nombre, M.descripcion FROM Materias M
+WHERE M.año > 1 AND M.id_materia NOT IN 
+(SELECT C.id_materia
+        FROM Correlativas C
+        WHERE C.id_materia_requisito NOT IN (
+            SELECT I.id_materia
             FROM Inscripciones I
-            WHERE I.dni_alumno = @dniAlumno AND I.estado = 'Aprobado'
+            WHERE I.dni_alumno = @dniAlumno 
+                AND I.estado = 'Aprobado' OR I.estado = 'Cursando' AND I.dni_alumno = @dniAlumno
         )
-        AND M.id_materia NOT IN (
-            SELECT C.id_materia
-            FROM Correlativas C
-            LEFT JOIN Inscripciones I ON C.id_materia_requisito = I.id_materia 
-            AND I.dni_alumno = @dniAlumno AND I.estado = 'Aprobado'
-            WHERE I.id_materia IS NULL
-        )">
+    );
+">
     <SelectParameters>
         <asp:SessionParameter Name="dniAlumno" SessionField="dni" Type="String" />
     </SelectParameters>
