@@ -1,4 +1,4 @@
-CREATE TABLE Carreras (
+﻿CREATE TABLE Carreras (
     id_carrera INT PRIMARY KEY identity,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(100)
@@ -14,44 +14,44 @@ CREATE TABLE Materias (
 );
 
 CREATE TABLE Admin (
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    dni INT PRIMARY KEY,
-    fecha_nacimiento DATE,
-    direccion VARCHAR(255),
-    email VARCHAR(100) UNIQUE,
-    contraseña VARCHAR(20),
-    telefono VARCHAR(20),
-    tipo CHAR(1),
-    cargo VARCHAR(20)
+		dni INT PRIMARY key,
+		nombre VARCHAR(100) NOT NULL,
+    	apellido VARCHAR(100) NOT NULL,
+		email VARCHAR(100) UNIQUE NOT NULL,
+		contraseña VARCHAR(20) NOT NULL,
+    	fecha_nacimiento DATE,
+    	direccion VARCHAR(255),
+    	telefono VARCHAR(20),
+    	tipo CHAR(1),
+    	cargo VARCHAR(20)
 );
 
 CREATE TABLE Alumnos (
-    nombre VARCHAR(100) NOT NULL,
+	dni INT PRIMARY key,
+	nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
-    dni INT PRIMARY KEY,
-    fecha_nacimiento DATE,
-    direccion VARCHAR(255),
-    email VARCHAR(100) UNIQUE,
-    contraseña VARCHAR(20),
-    telefono VARCHAR(20),
-    tipo CHAR(1),
+	email VARCHAR(100) UNIQUE NOT NULL,
+	contraseña VARCHAR(20) NOT NULL,
+  	fecha_nacimiento DATE,
+   	direccion VARCHAR(255),
+  	telefono VARCHAR(20),
+   	tipo CHAR(1),
     id_carrera INT,
-    FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
+  	FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
 );
 
 CREATE TABLE Profesores (
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    dni INT PRIMARY key,
-    fecha_nacimiento DATE,
-    direccion VARCHAR(255),
-    email VARCHAR(100) UNIQUE,
-    contraseña VARCHAR(20),
-    telefono VARCHAR(20),
-    id_materia INT,
-    tipo VARCHAR(10)
-    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
+    	dni INT PRIMARY key,
+	nombre VARCHAR(100) NOT NULL,
+    	apellido VARCHAR(100) NOT NULL,
+	email VARCHAR(100) UNIQUE NOT NULL,
+	contraseña VARCHAR(20) NOT NULL,
+    	fecha_nacimiento DATE,
+    	direccion VARCHAR(255),
+    	telefono VARCHAR(20),
+    	id_materia INT,
+    	tipo VARCHAR(10)
+   	FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
 
 CREATE TABLE Licencias_Profesores (

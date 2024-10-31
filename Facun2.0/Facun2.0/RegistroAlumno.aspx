@@ -52,6 +52,19 @@
 							<form id="Form1" action="#" class="signin-form" runat="server">
 			      		<asp:Label ID="lblAlerta" runat="server" Text=""></asp:Label>
                         <div class="form-group mt-3">
+
+                         <%--        </div>
+
+                    <div class="form-group">--%>
+                    <asp:RequiredFieldValidator ID="rfvDNI" ErrorMessage="Debe ingresar DNI"  Display="Dynamic"
+                           ControlToValidate="textDNI" runat="server" Text="*" ForeColor="Red"/>
+                     <asp:RangeValidator ID="rvDNI" MinimumValue="11111111" MaximumValue="99999999" Type="Integer" 
+                     ControlToValidate="textDNI" runat="server" ErrorMessage="Debe ingresar un DNI valido" Text="*" ForeColor="Red"></asp:RangeValidator>
+                     <asp:Label ID="LblDNI" runat="server" Text="DNI"></asp:Label>
+		             <asp:TextBox ID="textDNI" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
+
+
+
                         <asp:RequiredFieldValidator ID="rfvNombre" ControlToValidate="textNombre" runat="server" Display="Dynamic"
                                  ErrorMessage="Debe ingresar nombre" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                             <asp:Label ID="LabelNombre" runat="server" Text="Nombre"></asp:Label>
@@ -69,30 +82,12 @@
 			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
 			      		<%--</div>
 
-                        <div class="form-group mt-3">--%>
-                         <asp:RequiredFieldValidator ID="rfvDireccion" ControlToValidate="textDireccion" runat="server" Display="Dynamic"
-                                 ErrorMessage="Debe ingresar Direccion" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                            <asp:Label ID="LabelDireccion" runat="server" Text="Direccion"></asp:Label>
-			      			<%--<input type="text" class="form-control" required>--%>
-                             <asp:TextBox ID="textDireccion" CssClass="form-control" runat="server"></asp:TextBox>
-			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
-                       <%--   </div>
-
                            <div class="form-group">--%>
                            <asp:RequiredFieldValidator ID="rvEmail" ErrorMessage="Debe ingresar Email"  Display="Dynamic"
                            ControlToValidate="textEmail" runat="server" Text="*" ForeColor="Red"/>
                      <asp:Label ID="LblEmail" runat="server" Text="Email"></asp:Label>
 		             <asp:TextBox ID="textEmail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
 		       <%--    </div>     
-                    
-                         <div class="form-group mt-3">--%>
-                         <asp:RequiredFieldValidator ID="rfvTelefono" ControlToValidate="textTelefono" runat="server" Display="Dynamic"
-                                 ErrorMessage="Debe ingresar Telefono" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                            <asp:Label ID="LabelTelefono" runat="server" Text="Telefono"></asp:Label>
-			      			<%--<input type="text" class="form-control" required>--%>
-                             <asp:TextBox ID="textTelefono" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
-			      			<%--<label class="form-control-placeholder" for="username">Username</label>--%>
-			   <%--   		</div>        
 
                     <div class="form-group">--%>
                      <asp:RequiredFieldValidator ID="rvContraseña" ErrorMessage="Debe ingresar Contraseña"  Display="Dynamic"
@@ -111,22 +106,7 @@
                       <%--<label class="form-control-placeholder" for="password">Contraseña</label>--%>
 		              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" 
                             style="right: 15px; top: -400%"></span>
-		    <%--        </div>
-
-                   <div class="form-group">--%>
-                    <asp:RequiredFieldValidator ID="rfvNacimiento" ErrorMessage="Debe ingresar Nacimiento"  Display="Dynamic"
-                           ControlToValidate="textNacimiento" runat="server" Text="*" ForeColor="Red"/>
-                     <asp:Label ID="LabelNacimiento" runat="server" Text="Nacimiento"></asp:Label>
-		             <asp:TextBox ID="textNacimiento" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
-		         <%--   </div>
-
-                    <div class="form-group">--%>
-                    <asp:RequiredFieldValidator ID="rfvDNI" ErrorMessage="Debe ingresar DNI"  Display="Dynamic"
-                           ControlToValidate="textDNI" runat="server" Text="*" ForeColor="Red"/>
-                     <asp:RangeValidator ID="rvDNI" MinimumValue="11111111" MaximumValue="99999999" Type="Integer" 
-                     ControlToValidate="textDNI" runat="server" ErrorMessage="Debe ingresar un DNI valido" Text="*" ForeColor="Red"></asp:RangeValidator>
-                     <asp:Label ID="LblDNI" runat="server" Text="DNI"></asp:Label>
-		             <asp:TextBox ID="textDNI" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
+		   
                   <%--  </div>
                     
                     <div class="form-group">--%>

@@ -103,21 +103,16 @@ namespace Facun2._0
                         }
 
                         // Insertar el alumno en la tabla Alumnos
-                        string scriptAlumno = "INSERT INTO Alumnos (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, id_carrera) " +
-                                              "VALUES (@Nombre, @Apellido, @DNI, @FechaNacimiento, @Direccion, @Email, @Contraseña, @Telefono, 'A', @IdCarrera)";
+                        string scriptAlumno = "INSERT INTO Alumnos (dni, Nombre, Apellido, email, contraseña, tipo, id_carrera) " +
+                                              "VALUES (@DNI, @Nombre, @Apellido, @Email, @Contraseña, 'A', @IdCarrera)";
 
                         SqlCommand cmdAlumno = new SqlCommand(scriptAlumno, connection);
+                        cmdAlumno.Parameters.AddWithValue("@DNI", textDNI.Text);
                         cmdAlumno.Parameters.AddWithValue("@Nombre", textNombre.Text);
                         cmdAlumno.Parameters.AddWithValue("@Apellido", textApellido.Text);
-                        cmdAlumno.Parameters.AddWithValue("@DNI", textDNI.Text);
-                        cmdAlumno.Parameters.AddWithValue("@FechaNacimiento", textNacimiento.Text);
-                        cmdAlumno.Parameters.AddWithValue("@Direccion", textDireccion.Text);
                         cmdAlumno.Parameters.AddWithValue("@Email", textEmail.Text);
                         cmdAlumno.Parameters.AddWithValue("@Contraseña", textContraseña.Text);
-                        cmdAlumno.Parameters.AddWithValue("@Telefono", textTelefono.Text);
                         cmdAlumno.Parameters.AddWithValue("@IdCarrera", DDLCarrera.SelectedValue);
-
-
 
 
                         // Ejecutar la inserción del alumno
@@ -133,27 +128,27 @@ namespace Facun2._0
                             SqlDataReader reader = cmdMaterias.ExecuteReader();
 
                             // Insertar inscripciones en la tabla Inscripciones
-                            while (reader.Read())
-                            {
-                                int idMateria = (int)reader["id_materia"];
+                            //while (reader.Read())
+                            //{
+                            //    int idMateria = (int)reader["id_materia"];
 
-                                string insertarInscripcion = "INSERT INTO Inscripciones (dni_alumno, id_materia, estado) " +
-                                                             "VALUES (@DNI, @IdMateria, 'A cursar')";
+                            //    string insertarInscripcion = "INSERT INTO Inscripciones (dni_alumno, id_materia, estado) " +
+                            //                                 "VALUES (@DNI, @IdMateria, 'A cursar')";
 
-                                SqlCommand cmdInscripcion = new SqlCommand(insertarInscripcion, connection);
-                                cmdInscripcion.Parameters.AddWithValue("@DNI", textDNI.Text);
-                                cmdInscripcion.Parameters.AddWithValue("@IdMateria", idMateria);
+                            //    SqlCommand cmdInscripcion = new SqlCommand(insertarInscripcion, connection);
+                            //    cmdInscripcion.Parameters.AddWithValue("@DNI", textDNI.Text);
+                            //    cmdInscripcion.Parameters.AddWithValue("@IdMateria", idMateria);
 
-                                // Ejecutar la inserción de inscripciones
-                                int filasAfectadasInscripcion = cmdInscripcion.ExecuteNonQuery();
+                            //    // Ejecutar la inserción de inscripciones
+                            //    int filasAfectadasInscripcion = cmdInscripcion.ExecuteNonQuery();
 
-                                if (filasAfectadasInscripcion == 0)
-                                {
-                                    // Mostrar mensaje de error si alguna inscripción no se pudo insertar
-                                    string scriptErrorInscripcion = "Swal.fire({ icon: 'error', title: 'Error', text: 'No se pudo insertar la inscripción.', confirmButtonColor: '#d33', confirmButtonText: 'OK' })";
-                                    ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptErrorInscripcion, true);
-                                }
-                            }
+                            //    if (filasAfectadasInscripcion == 0)
+                            //    {
+                            //        // Mostrar mensaje de error si alguna inscripción no se pudo insertar
+                            //        string scriptErrorInscripcion = "Swal.fire({ icon: 'error', title: 'Error', text: 'No se pudo insertar la inscripción.', confirmButtonColor: '#d33', confirmButtonText: 'OK' })";
+                            //        ClientScript.RegisterStartupScript(this.GetType(), "sweetalert", scriptErrorInscripcion, true);
+                            //    }
+                            //}
 
                             reader.Close();
 

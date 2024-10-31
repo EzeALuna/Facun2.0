@@ -36,12 +36,12 @@ namespace Facun2._0
                     else if (rol == "profesor")
                     {
                         // Si es profesor
-                            Response.Redirect("InicioProfesor.aspx");
+                        Response.Redirect("InicioProfesor.aspx");
                     }
                     else if (rol == "alumno")
                     {
                         // Si es alumno
-                            Response.Redirect("InicioAlumno.aspx");
+                        Response.Redirect("InicioAlumno.aspx");
                     }
                     else
                     {
@@ -64,10 +64,10 @@ namespace Facun2._0
                     //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
-                    builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+                    ////builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                     //HUGO
-                    //builder.DataSource = "DESKTOP-044COGN";
+                    builder.DataSource = "DESKTOP-044COGN";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -161,7 +161,7 @@ namespace Facun2._0
                                 textTelefono.Text = "";
                                 //DDLCarrera.SelectedValue = "";
                                 lblAlerta.Text = "";
-                                
+
                             }
                             else
                             {
@@ -184,9 +184,9 @@ namespace Facun2._0
                 {
                     lblTexto.Text = "Todos los campos son obligatorios";
                 }
-                
+
             }
-            
+
         }
     }
 }
