@@ -30,16 +30,6 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
             </asp:TemplateField>
-           <%-- <asp:TemplateField HeaderText="Acciones">
-                <ItemTemplate>
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar"></asp:Button>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar"></asp:Button>
-                    <p></p>
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar"></asp:Button>
-                </EditItemTemplate>
-            </asp:TemplateField>--%>
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -87,53 +77,49 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-        SelectCommand="SELECT I.id_inscripcion, M.nombre AS NombreMateria, C.nombre AS NombreCarrera, H.dia, H.modulo, I.estado
-                       FROM Inscripciones I 
-                       JOIN Alumnos A ON I.dni_alumno = A.dni
-                       JOIN Carreras C ON A.id_carrera = C.id_carrera
-                       JOIN Materias M ON I.id_materia = M.id_materia
-                       LEFT JOIN HorariosMaterias H ON H.id_materia = M.id_materia
-                       WHERE A.dni = @dniAlumno"
-        UpdateCommand="UPDATE Inscripciones SET estado = @estado WHERE id_inscripcion = @id_inscripcion">
-        <SelectParameters>
-            <asp:SessionParameter Name="dniAlumno" SessionField="dni" Type="String" />
-        </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="estado" Type="String" />
-            <asp:Parameter Name="id_inscripcion" Type="Int32" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
+<asp:SqlDataSource ID="SqlDataSource1" runat="server"
+    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
+    SelectCommand="SELECT I.id_inscripcion, M.nombre AS NombreMateria, C.nombre AS NombreCarrera, H.dia, H.modulo, I.estado
+    FROM Inscripciones I 
+    JOIN Alumnos A ON I.dni_alumno = A.dni
+    LEFT JOIN Carreras C ON A.id_carrera = C.id_carrera
+    LEFT JOIN Materias M ON I.id_materia = M.id_materia
+    LEFT JOIN HorariosMaterias H ON H.id_materia = M.id_materia
+    WHERE A.dni = @dniAlumno"
+    UpdateCommand="UPDATE Inscripciones SET estado = @estado WHERE id_inscripcion = @id_inscripcion">
+    <SelectParameters>
+        <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="String" /> 
+    </SelectParameters>
+    <UpdateParameters>
+        <asp:Parameter Name="estado" Type="String" />
+        <asp:Parameter Name="id_inscripcion" Type="Int32" />
+    </UpdateParameters>
+</asp:SqlDataSource>
 
-   <%-- <asp:SqlDataSource ID="SqlDataSource2" runat="server"
-        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-        SelectCommand="SELECT id_materia, nombre, descripcion FROM Materias">
-    </asp:SqlDataSource>--%>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+<asp:SqlDataSource ID="SqlDataSource2" runat="server"
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
     SelectCommand="
     SELECT M.id_materia, M.nombre, M.descripcion 
-FROM Materias M
-WHERE M.año = 1 
-    AND M.id_materia NOT IN (
-        SELECT I.id_materia FROM Inscripciones I
-        WHERE I.dni_alumno = @dniAlumno AND I.estado = 'Aprobado' OR I.estado = 'Cursando' AND I.dni_alumno = @dniAlumno
-    )   UNION
-SELECT M.id_materia, M.nombre, M.descripcion FROM Materias M
-WHERE M.año > 1 AND M.id_materia NOT IN 
-(SELECT C.id_materia
+    FROM Materias M
+    WHERE M.año = 1 
+        AND M.id_materia NOT IN (
+            SELECT I.id_materia FROM Inscripciones I
+            WHERE I.dni_alumno = @dniAlumno AND (I.estado = 'Aprobado' OR I.estado = 'Cursando')
+        )  
+    UNION
+    SELECT M.id_materia, M.nombre, M.descripcion FROM Materias M
+    WHERE M.año > 1 AND M.id_materia NOT IN 
+    (
+        SELECT C.id_materia
         FROM Correlativas C
         WHERE C.id_materia_requisito NOT IN (
             SELECT I.id_materia
             FROM Inscripciones I
-            WHERE I.dni_alumno = @dniAlumno 
-                AND I.estado = 'Aprobado' OR I.estado = 'Cursando' AND I.dni_alumno = @dniAlumno
+            WHERE I.dni_alumno = @dniAlumno AND (I.estado = 'Aprobado' OR I.estado = 'Cursando')
         )
-    );
-">
+    );">
     <SelectParameters>
-        <asp:SessionParameter Name="dniAlumno" SessionField="dni" Type="String" />
+        <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="Int32" /> 
     </SelectParameters>
 </asp:SqlDataSource>
 

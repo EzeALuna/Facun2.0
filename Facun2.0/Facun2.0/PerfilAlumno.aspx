@@ -27,23 +27,7 @@
             <asp:BoundField DataField="telefono" HeaderText="Telefono" 
                 SortExpression="telefono" />
 
-            <%--        <asp:TemplateField HeaderText="Materia">
-            <ItemTemplate>
-                <%# Eval("NombreMateria") %> <!-- Muestra el nombre de la materia -->
-            </ItemTemplate>
-               <EditItemTemplate>
-            <asp:DropDownList ID="ddlMateria" runat="server" 
-            SelectedValue='<%# Bind("id_materia") %>'
-            DataSourceID="SqlDataSourceMaterias" 
-            DataTextField="nombre" 
-            DataValueField="id_materia">
-            </asp:DropDownList>
-            </EditItemTemplate>
-        </asp:TemplateField>--%>
-
-            <%--<asp:BoundField DataField="id_carrera" HeaderText="id_carrera" 
-                SortExpression="id_carrera" />--%>
-                <asp:TemplateField HeaderText="Carrera">
+            <asp:TemplateField HeaderText="Carrera">
             <ItemTemplate>
             <%# Eval("NombreCarrera") %> <!-- Muestra el nombre de la carrera -->
             </ItemTemplate>
@@ -57,10 +41,6 @@
             </EditItemTemplate>
             </asp:TemplateField>
 
-           <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
-                ButtonType="Button" >
-            <ControlStyle BorderStyle="Solid" ForeColor="Red" />
-            </asp:CommandField>--%>
            <asp:TemplateField HeaderText="Acciones">
                 <ItemTemplate>
                     <!-- Botón Editar -->

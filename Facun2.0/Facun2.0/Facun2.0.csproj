@@ -87,6 +87,7 @@
     <Content Include="InicioAlumno.aspx" />
     <Content Include="InicioProfesor.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MisDatos.aspx" />
     <Content Include="PerfilAdmin.aspx" />
     <Content Include="PerfilAlumno.aspx" />
     <Content Include="PerfilProfesor.aspx" />
@@ -99,6 +100,7 @@
     <Content Include="RegistroMateria.aspx" />
     <Content Include="RegistroProfesor.aspx" />
     <Content Include="SeleccionRegistro.aspx" />
+    <Content Include="SituacionAcademica.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -151,6 +153,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MisDatos.aspx.cs">
+      <DependentUpon>MisDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisDatos.aspx.designer.cs">
+      <DependentUpon>MisDatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaPrincipalAdmin.Master.cs">
       <DependentUpon>PaginaPrincipalAdmin.Master</DependentUpon>
@@ -236,6 +245,13 @@
     </Compile>
     <Compile Include="SeleccionRegistro.aspx.designer.cs">
       <DependentUpon>SeleccionRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SituacionAcademica.aspx.cs">
+      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SituacionAcademica.aspx.designer.cs">
+      <DependentUpon>SituacionAcademica.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
