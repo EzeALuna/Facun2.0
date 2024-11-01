@@ -19,7 +19,7 @@
             <asp:BoundField DataField="dia" HeaderText="Día" ReadOnly="True" Visible="False"/>
             <asp:BoundField DataField="modulo" HeaderText="Módulo" ReadOnly="True" Visible="False" />
             <asp:TemplateField HeaderText="Estado">
-                <ItemTemplate>
+            <%--    <ItemTemplate>
                     <%# Eval("estado") %>
                 </ItemTemplate>
                 <EditItemTemplate>
@@ -28,7 +28,26 @@
                         <asp:ListItem Text="Activo" Value="Activo"></asp:ListItem>
                         <asp:ListItem Text="A cursar" Value="A cursar"></asp:ListItem>
                     </asp:DropDownList>
-                </EditItemTemplate>
+                </EditItemTemplate>--%>
+            <ItemTemplate>
+                <%# Eval("estado") %>
+            </ItemTemplate>
+            <EditItemTemplate>
+                <asp:DropDownList ID="ddlEstado" runat="server" 
+                    SelectedValue='<%# Bind("estado") %>'>
+                    <asp:ListItem Text="Activo" Value="Activo"></asp:ListItem>
+                    <asp:ListItem Text="A cursar" Value="A cursar"></asp:ListItem>
+                </asp:DropDownList>
+            </EditItemTemplate>
+        </asp:TemplateField>
+
+        <asp:TemplateField HeaderText="Anular">
+            <ItemTemplate>
+                <asp:Button ID="btnEliminar" runat="server" Text="Anular" CommandName="Delete"
+                    CommandArgument='<%# Eval("id_inscripcion") %>'
+                    OnClientClick="return confirm('¿Está seguro de que desea anular la inscripción?');" />
+            </ItemTemplate>
+
             </asp:TemplateField>
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
@@ -50,7 +69,7 @@
     </div>
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="id_materia"
         DataSourceID="SqlDataSource2" 
-        EmptyDataText="No hay registros de datos para mostrar." 
+        EmptyDataText="No hay materias de datos para mostrar." 
         OnRowCommand="GridView2_RowCommand" CellPadding="4" ForeColor="#333333" 
         GridLines="None">
         <AlternatingRowStyle BackColor="White" />
@@ -58,9 +77,9 @@
             <asp:BoundField DataField="id_materia" HeaderText="ID Materia" ReadOnly="True" Visible="False" />
             <asp:BoundField DataField="nombre" HeaderText="Materia" />
             <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
-            <asp:TemplateField HeaderText="Seleccionar">
+            <asp:TemplateField HeaderText="Inscribirse">
                 <ItemTemplate>
-                    <asp:Button ID="btnSeleccionar" runat="server" Text="Seleccionar" CommandName="Seleccionar"
+                    <asp:Button ID="btnSeleccionar" runat="server" Text="Inscribirse" CommandName="Seleccionar"
                         CommandArgument='<%# Eval("id_materia") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
@@ -76,7 +95,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-
+    
 <asp:SqlDataSource ID="SqlDataSource1" runat="server"
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
     SelectCommand="SELECT I.id_inscripcion, M.nombre AS NombreMateria, C.nombre AS NombreCarrera, H.dia, H.modulo, I.estado
@@ -86,7 +105,8 @@
     LEFT JOIN Materias M ON I.id_materia = M.id_materia
     LEFT JOIN HorariosMaterias H ON H.id_materia = M.id_materia
     WHERE A.dni = @dniAlumno"
-    UpdateCommand="UPDATE Inscripciones SET estado = @estado WHERE id_inscripcion = @id_inscripcion">
+    UpdateCommand="UPDATE Inscripciones SET estado = @estado WHERE id_inscripcion = @id_inscripcion"
+    DeleteCommand="DELETE FROM [Inscripciones] WHERE [id_inscripcion] = @id_inscripcion">
     <SelectParameters>
         <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="String" /> 
     </SelectParameters>
@@ -94,30 +114,18 @@
         <asp:Parameter Name="estado" Type="String" />
         <asp:Parameter Name="id_inscripcion" Type="Int32" />
     </UpdateParameters>
+         <DeleteParameters>
+            <asp:Parameter Name="id_inscripcion" Type="Int32" />
+        </DeleteParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="SqlDataSource2" runat="server"
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
     SelectCommand="
-    SELECT M.id_materia, M.nombre, M.descripcion 
-    FROM Materias M
-    WHERE M.año = 1 
-        AND M.id_materia NOT IN (
-            SELECT I.id_materia FROM Inscripciones I
-            WHERE I.dni_alumno = @dniAlumno AND (I.estado = 'Aprobado' OR I.estado = 'Cursando')
-        )  
-    UNION
-    SELECT M.id_materia, M.nombre, M.descripcion FROM Materias M
-    WHERE M.año > 1 AND M.id_materia NOT IN 
-    (
-        SELECT C.id_materia
-        FROM Correlativas C
-        WHERE C.id_materia_requisito NOT IN (
-            SELECT I.id_materia
-            FROM Inscripciones I
-            WHERE I.dni_alumno = @dniAlumno AND (I.estado = 'Aprobado' OR I.estado = 'Cursando')
-        )
-    );">
+SELECT M.id_materia, M.nombre, M.descripcion
+FROM Materias M
+LEFT JOIN Inscripciones I ON M.id_materia = I.id_materia
+WHERE I.id_materia IS NULL;">
     <SelectParameters>
         <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="Int32" /> 
     </SelectParameters>

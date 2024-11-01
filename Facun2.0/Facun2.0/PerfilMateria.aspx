@@ -37,20 +37,6 @@
             </EditItemTemplate>
             </asp:TemplateField>
 
-            <%--<asp:BoundField DataField="estado" HeaderText="estado" SortExpression="estado" />--%>
-              <%--<asp:TemplateField HeaderText="Estado">
-             <ItemTemplate>
-             <%# Eval("estado") %> <!-- Muestra el estado cuando no está en  edición -->
-              </ItemTemplate>
-              <EditItemTemplate>
-              <asp:DropDownList ID="ddlEstado" runat="server" SelectedValue='<%# Bind("estado") %>'>
-             <asp:ListItem Value="" Text="Seleccione un estado"></asp:ListItem>  
-              <asp:ListItem Value="Activo" Text="Activo"></asp:ListItem>
-             <asp:ListItem Value="Inactivo" Text="Inactivo"></asp:ListItem>
-              </asp:DropDownList>
-              </EditItemTemplate>
-             </asp:TemplateField>--%>
-
             <%--<asp:BoundField DataField="año" HeaderText="año" SortExpression="año" />--%>
             <asp:TemplateField HeaderText="Año">
              <ItemTemplate>

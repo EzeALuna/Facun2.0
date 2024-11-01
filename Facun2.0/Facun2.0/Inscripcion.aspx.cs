@@ -51,14 +51,33 @@ namespace Facun2._0
 
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "Eliminar")
+            {
+                // Obtén el ID de la inscripción a eliminar desde CommandArgument
+                int idInscripcion = Convert.ToInt32(e.CommandArgument);
+
+                // Ejecuta la eliminación en la base de datos
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Facun2DBConnectionString1"].ConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Inscripciones WHERE id_inscripcion = @id_inscripcion", conn);
+                    cmd.Parameters.AddWithValue("@id_inscripcion", idInscripcion);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+
+                GridView1.DataBind();
+            }
+
             if (e.CommandName == "Seleccionar")
             {
+                int dniAlumno = Convert.ToInt32(Session["AlumnoDNI"]);
                 int idMateria = Convert.ToInt32(e.CommandArgument);
 
                 if (idMateria > 0)
                 {
                     // Insertar materia en tabla Inscripciones 
-                    string dniAlumno = Session["dni"].ToString(); 
+                    //string dniAlumno = Session["dni"].ToString(); 
 
                     string query = "INSERT INTO Inscripciones (dni_alumno, id_materia, estado) VALUES (@dniAlumno, @idMateria, 'Cursando')";
 
@@ -78,6 +97,7 @@ namespace Facun2._0
                     // Recarga Inscripciones
                     
                     GridView1.DataBind();
+                    GridView2.DataBind();
                 }
                 else
                 {
@@ -85,7 +105,6 @@ namespace Facun2._0
                 }
             }
         }
-
 
 
     }
