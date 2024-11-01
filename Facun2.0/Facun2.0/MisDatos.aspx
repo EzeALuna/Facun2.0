@@ -9,7 +9,6 @@
         GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:CommandField ShowEditButton="True" />
             <asp:BoundField DataField="dni" HeaderText="dni" ReadOnly="True" 
                 SortExpression="dni" />
             <asp:BoundField DataField="nombre" HeaderText="nombre" 
@@ -25,6 +24,7 @@
                 SortExpression="direccion" />
             <asp:BoundField DataField="telefono" HeaderText="telefono" 
                 SortExpression="telefono" />
+            <asp:CommandField ShowEditButton="True" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

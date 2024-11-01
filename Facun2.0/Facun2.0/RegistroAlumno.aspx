@@ -114,7 +114,7 @@
                            InitialValue="" Display="Dynamic" Text="*" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:Label ID="LabelCarrera" runat="server" Text="Carrera"></asp:Label>
                     <asp:DropDownList CssClass="form-control" ID="DDLCarrera" runat="server" DataSourceID="SqlDataSource1" AppendDataBoundItems="True"
-                            DataTextField="nombre" DataValueField="id_carrera">
+                            DataTextField="nombre" DataValueField="id_carrera" Enabled="True">
                               <asp:ListItem Text="Seleccione una carrera" Value="" Selected="True"></asp:ListItem>
                               </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
