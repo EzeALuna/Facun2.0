@@ -30,9 +30,8 @@ namespace Facun2._0
                     }
                     else if (rol == "profesor")
                     {
-                        // Si es profesor
-                        Response.Redirect("InicioProfesor.aspx");
-                    }
+                        // Si es profesor ingresa
+                        }
                     else if (rol == "alumno")
                     {
                         // Si es alumno ingresa

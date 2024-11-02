@@ -23,39 +23,12 @@
 	          <li>
               <a href="CargarNotas.aspx"  aria-expanded="false" class="dropdown-toggle">Cargar Notas</a>
               </li>
-              <li>
-	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inscripcion Anual</a>
-	            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="#">Materias</a>
-                </li>
-                <li>
-                    <a href="RegistroAlumno.aspx">Notas</a>
-                </li>
-                <li>
-                    <a href="#">Profesores</a>
-                </li>
-	            </ul>
+   	          </li>
+	          <li>
+              <a href="CalendarioAlumnos.aspx">Calendario</a>
 	          </li>
 	          <li>
-	              
-	          </li>
-	          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Calendario</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-              </ul>
-	          </li>
-	          <li>
-              <a href="#">Mis Datos</a>
+              <a href="MisDatos.aspx">Mis Datos</a>
 	          </li>
 	          <li>
               <a href="Login.aspx">Salir</a>
@@ -87,7 +60,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
-                <p> <%: Session["NombreProfe"] ?? "Profe"%></p>
+                <p> <%: Session["NombreProfesor"] ?? "Profe"%></p>
               </ul>
             </div>
           </div>

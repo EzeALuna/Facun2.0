@@ -57,3 +57,122 @@ INSERT INTO Correlativas (id_materia, id_materia_requisito) VALUES (21, 28);
 INSERT INTO Correlativas (id_materia, id_materia_requisito) VALUES (16, 23); 
 INSERT INTO Correlativas (id_materia, id_materia_requisito) VALUES (20, 29);  
 INSERT INTO Correlativas (id_materia, id_materia_requisito) VALUES (11, 19);
+
+-- Insertar Alumnos
+INSERT INTO Alumnos (dni, nombre, apellido, email, contraseña, fecha_nacimiento, direccion, telefono, tipo, id_carrera) VALUES
+(61706749, 'Juan', 'Pérez', 'juan.perez@gmail.com', '123', '2002-11-07', 'Calle 1, Ciudad de México', '555-1234', 'A', 1),
+(44751217, 'María', 'González', 'maria.gonzalez@yahoo.com', '123', '2002-11-21', 'Calle 2, Guadalajara', '555-5678', 'A', 4),
+(50709944, 'Carlos', 'Hernández', 'carlos.hernandez@gmail.com', '123', '2002-11-29', 'Calle 3, Monterrey', '555-8765', 'A', 3),
+(88300211, 'Sofía', 'López', 'sofia.lopez@hotmail.com', '123', '2001-09-10', 'Calle 4, Puebla', '555-4321', 'A', 5),
+(28693000, 'Luis', 'Martínez', 'luis.martinez@yahoo.com', '123', '1999-09-09', 'Calle 5, Tijuana', '555-6789', 'A', 2),
+(22727969, 'Fernanda', 'Sánchez', 'fernanda.sanchez@gmail.com', '123', '2001-05-19', 'Calle 6, Mérida', '555-1011', 'A', 5),
+(90785928, 'Diego', 'Ramírez', 'diego.ramirez@hotmail.com', '123', '2003-01-24', 'Calle 7, León', '555-1213', 'A', 3),
+(23255791, 'Valeria', 'Jiménez', 'valeria.jimenez@gmail.com', '123', '1998-12-19', 'Calle 8, Querétaro', '555-1314', 'A', 3),
+(73369922, 'Alejandro', 'García', 'alejandro.garcia@yahoo.com', '123', '2004-01-15', 'Calle 9, Cancún', '555-1516', 'A', 3),
+(68273557, 'Natalia', 'Torres', 'natalia.torres@gmail.com', '123', '2005-07-26', 'Calle 10, Veracruz', '555-1718', 'A', 5),
+(95956173, 'Javier', 'Vázquez', 'javier.vazquez@hotmail.com', '123', '2002-01-02', 'Calle 11, San Luis Potosí', '555-1920', 'A', 5),
+(74023168, 'Isabel', 'Morales', 'isabel.morales@yahoo.com', '123', '1999-10-23', 'Calle 12, Saltillo', '555-2122', 'A', 5),
+(44962686, 'Gabriel', 'Reyes', 'gabriel.reyes@gmail.com', '123', '2003-08-06', 'Calle 13, Chihuahua', '555-2324', 'A', 5),
+(11884645, 'Camila', 'Cruz', 'camila.cruz@hotmail.com', '123', '2001-10-21', 'Calle 14, Durango', '555-2526', 'A', 4),
+(99678004, 'Santiago', 'Mendoza', 'santiago.mendoza@gmail.com', '123', '2004-01-04', 'Calle 15, Aguascalientes', '555-2728', 'A', 5),
+(76246899, 'Pablo', 'Salazar', 'pablo.salazar@yahoo.com', '123', '2003-01-02', 'Calle 16, Colima', '555-2929', 'A', 2),
+(53648190, 'Mariana', 'Ochoa', 'mariana.ochoa@gmail.com', '123', '2000-02-27', 'Calle 17, Zacatecas', '555-3030', 'A', 2),
+(86170002, 'Fernando', 'Esquivel', 'fernando.esquivel@hotmail.com', '123', '2005-01-06', 'Calle 18, Coahuila', '555-3131', 'A', 2),
+(29125273, 'Samantha', 'Cervantes', 'samantha.cervantes@yahoo.com', '123', '1998-11-11', 'Calle 19, Morelia', '555-3232', 'A', 1),
+(20797254, 'Ricardo', 'Gómez', 'ricardo.gomez@gmail.com', '123', '2005-02-16', 'Calle 20, Oaxaca', '555-3333', 'A', 5),
+(75670960, 'Lucía', 'Aguilar', 'lucia.aguilar@hotmail.com', '123', '2005-11-24', 'Calle 21, Hermosillo', '555-3434', 'A', 3),
+(83989837, 'Manuel', 'Rojas', 'manuel.rojas@yahoo.com', '123', '2002-08-01', 'Calle 22, Tampico', '555-3535', 'A', 1),
+(83476275, 'Elena', 'Salinas', 'elena.salinas@gmail.com', '123', '2000-03-22', 'Calle 23, Matamoros', '555-3636', 'A', 5),
+(37273290, 'Claudia', 'Fuentes', 'claudia.fuentes@hotmail.com', '123', '1999-12-29', 'Calle 24, Tuxpan', '555-3737', 'A', 4),
+(22298651, 'Arturo', 'Palacios', 'arturo.palacios@yahoo.com', '123', '2005-07-24', 'Calle 25, Veracruz', '555-3838', 'A', 3),
+(87262571, 'Patricia', 'Bermúdez', 'patricia.bermudez@gmail.com', '123', '2002-05-25', 'Calle 26, Ciudad Juárez', '555-3939', 'A', 3),
+(34678442, 'Diego', 'Maldonado', 'diego.maldonado@hotmail.com', '123', '2003-11-09', 'Calle 27, Puebla', '555-4040', 'A', 2),
+(14425482, 'Adriana', 'Salazar', 'adriana.salazar@gmail.com', '123', '2005-05-31', 'Calle 28, Mérida', '555-4141', 'A', 4),
+(19272465, 'José', 'Castillo', 'jose.castillo@yahoo.com', '123', '2002-07-19', 'Calle 29, León', '555-4242', 'A', 2);
+
+--inserter Profes
+INSERT INTO Profesores (dni, nombre, apellido, email, contraseña, fecha_nacimiento, direccion, telefono, tipo, id_materia) VALUES
+(11456789, 'Roberto', 'Gutiérrez', 'roberto.gutierrez@gmail.com', '123', '1980-05-15', 'Calle 1, Ciudad de México', '555-0011', 'P', 26),
+(23456789, 'Ana', 'Moreno', 'ana.moreno@yahoo.com', '123', '1985-11-22', 'Calle 2, Guadalajara', '555-0022', 'P', 27),
+(34567890, 'Luis', 'Fernández', 'luis.fernandez@hotmail.com', '123', '1975-03-10', 'Calle 3, Monterrey', '555-0033', 'P', 28),
+(45678901, 'Patricia', 'Pérez', 'patricia.perez@gmail.com', '123', '1988-01-05', 'Calle 4, Puebla', '555-0044', 'P', 29),
+(56789012, 'Jorge', 'Ramírez', 'jorge.ramirez@yahoo.com', '123', '1983-06-30', 'Calle 5, Tijuana', '555-0055', 'P', 30),
+(67890123, 'Sofía', 'Hernández', 'sofia.hernandez@hotmail.com', '123', '1978-09-12', 'Calle 6, Mérida', '555-0066', 'P', 31),
+(78901234, 'Diego', 'García', 'diego.garcia@gmail.com', '123', '1987-08-20', 'Calle 7, León', '555-0077', 'P', 32),
+(89012345, 'María', 'Cruz', 'maria.cruz@yahoo.com', '123', '1990-10-15', 'Calle 8, Querétaro', '555-0088', 'P', 33),
+(90123456, 'Ricardo', 'Morales', 'ricardo.morales@hotmail.com', '123', '1982-04-25', 'Calle 9, Cancún', '555-0099', 'P', 34),
+(12345645, 'Lucía', 'Salazar', 'lucia.salazar@gmail.com', '123', '1991-12-30', 'Calle 10, Veracruz', '555-0100', 'P', 35),
+(23456780, 'Fernando', 'Torres', 'fernando.torres@yahoo.com', '123', '1984-02-14', 'Calle 11, San Luis Potosí', '555-0111', 'P', 36),
+(34567801, 'Claudia', 'Jiménez', 'claudia.jimenez@hotmail.com', '123', '1986-05-28', 'Calle 12, Chihuahua', '555-0122', 'P', 37),
+(45678912, 'José', 'Aguilar', 'jose.aguilar@gmail.com', '123', '1981-07-19', 'Calle 13, Durango', '555-0133', 'P', 38),
+(56789023, 'Valeria', 'Reyes', 'valeria.reyes@yahoo.com', '123', '1992-03-22', 'Calle 14, Aguascalientes', '555-0144', 'P', 39),
+(67890134, 'Andrés', 'Mendoza', 'andres.mendoza@hotmail.com', '123', '1979-08-17', 'Calle 15, Colima', '555-0155', 'P', 40),
+(78901245, 'Carla', 'Ochoa', 'carla.ochoa@gmail.com', '123', '1980-11-05', 'Calle 16, Zacatecas', '555-0166', 'P', 41),
+(89012356, 'Javier', 'Vázquez', 'javier.vazquez@yahoo.com', '123', '1985-09-09', 'Calle 17, Coahuila', '555-0177', 'P', 42),
+(90123467, 'Elena', 'Cervantes', 'elena.cervantes@hotmail.com', '123', '1994-01-25', 'Calle 18, Morelia', '555-0188', 'P', 43),
+(12345679, 'Gabriel', 'Salinas', 'gabriel.salinas@gmail.com', '123', '1993-06-30', 'Calle 19, Ciudad Juárez', '555-0199', 'P', 44),
+(23456781, 'Ana', 'Bermúdez', 'ana.bermudez@yahoo.com', '123', '1989-12-02', 'Calle 20, Puebla', '555-0200', 'P', 45);
+
+--insertar inscripciones
+DECLARE @dni_alumnos TABLE (dni INT);
+INSERT INTO @dni_alumnos (dni) VALUES
+(61706749),
+(44751217),
+(50709944),
+(88300211),
+(28693000),
+(22727969),
+(90785928),
+(23255791),
+(73369922),
+(68273557),
+(95956173),
+(74023168),
+(44962686),
+(11884645),
+(99678004),
+(76246899),
+(53648190),
+(86170002),
+(29125273),
+(20797254),
+(75670960),
+(83989837),
+(83476275),
+(37273290),
+(22298651),
+(87262571),
+(14425482),
+(19272465);
+
+DECLARE @i INT = 1;
+DECLARE @dni INT;
+DECLARE @id_materia INT;
+DECLARE @estado VARCHAR(10);
+
+WHILE @i <= (SELECT COUNT(*) FROM @dni_alumnos)
+BEGIN
+    SET @dni = (SELECT dni FROM @dni_alumnos WHERE dni = (SELECT TOP 1 dni FROM @dni_alumnos ORDER BY NEWID()));
+    
+    DECLARE @j INT = 1;
+    
+    WHILE @j <= 5
+    BEGIN
+        SET @id_materia = (SELECT FLOOR(RAND(CHECKSUM(NEWID())) * (49 - 26 + 1)) + 26);
+        
+        -- Alternando estados
+        IF @j % 3 = 1
+            SET @estado = 'Cursando';
+        ELSE IF @j % 3 = 2
+            SET @estado = 'Aprobado';
+        ELSE
+            SET @estado = 'Habilitado';
+        
+        INSERT INTO Inscripciones (dni_alumno, id_materia, fecha_inscripcion, estado) 
+        VALUES (@dni, @id_materia, GETDATE(), @estado);
+        
+        SET @j = @j + 1;
+    END
+    
+    SET @i = @i + 1;
+END

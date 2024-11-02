@@ -89,7 +89,7 @@ namespace Facun2._0
                             string tipo = readerProfesores["Tipo"].ToString();
                             string nombre = readerProfesores["Nombre"].ToString();
                             string apellido = readerProfesores["Apellido"].ToString();
-                            Session["DNI"] = txtDNI.Text;
+                            Session["DNIProfesor"] = txtDNI.Text;
                             Session["NombreProfesor"] = nombre + " " + apellido;
                             Session["Usuario"] = "profesor";
                             Response.Redirect("InicioProfesor.aspx");
@@ -104,7 +104,7 @@ namespace Facun2._0
                             string tipo = readerAdmin["Tipo"].ToString();
                             string nombre = readerAdmin["Nombre"].ToString();
                             string apellido = readerAdmin["Apellido"].ToString();
-                            Session["DNI"] = txtDNI.Text;
+                            Session["DNIAdmin"] = txtDNI.Text;
                             Session["NombreAdmin"] = nombre + " " + apellido;
                             Session["Usuario"] = "admin";
                             Response.Redirect("InicioAdmin.aspx");

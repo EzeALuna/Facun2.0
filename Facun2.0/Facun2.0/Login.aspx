@@ -80,9 +80,9 @@
 									  <span class="checkmark"></span>
 										</label>--%>
 									</div>
-									<div class="w-50 text-md-right">
+									<%--<div class="w-50 text-md-right">
 										<a href="#">Has olvidado tu contraseña</a>
-									</div>
+									</div>--%>
 		            </div>
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		                             

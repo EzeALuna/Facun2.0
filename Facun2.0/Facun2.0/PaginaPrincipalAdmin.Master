@@ -38,18 +38,11 @@
                 </li>
 	            </ul>
 	          </li>
-	          <%--<li>
-              <a href="SituacionAcademica.aspx"  aria-expanded="false" class="dropdown-toggle">Situacion Academica</a>
-              </li>--%>
 	          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Calendario</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li><a href="Calendario.aspx" id="showViewCalendar">Ver Calendario</a></li>
-                <li><a href="Calendario.aspx" id="showEditCalendar">Editar Calendario</a></li>
-              </ul>
-            </li>
+              <a href="CalendarioAlumnos.aspx">Calendario</a>
+	          </li>
 	          <li>
-              <a href="#">Mis Datos</a>
+              <a href="MisDatos.aspx">Mis Datos</a>
 	          </li>
 	          <li>
               <a href="Login.aspx">Salir</a>
