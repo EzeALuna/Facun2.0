@@ -25,13 +25,13 @@ namespace Facun2._0
 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 //EZE
-                //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                 //ESCUELA
                 //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                 //HUGO
-                builder.DataSource = "DESKTOP-044COGN";
+                //builder.DataSource = "DESKTOP-044COGN";
 
                 //Nombre de la base de datos
                 builder.InitialCatalog = "Facun2DB";
@@ -45,9 +45,10 @@ namespace Facun2._0
                     conn.Open();
 
                     // Consulta las tres tablas
-                    string queryAlumnos = "SELECT Tipo FROM Alumnos WHERE DNI = " + txtDNI.Text + " AND" + " CONTRASEÑA = '" + txtContraseña.Text + "'"; ;
-                    string queryProfesores = "SELECT Tipo FROM Profesores WHERE DNI = " + txtDNI.Text + " AND" + " CONTRASEÑA = '" + txtContraseña.Text + "'"; ;
-                    string queryAdmin = "SELECT Tipo FROM Admin WHERE DNI = " + txtDNI.Text + " AND" + " CONTRASEÑA = '" + txtContraseña.Text + "'"; ;
+                    string queryAlumnos = "SELECT Tipo, Nombre, Apellido FROM Alumnos WHERE DNI = @DNI AND CONTRASEÑA = @Contraseña"; ;
+                    string queryProfesores = "SELECT Tipo, Nombre, Apellido FROM Profesores WHERE DNI = @DNI AND CONTRASEÑA = @Contraseña"; ;
+                    string queryAdmin = "SELECT Tipo, Nombre, Apellido FROM Admin WHERE DNI = @DNI AND CONTRASEÑA = @Contraseña";
+                    
 
                     // 
                     SqlCommand commandAlumnos = new SqlCommand(queryAlumnos, conn);
@@ -55,14 +56,14 @@ namespace Facun2._0
                     SqlCommand commandAdmin = new SqlCommand(queryAdmin, conn);
 
                     // parámetros para las tres consultas
-                    //commandAlumnos.Parameters.AddWithValue("@DNI", txtDNI.Text);
-                    //commandAlumnos.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
+                    commandAlumnos.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    commandAlumnos.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
 
-                    //commandProfesores.Parameters.AddWithValue("@DNI", txtDNI.Text);
-                    //commandProfesores.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
+                    commandProfesores.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    commandProfesores.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
 
-                    //commandAdmin.Parameters.AddWithValue("@DNI", txtDNI.Text);
-                    //commandAdmin.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
+                    commandAdmin.Parameters.AddWithValue("@DNI", txtDNI.Text);
+                    commandAdmin.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
 
                     // Verificar si el usuario es un Alumno
                     using (SqlDataReader readerAlumnos = commandAlumnos.ExecuteReader())
@@ -70,7 +71,10 @@ namespace Facun2._0
                         if (readerAlumnos.Read())
                         {
                             string tipo = readerAlumnos["Tipo"].ToString();
+                            string nombre = readerAlumnos["Nombre"].ToString();
+                            string apellido = readerAlumnos["Apellido"].ToString();
                             Session["DNI"] = txtDNI.Text;
+                            Session["NombreAlumno"] = nombre + " " + apellido;
                             Session["Usuario"] = "alumno";
                             Session["AlumnoDNI"] = txtDNI.Text;
                             Response.Redirect("InicioAlumno.aspx");
@@ -83,7 +87,10 @@ namespace Facun2._0
                         if (readerProfesores.Read())
                         {
                             string tipo = readerProfesores["Tipo"].ToString();
+                            string nombre = readerProfesores["Nombre"].ToString();
+                            string apellido = readerProfesores["Apellido"].ToString();
                             Session["DNI"] = txtDNI.Text;
+                            Session["NombreProfesor"] = nombre + " " + apellido;
                             Session["Usuario"] = "profesor";
                             Response.Redirect("InicioProfesor.aspx");
                         }
@@ -95,7 +102,10 @@ namespace Facun2._0
                         if (readerAdmin.Read())
                         {
                             string tipo = readerAdmin["Tipo"].ToString();
+                            string nombre = readerAdmin["Nombre"].ToString();
+                            string apellido = readerAdmin["Apellido"].ToString();
                             Session["DNI"] = txtDNI.Text;
+                            Session["NombreAdmin"] = nombre + " " + apellido;
                             Session["Usuario"] = "admin";
                             Response.Redirect("InicioAdmin.aspx");
                         }

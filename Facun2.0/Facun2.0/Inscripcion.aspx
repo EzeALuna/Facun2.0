@@ -19,16 +19,7 @@
             <asp:BoundField DataField="dia" HeaderText="Día" ReadOnly="True" Visible="False"/>
             <asp:BoundField DataField="modulo" HeaderText="Módulo" ReadOnly="True" Visible="False" />
             <asp:TemplateField HeaderText="Estado">
-            <%--    <ItemTemplate>
-                    <%# Eval("estado") %>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:DropDownList ID="ddlEstado" runat="server" 
-                        SelectedValue='<%# Bind("estado") %>'>
-                        <asp:ListItem Text="Activo" Value="Activo"></asp:ListItem>
-                        <asp:ListItem Text="A cursar" Value="A cursar"></asp:ListItem>
-                    </asp:DropDownList>
-                </EditItemTemplate>--%>
+           
             <ItemTemplate>
                 <%# Eval("estado") %>
             </ItemTemplate>
@@ -122,10 +113,18 @@
 <asp:SqlDataSource ID="SqlDataSource2" runat="server"
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
     SelectCommand="
-SELECT M.id_materia, M.nombre, M.descripcion
+        SELECT M.id_materia, M.nombre, M.descripcion
 FROM Materias M
-LEFT JOIN Inscripciones I ON M.id_materia = I.id_materia
-WHERE I.id_materia IS NULL;">
+JOIN Alumnos A ON A.id_carrera = M.id_carrera
+LEFT JOIN Correlativas C ON C.id_materia = M.id_materia
+LEFT JOIN Inscripciones I ON I.id_materia = C.id_materia_requisito AND I.dni_alumno = A.dni AND I.estado = 'Aprobado'
+WHERE A.dni = @dniAlumno
+    AND (C.id_materia_requisito IS NULL OR I.estado = 'Aprobado')
+    AND M.id_materia NOT IN (
+        SELECT id_materia
+        FROM Inscripciones
+        WHERE dni_alumno = @dniAlumno
+    );">
     <SelectParameters>
         <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="Int32" /> 
     </SelectParameters>

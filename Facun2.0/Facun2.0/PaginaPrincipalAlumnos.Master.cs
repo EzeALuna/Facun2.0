@@ -26,6 +26,7 @@ namespace Facun2._0
             {
                 // Verifica el usuario 
                 if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+
                 {
                     // Si no hay sesión
                     Response.Redirect("Login.aspx");
