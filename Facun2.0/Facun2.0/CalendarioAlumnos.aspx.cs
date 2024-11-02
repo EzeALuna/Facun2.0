@@ -37,14 +37,17 @@ namespace Facun2._0
 
           protected void btnGuardar_Click(object sender, EventArgs e)
           {
+              //Asigna los valores de las fecha del calendario y descripcion en variables.
               string dniSeleccionado = Textalumnos.Text;
               DateTime fechaSeleccionada = Calendar1.SelectedDate;
               string descripcion = txtDescripcion.Text;
               string tipo = ListTipo.Text;
 
+              //abre base de datos
               string connectionString = ConfigurationManager.ConnectionStrings["CadenaConexionPP2024"].ConnectionString;
               using (SqlConnection connection = new SqlConnection(connectionString))
               {
+                  //Guarda las variables asignadas en los atributos de SQL
                   string query = "INSERT INTO Calendario (DNI, Fecha, Descripcion, Tipo) VALUES (@DNI, @Fecha, @Descripcion, @Tipo)";
                   SqlCommand command = new SqlCommand(query, connection);
                   command.Parameters.AddWithValue("@DNI", dniSeleccionado);
@@ -70,6 +73,7 @@ namespace Facun2._0
               string connectionString = ConfigurationManager.ConnectionStrings["CadenaConexionPP2024"].ConnectionString;
               using (SqlConnection connection = new SqlConnection(connectionString))
               {
+                  // muestra las fechas guardadas en una tabla
                   string query = "SELECT Fecha, Descripcion, Tipo FROM Calendario WHERE dni = " + Textalumnos.Text;
                   SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                   DataTable dt = new DataTable();
