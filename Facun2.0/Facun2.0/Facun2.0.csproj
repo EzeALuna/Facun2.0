@@ -50,7 +50,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CalendarioAlumno.aspx" />
+    <Content Include="CalendarioAlumnos.aspx" />
     <Content Include="CargarNotas.aspx" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
@@ -113,12 +113,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalendarioAlumno.aspx.cs">
-      <DependentUpon>CalendarioAlumno.aspx</DependentUpon>
+    <Compile Include="CalendarioAlumnos.aspx.cs">
+      <DependentUpon>CalendarioAlumnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CalendarioAlumno.aspx.designer.cs">
-      <DependentUpon>CalendarioAlumno.aspx</DependentUpon>
+    <Compile Include="CalendarioAlumnos.aspx.designer.cs">
+      <DependentUpon>CalendarioAlumnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="CargarNotas.aspx.cs">
       <DependentUpon>CargarNotas.aspx</DependentUpon>

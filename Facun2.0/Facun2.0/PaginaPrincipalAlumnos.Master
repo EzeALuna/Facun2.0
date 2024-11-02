@@ -31,7 +31,7 @@
 	              
 	          </li>
 	          <li>
-              <a href="CalendarioAlumno.aspx">Calendario</a>
+              <a href="CalendarioAlumnos.aspx">Calendario</a>
 	          </li>
 	          <li>
               <a href="MisDatos.aspx">Mis Datos</a>
@@ -78,7 +78,6 @@
         </nav>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
         </asp:ContentPlaceHolder>
     </div>
   <script src="Estilos/js/jquery.min.js"></script>

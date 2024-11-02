@@ -1,6 +1,6 @@
 CREATE TABLE Calendario
 (
-id_Calendario INT PRIMARY KEY NOT NULL,
+id_Calendario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 dni INT NOT NULL,
 fecha DATETIME,
 tipo char(20),

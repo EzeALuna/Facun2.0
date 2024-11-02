@@ -25,13 +25,13 @@ namespace Facun2._0
 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 //EZE
-                builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                 //ESCUELA
                 //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
 
                 //HUGO
-                //builder.DataSource = "DESKTOP-044COGN";
+                builder.DataSource = "DESKTOP-044COGN";
 
                 //Nombre de la base de datos
                 builder.InitialCatalog = "Facun2DB";
@@ -74,7 +74,6 @@ namespace Facun2._0
                             Session["Usuario"] = "alumno";
                             Session["AlumnoDNI"] = txtDNI.Text;
                             Response.Redirect("InicioAlumno.aspx");
-                           
                         }
                     }
 
