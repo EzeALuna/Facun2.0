@@ -50,47 +50,48 @@ namespace Facun2._0
             }
         }
 
-        protected void GridViewAlumnosMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
+            protected void GridViewAlumnosMaterias_RowUpdating(object sender, GridViewUpdateEventArgs e)
+{
+    var idNota = e.Keys["id_nota"];
+    var nota = Convert.ToInt32(e.NewValues["Nota"]);
+    var trimestre = e.NewValues["Trimestre"].ToString();
+    var idMateria = Convert.ToInt32(ddlMaterias.SelectedValue);
+    var dniAlumno = Convert.ToInt32(GridViewAlumnosMaterias.DataKeys[e.RowIndex].Values["DNI"]);
+
+    string query;
+    if (idNota == DBNull.Value)
+    {
+        // Insert command if id_nota is null
+        query = "INSERT INTO Notas_Alumnos (dni_alumno, id_materia, nota, trimestre, fecha) VALUES (@dni_alumno, @id_materia, @nota, @trimestre, GETDATE())";
+    }
+    else
+    {
+        // Update command if id_nota exists
+        query = "UPDATE Notas_Alumnos SET nota = @nota, trimestre = @trimestre, fecha = GETDATE() WHERE id_nota = @id_nota";
+    }
+
+    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Facun2DBConnectionString1"].ConnectionString))
+    using (SqlCommand cmd = new SqlCommand(query, con))
+    {
+        cmd.Parameters.AddWithValue("@dni_alumno", dniAlumno);
+        cmd.Parameters.AddWithValue("@id_materia", idMateria);
+        cmd.Parameters.AddWithValue("@nota", nota);
+        cmd.Parameters.AddWithValue("@trimestre", trimestre);
+        if (idNota != DBNull.Value)
         {
+            cmd.Parameters.AddWithValue("@id_nota", idNota);
+        }
+        
+        con.Open();
+        cmd.ExecuteNonQuery();
+        con.Close();
+    }
 
-            //if (e.CommandName == "Seleccionar")
-            //{
-            //    int dniAlumno = Convert.ToInt32(Session["AlumnoDNI"]);
-            //    int idMateria = Convert.ToInt32(e.CommandArgument);
-            //    int trimestre = Convert.ToInt32(e.CommandArgument);
-            //    int nota = Convert.ToInt32(e.CommandArgument);
-
-            //    if (idMateria > 0)
-            //    {
-
-            //        string query = "INSERT INTO Notas_Alumnos (dni_alumno, id_materia, trimestre, nota, fecha) VALUES (@dniAlumno, @idMateria, @trimestre, @nota, GETDATE())";
-
-            //        using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Facun2DBConnectionString1"].ConnectionString))
-            //        {
-            //            using (SqlCommand cmd = new SqlCommand(query, con))
-            //            {
-            //                cmd.Parameters.AddWithValue("@dniAlumno", dniAlumno);
-            //                cmd.Parameters.AddWithValue("@idMateria", idMateria);
-            //                cmd.Parameters.AddWithValue("@trimestre", trimestre);
-            //                cmd.Parameters.AddWithValue("@nota", nota);
-
-            //                con.Open();
-            //                cmd.ExecuteNonQuery();
-            //                con.Close();
-            //            }
-            //        }
-
-            //        GridViewAlumnosMaterias.DataBind();
-
-            //    }
-            //    else
-            //    {
-            //        // 
-            //    }
-            //}
+    GridViewAlumnosMaterias.EditIndex = -1;
+    GridViewAlumnosMaterias.DataBind();
+}
 
             }
     }
-        }
-
+       
         

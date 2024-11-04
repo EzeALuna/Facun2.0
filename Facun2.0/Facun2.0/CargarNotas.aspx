@@ -4,10 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <form id="form1" runat="server">
+
     <asp:DropDownList ID="ddlMaterias" runat="server" AutoPostBack="true" 
         DataSourceID="SqlDataSourceMaterias" DataTextField="nombre" DataValueField="id_materia">
     </asp:DropDownList>
-
 
     <asp:Label ID="lblSelectedMateria" runat="server" Text='<%# ddlMaterias.SelectedValue %>'></asp:Label>
 
@@ -50,12 +50,10 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
             </asp:TemplateField>
-
-        <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+       <asp:CommandField ShowEditButton="True" ButtonType="Button" />
         </Columns>
     </asp:GridView>
-
-  
+      
     <asp:SqlDataSource ID="SqlDataSourceAlumnosMaterias" runat="server"
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
         SelectCommand="
@@ -73,7 +71,7 @@
             WHERE M.id_materia = @idMateria"
         UpdateCommand="
             UPDATE Notas_Alumnos 
-            SET nota = @nota, trimestre = @trimestre 
+            SET @dni_alumno = dni_alumno,  @id_materia = id_materia, trimestre = @trimestre, nota = @nota, @fecha = getdate()
             WHERE id_nota = @id_nota">
         <SelectParameters>
             <asp:ControlParameter Name="idMateria" ControlID="ddlMaterias" PropertyName="SelectedValue" Type="Int32" />
@@ -82,6 +80,8 @@
             <asp:Parameter Name="nota" Type="Int32" />
             <asp:Parameter Name="trimestre" Type="String" />
             <asp:Parameter Name="id_nota" Type="Int32" />
+            <asp:Parameter Name="id_materia" Type="Int32" />
+            <asp:Parameter Name="dni_alumno" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
 
@@ -97,7 +97,5 @@
         </SelectParameters>
     </asp:SqlDataSource>
 </form>
-
-
 
 </asp:Content>
