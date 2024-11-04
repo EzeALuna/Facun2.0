@@ -62,7 +62,7 @@
         DataSourceID="SqlDataSource2" 
         EmptyDataText="No hay materias de datos para mostrar." 
         OnRowCommand="GridView2_RowCommand" CellPadding="4" ForeColor="#333333" 
-        GridLines="None">
+        GridLines="None" onselectedindexchanged="GridView2_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="id_materia" HeaderText="ID Materia" ReadOnly="True" Visible="False" />

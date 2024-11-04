@@ -43,29 +43,52 @@
             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
     </div>
     </div>
-    <div style="float: right; " align="center">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                CellPadding="4" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:BoundField DataField="Fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}" />
-                    <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
-                    <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
-                    <asp:CommandField ShowEditButton="True" />
-                </Columns>
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
-  <asp:TextBox ID="Textalumnos" runat="server" Visible="False"></asp:TextBox>
-    </div>
+    <div align="center" style="float: right">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+            CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" 
+            GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
+            <Columns>
+                <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" DataFormatString="{0:d}" />
+                <asp:BoundField DataField="tipo" HeaderText="Tipo" SortExpression="tipo" />
+                <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
+                    SortExpression="descripcion" />
+                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" 
+                    ShowEditButton="True" />
+            </Columns>
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
+            
+            SelectCommand="SELECT fecha, tipo, descripcion FROM Calendario WHERE (dni = @dni) ORDER BY fecha, tipo" 
+            DeleteCommand="DELETE FROM Calendario WHERE Id_Calendario = @Id_Calendario" 
+            
+            
+            UpdateCommand="UPDATE Calendario SET fecha = @fecha, tipo = @tipo, descripcion = @descriopcion">
+            <DeleteParameters>
+                <asp:Parameter Name="Id_Calendario" Type="String"/>
+            </DeleteParameters>
+            <SelectParameters>
+                <asp:SessionParameter Name="dni" SessionField="dni" Type="Int32" />
+            </SelectParameters>
+
+            <UpdateParameters>
+                <asp:Parameter DbType="Date" Name="fecha" />
+                <asp:Parameter Name="tipo" Type="String"/>
+                <asp:Parameter Name="descriopcion" Type="String"/>
+            </UpdateParameters>
+
+        </asp:SqlDataSource>
        </div>
     </form>
 </asp:Content>
