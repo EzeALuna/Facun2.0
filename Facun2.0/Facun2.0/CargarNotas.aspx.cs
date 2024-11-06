@@ -52,24 +52,45 @@ namespace Facun2._0
 
         protected void GridViewAlumnosMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Insert")
+            if (e.CommandName == "Insertar")
             {
-                // Obtener la fila desde la que se llamó el comando
-                GridViewRow row = ((Control)e.CommandSource).NamingContainer as GridViewRow;
+                // Obtener el FooterRow del GridView
+                GridViewRow footerRow = GridViewAlumnosMaterias.FooterRow;
 
-                // Obtener valores necesarios para el InsertCommand
-                string dniAlumno = ((Label)row.FindControl("DNI")).Text;
-                string trimestre = ((DropDownList)GridViewAlumnosMaterias.FooterRow.FindControl("ddlTrimestreFooter")).SelectedValue;
-                string nota = ((DropDownList)GridViewAlumnosMaterias.FooterRow.FindControl("ddlNotaFooter")).SelectedValue;
+                // Obtener los valores de los controles en el FooterTemplate
+                DropDownList ddlAlumnoFooter = (DropDownList)footerRow.FindControl("ddlAlumnoFooter");
+                DropDownList ddlTrimestreFooter = (DropDownList)footerRow.FindControl("ddlTrimestreFooter");
+                TextBox txtNotaFooter = (TextBox)footerRow.FindControl("txtNotaFooter");
 
-                //// Pasar los valores al SqlDataSource para la inserción
-                //SqlDataSourceAlumnosMaterias.InsertParameters["dni_alumno"].DefaultValue = dniAlumno;
-                //SqlDataSourceAlumnosMaterias.InsertParameters["trimestre"].DefaultValue = trimestre;
-                //SqlDataSourceAlumnosMaterias.InsertParameters["nota"].DefaultValue = nota;
+                // Verificar que los valores no estén vacíos
+                if (ddlAlumnoFooter != null && ddlTrimestreFooter != null && txtNotaFooter != null)
+                {
+                    // Asignar valores a las variables
+                    int dniAlumno = int.Parse(ddlAlumnoFooter.SelectedValue);
+                    string trimestre = ddlTrimestreFooter.SelectedValue;
+                    int nota = int.Parse(txtNotaFooter.Text);
+                    int idMateria = int.Parse(ddlMaterias.SelectedValue);
 
-                //// Ejecutar la inserción
-                //SqlDataSourceAlumnosMaterias.Insert();
-                //GridViewAlumnosMaterias.DataBind();
+                    // Realizar la inserción en la base de datos
+                    string insertQuery = "INSERT INTO Notas_Alumnos (dni_alumno, id_materia, trimestre, nota, fecha) VALUES (@dni_alumno, @id_materia, @trimestre, @nota, GETDATE())";
+
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Facun2DBConnectionString1"].ConnectionString))
+                    {
+                        using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@dni_alumno", dniAlumno);
+                            cmd.Parameters.AddWithValue("@id_materia", idMateria);
+                            cmd.Parameters.AddWithValue("@trimestre", trimestre);
+                            cmd.Parameters.AddWithValue("@nota", nota);
+
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Recargar el GridView después de la inserción
+                    GridViewAlumnosMaterias.DataBind();
+                }
             }
         }
 

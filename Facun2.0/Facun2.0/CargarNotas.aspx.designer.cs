@@ -31,6 +31,15 @@ namespace Facun2._0 {
         protected global::System.Web.UI.WebControls.DropDownList ddlMaterias;
         
         /// <summary>
+        /// Control lblSelectedMateria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectedMateria;
+        
+        /// <summary>
         /// Control GridViewAlumnosMaterias.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,24 @@ namespace Facun2._0 {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewAlumnosMaterias;
+        
+        /// <summary>
+        /// Control SqlDataSourceAlumnos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceAlumnos;
+        
+        /// <summary>
+        /// Control SqlDataSourceAlumnosMaterias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceAlumnosMaterias;
         
         /// <summary>
         /// Control SqlDataSourceMaterias.
