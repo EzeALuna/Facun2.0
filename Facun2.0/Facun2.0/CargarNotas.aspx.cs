@@ -62,14 +62,14 @@ namespace Facun2._0
                 string trimestre = ((DropDownList)GridViewAlumnosMaterias.FooterRow.FindControl("ddlTrimestreFooter")).SelectedValue;
                 string nota = ((DropDownList)GridViewAlumnosMaterias.FooterRow.FindControl("ddlNotaFooter")).SelectedValue;
 
-                // Pasar los valores al SqlDataSource para la inserción
-                SqlDataSourceAlumnosMaterias.InsertParameters["dni_alumno"].DefaultValue = dniAlumno;
-                SqlDataSourceAlumnosMaterias.InsertParameters["trimestre"].DefaultValue = trimestre;
-                SqlDataSourceAlumnosMaterias.InsertParameters["nota"].DefaultValue = nota;
+                //// Pasar los valores al SqlDataSource para la inserción
+                //SqlDataSourceAlumnosMaterias.InsertParameters["dni_alumno"].DefaultValue = dniAlumno;
+                //SqlDataSourceAlumnosMaterias.InsertParameters["trimestre"].DefaultValue = trimestre;
+                //SqlDataSourceAlumnosMaterias.InsertParameters["nota"].DefaultValue = nota;
 
-                // Ejecutar la inserción
-                SqlDataSourceAlumnosMaterias.Insert();
-                GridViewAlumnosMaterias.DataBind();
+                //// Ejecutar la inserción
+                //SqlDataSourceAlumnosMaterias.Insert();
+                //GridViewAlumnosMaterias.DataBind();
             }
         }
 

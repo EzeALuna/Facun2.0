@@ -52,6 +52,7 @@
   <ItemGroup>
     <Content Include="CalendarioAlumnos.aspx" />
     <Content Include="CargarNotas.aspx" />
+    <Content Include="EstilosLogin\css\Titulos.css" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />

@@ -4,6 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
     <div>
+    <link rel="stylesheet" href="EstilosLogin/css/Titulos.css">
+    <h2 class="Titulo" align="center">Calendario de instancias</h2>
     <div style="float: left; " align="center">
     
     <asp:Calendar ID="Calendar1" runat="server" 
@@ -23,38 +25,42 @@
         </asp:Calendar>
     <br />
     <div style="overflow: auto;">    
-    <asp:Label ID="Fechalabel" runat="server" Text="Fecha"></asp:Label>
+    <asp:Label CssClass="label" ID="Fechalabel" runat="server" Text="Fecha"></asp:Label>
     <br />
-    <asp:TextBox ID="lblMensaje1" runat="server" Width="300px"></asp:TextBox>
+    <asp:TextBox CssClass="Celda" ID="lblMensaje1" runat="server" Width="300px"></asp:TextBox>
     <br /> 
-    <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
+    <asp:Label CssClass="label" ID="Label1" runat="server" Text="Descripcion"></asp:Label>
     <br /> 
-    <asp:TextBox ID="txtDescripcion" runat="server" Width="300px"></asp:TextBox>
+    <asp:TextBox CssClass="Celda" ID="txtDescripcion" runat="server" Width="300px"></asp:TextBox>
     <br />
-    <asp:Label ID="Label2" runat="server" Text="Tipo"></asp:Label>
+    <asp:Label CssClass="label" ID="Label2" runat="server" Text="Tipo"></asp:Label>
     <br /> 
-    <asp:DropDownList ID="ListTipo" runat="server" Height="30px" Width="300px">
+    <asp:DropDownList CssClass="Celda" ID="ListTipo" runat="server" EnableTheming="True">
         <asp:ListItem>Parcial</asp:ListItem>
         <asp:ListItem>Final</asp:ListItem>
         <asp:ListItem>Trabajo Practico</asp:ListItem>
         <asp:ListItem>Otro</asp:ListItem>
         </asp:DropDownList>
     <br /><br />     
-            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+            <asp:Button class="botton1" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
     </div>
     </div>
     <div align="center" style="float: right">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" 
-            GridLines="None">
+            GridLines="None" DataKeyNames="id_Calendario">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" DataFormatString="{0:d}" />
+<asp:BoundField DataField="id_Calendario" HeaderText="id_Calendario" 
+                    SortExpression="id_Calendario" InsertVisible="False" ReadOnly="True" 
+                    Visible="False"></asp:BoundField>
+<asp:BoundField DataField="dni" HeaderText="dni" SortExpression="dni" Visible="False"></asp:BoundField>
+                <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
                 <asp:BoundField DataField="tipo" HeaderText="Tipo" SortExpression="tipo" />
                 <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
                     SortExpression="descripcion" />
-                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" 
-                    ShowEditButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" 
+                    ButtonType="Button" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -70,11 +76,10 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:CadenaConexionPP2024 %>" 
             
-            SelectCommand="SELECT fecha, tipo, descripcion FROM Calendario WHERE (dni = @dni) ORDER BY fecha, tipo" 
-            DeleteCommand="DELETE FROM Calendario WHERE Id_Calendario = @Id_Calendario" 
+            SelectCommand="SELECT id_Calendario, dni, fecha, tipo, descripcion FROM Calendario WHERE (dni = @dni) ORDER BY fecha, tipo" 
+            DeleteCommand="DELETE FROM Calendario WHERE (id_Calendario = @Id_Calendario)" 
             
-            
-            UpdateCommand="UPDATE Calendario SET fecha = @fecha, tipo = @tipo, descripcion = @descriopcion">
+            UpdateCommand="UPDATE Calendario SET fecha = @fecha, tipo = @tipo, descripcion = @descripcion WHERE (id_Calendario = @id_calendario)">
             <DeleteParameters>
                 <asp:Parameter Name="Id_Calendario" Type="String"/>
             </DeleteParameters>
@@ -85,10 +90,12 @@
             <UpdateParameters>
                 <asp:Parameter DbType="Date" Name="fecha" />
                 <asp:Parameter Name="tipo" Type="String"/>
-                <asp:Parameter Name="descriopcion" Type="String"/>
+                <asp:Parameter Name="descripcion" Type="String"/>
+                <asp:Parameter Name="id_calendario" />
             </UpdateParameters>
 
         </asp:SqlDataSource>
        </div>
+    </div>
     </form>
 </asp:Content>

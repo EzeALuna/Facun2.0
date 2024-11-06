@@ -1,0 +1,92 @@
+﻿body 
+{
+ 
+}
+
+.Titulo
+{
+    padding: 1%;
+    margin: 1%;
+    text-shadow: 2px 2px 6px black;
+    color: #FCFCFC;
+    font-size: 60px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #4756CA;
+}
+
+.style1
+{
+    margin: 15px;
+    padding: 20px;
+    position: absolute;
+    right: 10%;
+}
+
+.botton1
+{
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #4756CA;
+    background-color: #4756CA;
+    text-shadow: 2px 2px 4px black;
+    width: 100px;
+    height: 30px;
+    color: #FCFCFC;
+    font-size: 15px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.botton1:hover
+{
+background-color: #000;
+color: #4756CA;
+}
+
+.Letra
+{
+    text-shadow: 2px 2px 6px black;
+    color: #FCFCFC;
+    font-size: 40px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label
+{
+    color: #000;
+    font-size: 15px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label2
+{
+    text-decoration: none;
+    cursor: pointer;
+    color: #FCFCFC;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.label2:hover
+{
+    color: #0FC9E7;
+    text-decoration: none;
+}
+
+.Celda
+{
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #4756CA;
+    width: 300px;
+    height: 25px;
+    color: #000;
+    font-size: 15px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
