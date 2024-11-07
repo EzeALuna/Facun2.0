@@ -28,7 +28,7 @@
               <a href="CalendarioAlumnos.aspx">Calendario</a>
 	          </li>
 	          <li>
-              <a href="MisDatos.aspx">Mis Datos</a>
+              <a href="MisDatosProfe.aspx">Mis Datos</a>
 	          </li>
 	          <li>
               <a href="Login.aspx">Salir</a>
