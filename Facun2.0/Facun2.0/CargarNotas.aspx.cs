@@ -15,6 +15,8 @@ namespace Facun2._0
         {
             if (!Page.IsPostBack)
             {
+
+
                 // Verifica el usuario 
                 if (Session["DNIProfesor"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
                 {
@@ -47,53 +49,43 @@ namespace Facun2._0
                         Response.Redirect("Login.aspx");
                     }
                 }
+                ddlMaterias.DataBind();
+                ddlAlumnos.DataBind();
             }
         }
 
-        protected void GridViewAlumnosMaterias_RowCommand(object sender, GridViewCommandEventArgs e)
+      
+        protected void btnAgregarNota_Click(object sender, EventArgs e)
+{
+    int dniAlumno = int.Parse(ddlAlumnos.SelectedValue);
+    int idMateria = int.Parse(ddlMaterias.SelectedValue);
+    string trimestre = ddlTrimestre.SelectedValue;
+    int nota = int.Parse(ddlNota.SelectedValue);
+    string observaciones = txtObservaciones.Text;
+
+    SqlDataSourceNotas.InsertParameters["dni_alumno"].DefaultValue = dniAlumno.ToString();
+    SqlDataSourceNotas.InsertParameters["id_materia"].DefaultValue = idMateria.ToString();
+    SqlDataSourceNotas.InsertParameters["trimestre"].DefaultValue = trimestre;
+    SqlDataSourceNotas.InsertParameters["nota"].DefaultValue = nota.ToString();
+    SqlDataSourceNotas.InsertParameters["observaciones"].DefaultValue = observaciones;
+
+    SqlDataSourceNotas.Insert();
+
+    GridView1.DataBind();
+
+    txtObservaciones.Text = "";
+    ddlNota.SelectedIndex = 0;
+    ddlTrimestre.SelectedIndex = 0;
+    ddlAlumnos.SelectedIndex = 0;
+}
+
+
+        protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.CommandName == "Insertar")
-            {
-                // Obtener el FooterRow del GridView
-                GridViewRow footerRow = GridViewAlumnosMaterias.FooterRow;
-
-                // Obtener los valores de los controles en el FooterTemplate
-                DropDownList ddlAlumnoFooter = (DropDownList)footerRow.FindControl("ddlAlumnoFooter");
-                DropDownList ddlTrimestreFooter = (DropDownList)footerRow.FindControl("ddlTrimestreFooter");
-                TextBox txtNotaFooter = (TextBox)footerRow.FindControl("txtNotaFooter");
-
-                // Verificar que los valores no estén vacíos
-                if (ddlAlumnoFooter != null && ddlTrimestreFooter != null && txtNotaFooter != null)
-                {
-                    // Asignar valores a las variables
-                    int dniAlumno = int.Parse(ddlAlumnoFooter.SelectedValue);
-                    string trimestre = ddlTrimestreFooter.SelectedValue;
-                    int nota = int.Parse(txtNotaFooter.Text);
-                    int idMateria = int.Parse(ddlMaterias.SelectedValue);
-
-                    // Realizar la inserción en la base de datos
-                    string insertQuery = "INSERT INTO Notas_Alumnos (dni_alumno, id_materia, trimestre, nota, fecha) VALUES (@dni_alumno, @id_materia, @trimestre, @nota, GETDATE())";
-
-                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Facun2DBConnectionString1"].ConnectionString))
-                    {
-                        using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@dni_alumno", dniAlumno);
-                            cmd.Parameters.AddWithValue("@id_materia", idMateria);
-                            cmd.Parameters.AddWithValue("@trimestre", trimestre);
-                            cmd.Parameters.AddWithValue("@nota", nota);
-
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-
-                    // Recargar el GridView después de la inserción
-                    GridViewAlumnosMaterias.DataBind();
-                }
-            }
+            // Aquí puedes recargar los datos del GridView u otros controles
+            GridView1.DataBind(); // Esto recarga los datos en el GridView1
+            ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
         }
-
 
             }
     }

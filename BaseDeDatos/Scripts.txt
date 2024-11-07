@@ -68,7 +68,7 @@ CREATE TABLE Notas_Alumnos (
     id_nota INT PRIMARY KEY identity,
     dni_alumno INT,
     id_materia INT,
-    trimestre VARCHAR(10) DEFAULT 'Final' CHECK (trimestre IN ('1er Trimestre', '2do Trimestre', 'Final')),
+    trimestre VARCHAR(30) DEFAULT 'Final' CHECK (trimestre IN ('1er Trimestre', '2do Trimestre', 'Final')),
     nota int,
     fecha DATE NOT NULL,
     observaciones VARCHAR(50),

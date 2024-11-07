@@ -5,108 +5,100 @@
 
 <form id="form1" runat="server">
 
-    <asp:DropDownList ID="ddlMaterias" runat="server" AutoPostBack="true" 
-        DataSourceID="SqlDataSourceMaterias" DataTextField="nombre" DataValueField="id_materia">
-    </asp:DropDownList>
-
+   <asp:DropDownList ID="ddlMaterias" runat="server" AutoPostBack="true"
+    DataSourceID="SqlDataSourceMaterias" DataTextField="nombre" DataValueField="id_materia"
+    OnSelectedIndexChanged="ddlMaterias_SelectedIndexChanged">
+</asp:DropDownList>
     <asp:Label ID="lblSelectedMateria" runat="server" Text='<%# ddlMaterias.SelectedValue %>'></asp:Label>
 
-<asp:GridView ID="GridViewAlumnosMaterias" runat="server" AutoGenerateColumns="False"
-    DataSourceID="SqlDataSourceAlumnosMaterias" DataKeyNames="id_nota" 
-    EmptyDataText="No hay alumnos inscritos en esta materia." GridLines="None" ShowFooter="True">
-    <Columns>
-        <asp:BoundField DataField="DNI" HeaderText="DNI" ReadOnly="True" />
-        <asp:BoundField DataField="Alumno" HeaderText="Alumno" ReadOnly="True" />
-        <asp:BoundField DataField="Materia" HeaderText="Materia" ReadOnly="True" />
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
+        DataSourceID="SqlDataSourceNotas" EmptyDataText="No hay registros de datos para mostrar."
+        CellPadding="4" ForeColor="#333333" GridLines="None">
+        <Columns>
+            <asp:BoundField DataField="dni_alumno" HeaderText="DNI Alumno" />
+            <asp:BoundField DataField="trimestre" HeaderText="Trimestre" />
+            <asp:BoundField DataField="nota" HeaderText="Nota" />
+            <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+            <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
+        </Columns>
+    </asp:GridView>
 
-        <asp:TemplateField HeaderText="Seleccionar Alumno">
-            <FooterTemplate>
-                <asp:DropDownList ID="ddlAlumnoFooter" runat="server" 
-                    DataSourceID="SqlDataSourceAlumnos"
-                    DataTextField="nombre" DataValueField="dni">
-                </asp:DropDownList>
-            </FooterTemplate>
-        </asp:TemplateField>
-        
-        <asp:TemplateField HeaderText="Trimestre">
-            <ItemTemplate>
-                <%# Eval("Trimestre") %>
-            </ItemTemplate>
-            <FooterTemplate>
-                <asp:DropDownList ID="ddlFooterTrimestre" runat="server">
-                    <asp:ListItem Text="1er Trimestre" Value="1er Trimestre"></asp:ListItem>
-                    <asp:ListItem Text="2do Trimestre" Value="2do Trimestre"></asp:ListItem>
-                    <asp:ListItem Text="Final" Value="Final"></asp:ListItem>
-                </asp:DropDownList>
-            </FooterTemplate>
-        </asp:TemplateField>
+    <h3>Ingresar Nueva Nota</h3>
+    <label for="ddlAlumnos">Alumno:</label>
+    <asp:DropDownList ID="ddlAlumnos" runat="server" DataSourceID="SqlDataSourceAlumnos"
+        DataTextField="nombre_completo" DataValueField="dni_alumno" OnClick="btnInsertarNota_Click">
+    </asp:DropDownList>
 
-        <asp:TemplateField HeaderText="Nota">
-            <ItemTemplate>
-                <%# Eval("Nota") %>
-            </ItemTemplate>
-            <FooterTemplate>
-                <asp:DropDownList ID="ddlFooterNota" runat="server">
-                    <asp:ListItem Text="0" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="4" Value="4"></asp:ListItem>
-                    <asp:ListItem Text="5" Value="5"></asp:ListItem>
-                    <asp:ListItem Text="6" Value="6"></asp:ListItem>
-                    <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                    <asp:ListItem Text="8" Value="8"></asp:ListItem>
-                    <asp:ListItem Text="9" Value="9"></asp:ListItem>
-                    <asp:ListItem Text="10" Value="10"></asp:ListItem>
-                </asp:DropDownList>
-            </FooterTemplate>
-        </asp:TemplateField>
-        
-  <asp:TemplateField>
-            <FooterTemplate>
-                <asp:Button ID="btnInsertar" runat="server" Text="Insertar Nota" CommandName="Insertar" />
-            </FooterTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
+    <label for="ddlTrimestre">Trimestre:</label>
+    <asp:DropDownList ID="ddlTrimestre" runat="server">
+        <asp:ListItem>1er Trimestre</asp:ListItem>
+        <asp:ListItem>2do Trimestre</asp:ListItem>
+        <asp:ListItem>Final</asp:ListItem>
+    </asp:DropDownList>
 
-      
-<asp:SqlDataSource ID="SqlDataSourceAlumnos" runat="server"
-    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-    SelectCommand="SELECT dni, nombre + ' ' + apellido AS nombre FROM Alumnos">
-</asp:SqlDataSource>
+    <label for="ddlNota">Nota:</label>
+    <asp:DropDownList ID="ddlNota" runat="server">
+        <asp:ListItem Value="0">0</asp:ListItem>
+        <asp:ListItem Value="1">1</asp:ListItem>
+        <asp:ListItem Value="2">2</asp:ListItem>
+        <asp:ListItem Value="3">3</asp:ListItem>
+        <asp:ListItem Value="4">4</asp:ListItem>
+        <asp:ListItem Value="5">5</asp:ListItem>
+        <asp:ListItem Value="6">6</asp:ListItem>
+        <asp:ListItem Value="7">7</asp:ListItem>
+        <asp:ListItem Value="8">8</asp:ListItem>
+        <asp:ListItem Value="9">9</asp:ListItem>
+        <asp:ListItem Value="10">10</asp:ListItem>
+    </asp:DropDownList>
 
-<asp:SqlDataSource ID="SqlDataSourceAlumnosMaterias" runat="server"
-    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-    SelectCommand="SELECT A.dni AS DNI, A.nombre + ' ' + A.apellido AS Alumno, M.nombre AS Materia, COALESCE(N.nota, 0) AS Nota, COALESCE(N.trimestre, 'Final') AS Trimestre, N.id_nota
-        FROM Alumnos A
-        JOIN Inscripciones I ON A.dni = I.dni_alumno
-        JOIN Materias M ON I.id_materia = M.id_materia
-        LEFT JOIN Notas_Alumnos N ON A.dni = N.dni_alumno AND M.id_materia = N.id_materia
-        WHERE M.id_materia = @idMateria"
-    InsertCommand="INSERT INTO Notas_Alumnos (dni_alumno, id_materia, trimestre, nota, fecha) VALUES (@dni_alumno, @id_materia, @trimestre, @nota, GETDATE())">
+    <label for="txtObservaciones">Observaciones:</label>
+    <asp:TextBox ID="txtObservaciones" runat="server"></asp:TextBox>
+
+    <asp:Button ID="btnAgregarNota" runat="server" Text="Agregar Nota" OnClick="btnAgregarNota_Click" />
+
+
+    <asp:SqlDataSource ID="SqlDataSourceMaterias" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
+        SelectCommand="SELECT M.id_materia, M.nombre 
+                   FROM Materias M
+                   JOIN HorariosMaterias H ON M.id_materia = H.id_materia
+                   WHERE H.dni_profesor = 12345678">
+            <SelectParameters>
+             <asp:SessionParameter Name="DNIProfesor" SessionField="DNIProfesor" Type="Int32" />
+            </SelectParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlDataSourceAlumnos" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
+        SelectCommand="SELECT A.dni AS dni_alumno, (A.nombre + ' ' + A.apellido) AS nombre_completo
+                       FROM Alumnos A
+                       INNER JOIN Inscripciones N ON A.dni = N.dni_alumno
+                       WHERE N.id_materia = @id_materia">
+        <SelectParameters>
+            <asp:ControlParameter Name="id_materia" ControlID="ddlMaterias" PropertyName="SelectedValue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlDataSourceNotas" runat="server" 
+    ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>" 
+    InsertCommand="INSERT INTO Notas_Alumnos (dni_alumno, id_materia, trimestre, nota, fecha, observaciones) VALUES (@dni_alumno, @id_materia, @trimestre, @nota, GETDATE(), @observaciones)"
+    SelectCommand="SELECT N.dni_alumno, N.id_materia, N.trimestre, N.nota, N.fecha, N.observaciones 
+                   FROM Notas_Alumnos N
+                   WHERE N.id_materia = @id_materia">
     <SelectParameters>
-        <asp:ControlParameter Name="idMateria" ControlID="ddlMaterias" PropertyName="SelectedValue" Type="Int32" />
+        <asp:ControlParameter Name="id_materia" ControlID="ddlMaterias" PropertyName="SelectedValue" Type="Int32" />
     </SelectParameters>
     <InsertParameters>
-        <asp:ControlParameter Name="dni_alumno" ControlID="ddlAlumnoFooter" PropertyName="SelectedValue" Type="Int32" />
-        <asp:ControlParameter Name="id_materia" ControlID="ddlMaterias" PropertyName="SelectedValue" Type="Int32" />
-        <asp:ControlParameter Name="trimestre" ControlID="ddlTrimestreFooter" PropertyName="SelectedValue" Type="String" />
-        <asp:ControlParameter Name="nota" ControlID="txtNotaFooter" PropertyName="Text" Type="Int32" />
+        <asp:Parameter Name="dni_alumno" Type="Int32" />
+        <asp:Parameter Name="id_materia" Type="Int32" />
+        <asp:Parameter Name="trimestre" Type="String" />
+        <asp:Parameter Name="nota" Type="Int32" />
+        <asp:Parameter Name="observaciones" Type="String" />
     </InsertParameters>
 </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="SqlDataSourceMaterias" runat="server"
-        ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-        SelectCommand="
-            SELECT M.id_materia, M.nombre
-            FROM Materias M
-            INNER JOIN HorariosMaterias H ON M.id_materia = H.id_materia
-            WHERE H.dni_profesor = @DNIProfesor">
-        <SelectParameters>
-            <asp:SessionParameter Name="DNIProfesor" SessionField="DNIProfesor" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
+
 </form>
+
 
 </asp:Content>
