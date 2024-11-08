@@ -42,15 +42,15 @@ namespace Facun2._0
               //abre base de datos
               string connectionString = ConfigurationManager.ConnectionStrings["CadenaConexionPP2024"].ConnectionString;
 
-              //string queryy = "SELECT Fecha, Descripcion, Tipo FROM Calendario WHERE dni = " + Session["DNI"];
+              string queryy = "SELECT Fecha, Descripcion, Tipo FROM Calendario WHERE dni = " + Session["DNI"];
 
               using (SqlConnection connection = new SqlConnection(connectionString))
               {
                   connection.Open();
                   //Guarda las variables asignadas en los atributos de SQL
-                  string query = "INSERT INTO Notas_Alumnos (dni_alumno, id_materia, trimestre, nota, fecha) VALUES (@dni_alumno, @id_materia, @trimestre, @nota, GETDATE())";
+                  string query = "INSERT INTO Calendario (DNI, Fecha, Descripcion, Tipo) VALUES (@DNI, @Fecha, @Descripcion, @Tipo)";
                   SqlCommand command = new SqlCommand(query, connection);
-                  command.Parameters.AddWithValue("@dni_alumno", dni_alumno);
+                  command.Parameters.AddWithValue("@DNI", Session["DNI"]);
                   command.Parameters.AddWithValue("@Fecha", fechaSeleccionada);
                   command.Parameters.AddWithValue("@Descripcion", descripcion);
                   command.Parameters.AddWithValue("@Tipo", tipo);
