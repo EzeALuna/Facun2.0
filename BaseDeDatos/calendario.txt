@@ -7,3 +7,23 @@ tipo char(20),
 descripcion char(30),
 FOREIGN KEY (dni) REFERENCES Alumnos(dni),
 )
+
+CREATE TABLE CalendarioProfe
+(
+id_Calendario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+dni INT NOT NULL,
+fecha DATETIME,
+tipo char(20),
+descripcion char(30),
+FOREIGN KEY (dni) REFERENCES Profesores(dni),
+)
+
+CREATE TABLE CalendarioAdmin
+(
+id_Calendario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+dni INT NOT NULL,
+fecha DATETIME,
+tipo char(20),
+descripcion char(30),
+FOREIGN KEY (dni) REFERENCES Admin(dni),
+)

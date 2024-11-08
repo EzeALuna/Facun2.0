@@ -104,19 +104,28 @@
     <asp:SqlDataSource ID="SqlDataSourceProfesor" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
         SelectCommand="SELECT A.dni, (A.nombre + ' ' + A.apellido) AS nombre
-                       FROM Profesores A">
+                       FROM Profesores A WHERE A.dni = @dni">
+        <SelectParameters>
+            <asp:ControlParameter Name="dni" ControlID="ddlProfesor" PropertyName="SelectedValue" />
+        </SelectParameters>
     </asp:SqlDataSource>
 
         <asp:SqlDataSource ID="SqlDataSourceMateria" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
         SelectCommand="SELECT id_materia AS materia
-                       FROM Materias">
+                       FROM Materias WHERE id_materia = @id_materia">
+        <SelectParameters>
+            <asp:ControlParameter Name="id_materia" ControlID="ddlMateria" PropertyName="SelectedValue" />
+        </SelectParameters>
     </asp:SqlDataSource>
 
       <asp:SqlDataSource ID="SqlDataCarrera" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
         SelectCommand="SELECT id_carrera AS Carrera
-                       FROM Carreras">
+                       FROM Carreras WHERE id_carrera = @id_carrera">
+        <SelectParameters>
+            <asp:ControlParameter Name="id_carrera" ControlID="ddlCarrera" PropertyName="SelectedValue" />
+        </SelectParameters>
     </asp:SqlDataSource>
     </form>
 </asp:Content>

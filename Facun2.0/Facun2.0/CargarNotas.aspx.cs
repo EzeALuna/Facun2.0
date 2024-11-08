@@ -80,12 +80,12 @@ namespace Facun2._0
 }
 
 
-        protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Aquí puedes recargar los datos del GridView u otros controles
-            GridView1.DataBind(); // Esto recarga los datos en el GridView1
-            ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
-        }
+        //protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // Aquí puedes recargar los datos del GridView u otros controles
+        //    GridView1.DataBind(); // Esto recarga los datos en el GridView1
+        //    ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
+        //}
 
             }
     }

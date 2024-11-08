@@ -47,43 +47,51 @@ namespace Facun2._0
                         Response.Redirect("Login.aspx");
                     }
                 }
-                ddlMaterias.DataBind();
-                ddlAlumnos.DataBind();
+                ddlCarrera.DataBind();
+                ddlDia.DataBind();
+                ddlMateria.DataBind();
+                ddlModulo.DataBind();
+                ddlPRofesor.DataBind();
             }
         }
 
       
         protected void btnAgregarNota_Click(object sender, EventArgs e)
 {
-    int dniAlumno = int.Parse(ddlAlumnos.SelectedValue);
-    int idMateria = int.Parse(ddlMaterias.SelectedValue);
-    string trimestre = ddlTrimestre.SelectedValue;
-    int nota = int.Parse(ddlNota.SelectedValue);
+    int dni_profe = int.Parse(ddlPRofesor.SelectedValue);
+    int id_materia = int.Parse(ddlMateria.SelectedValue);
+    string dia = ddlDia.SelectedValue;
+    int modulo = int.Parse(ddlModulo.SelectedValue);
+    string carrera = ddlCarrera.SelectedValue;
     string observaciones = txtObservaciones.Text;
 
-    SqlDataSourceNotas.InsertParameters["dni_alumno"].DefaultValue = dniAlumno.ToString();
-    SqlDataSourceNotas.InsertParameters["id_materia"].DefaultValue = idMateria.ToString();
-    SqlDataSourceNotas.InsertParameters["trimestre"].DefaultValue = trimestre;
-    SqlDataSourceNotas.InsertParameters["nota"].DefaultValue = nota.ToString();
-    SqlDataSourceNotas.InsertParameters["observaciones"].DefaultValue = observaciones;
+    SqlDataSource1.InsertParameters["dni_profe"].DefaultValue = ddlPRofesor.ToString();
+    SqlDataSource1.InsertParameters["id_materia"].DefaultValue = ddlMateria.ToString();
+    SqlDataSource1.InsertParameters["dia"].DefaultValue = dia;
+    SqlDataSource1.InsertParameters["modulo"].DefaultValue = ddlModulo.ToString();
+    SqlDataSource1.InsertParameters["carrera"].DefaultValue = carrera;
+    SqlDataSource1.InsertParameters["observaciones"].DefaultValue = observaciones;
 
-    SqlDataSourceNotas.Insert();
+
+    SqlDataSource1.Insert();
 
     GridView1.DataBind();
 
     txtObservaciones.Text = "";
-    ddlNota.SelectedIndex = 0;
-    ddlTrimestre.SelectedIndex = 0;
-    ddlAlumnos.SelectedIndex = 0;
+    ddlCarrera.SelectedIndex = 0;
+    ddlDia.SelectedIndex = 0;
+    ddlMateria.SelectedIndex = 0;
+    ddlModulo.SelectedIndex = 0;
+    ddlPRofesor.SelectedIndex = 0;
 }
 
 
-        protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Aquí puedes recargar los datos del GridView u otros controles
-            GridView1.DataBind(); // Esto recarga los datos en el GridView1
-            ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
-        }
+        //protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // Aquí puedes recargar los datos del GridView u otros controles
+        //    GridView1.DataBind(); // Esto recarga los datos en el GridView1
+        //    ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
+        //}
 
         }
     }
