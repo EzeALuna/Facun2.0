@@ -5,23 +5,23 @@
     <form id="form1" runat="server">
     <div>
     <link rel="stylesheet" href="EstilosLogin/css/Titulos.css">
-    <h2 class="Titulo" align="center">Calendario de instancias</h2>
+    <h3 class="Titulo" align="center">Calendario de instancias</h3>
     <div style="float: left; " align="center">
     
     <asp:Calendar ID="Calendar1" runat="server" 
         onselectionchanged="Calendar1_SelectionChanged" BackColor="White" 
-            BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" 
-            Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" 
-            Width="330px">
-        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-            Height="8pt" />
-        <DayStyle BackColor="#CCCCCC" />
-        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+            BorderColor="White" Font-Names="Verdana" 
+            Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" 
+            Width="350px" BorderWidth="1px">
+        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
+            VerticalAlign="Bottom" />
         <OtherMonthDayStyle ForeColor="#999999" />
         <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-        <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" 
-            Font-Size="12pt" ForeColor="White" Height="12pt" />
-        <TodayDayStyle BackColor="#999999" ForeColor="White" />
+        <TitleStyle BackColor="White" Font-Bold="True" 
+            Font-Size="12pt" ForeColor="#333399" BorderColor="Black" 
+            BorderWidth="4px" />
+        <TodayDayStyle BackColor="#CCCCCC" />
         </asp:Calendar>
     <br />
     <div style="overflow: auto;">    
@@ -55,7 +55,7 @@
                     SortExpression="id_Calendario" InsertVisible="False" ReadOnly="True" 
                     Visible="False"></asp:BoundField>
 <asp:BoundField DataField="dni" HeaderText="dni" SortExpression="dni" Visible="False"></asp:BoundField>
-                <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" />
+                <asp:BoundField DataField="fecha" HeaderText="Fecha" SortExpression="fecha" DataFormatString="{0:dd/MM/yyyy}"/>
                 <asp:BoundField DataField="tipo" HeaderText="Tipo" SortExpression="tipo" />
                 <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
                     SortExpression="descripcion" />

@@ -77,7 +77,7 @@
             <asp:Parameter Name="dni" Type="Int32" />
         </UpdateParameters>
          <SelectParameters>
-        <asp:SessionParameter Name="dni" SessionField="DNIProfesor" Type="Int32" />
+        <asp:SessionParameter Name="dni" SessionField="DNI" Type="Int32" />
     </SelectParameters>
     </asp:SqlDataSource>
     </form>

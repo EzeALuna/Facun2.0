@@ -4,16 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace Facun2._0
 {
-    public partial class CargarNotas : System.Web.UI.Page
+    public partial class AsignarMaterias : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+             if (!Page.IsPostBack)
             {
 
 
@@ -87,7 +85,5 @@ namespace Facun2._0
             ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
         }
 
-            }
+        }
     }
-       
-        

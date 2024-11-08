@@ -69,6 +69,7 @@ namespace Facun2._0
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+                    //builder.DataSource = "DESKTOP-URR4FQN\\SQLEXPRESS";
 
                     //HUGO
                     //builder.DataSource = "DESKTOP-044COGN";

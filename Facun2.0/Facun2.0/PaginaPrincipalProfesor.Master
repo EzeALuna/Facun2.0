@@ -25,7 +25,7 @@
               </li>
    	          </li>
 	          <li>
-              <a href="CalendarioAlumnos.aspx">Calendario</a>
+              <a href="CalendarioProfe.aspx">Calendario</a>
 	          </li>
 	          <li>
               <a href="MisDatosProfe.aspx">Mis Datos</a>
@@ -60,7 +60,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
-                <p> <%: Session["NombreProfesor"] ?? "Profe"%></p>
+                <p> <%: Session["Nombre"] ?? "Profe"%></p>
               </ul>
             </div>
           </div>

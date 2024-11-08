@@ -18,7 +18,7 @@
             <asp:BoundField DataField="dni_alumno" HeaderText="DNI Alumno" />
             <asp:BoundField DataField="trimestre" HeaderText="Trimestre" />
             <asp:BoundField DataField="nota" HeaderText="Nota" />
-            <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+            <asp:BoundField DataField="fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}"/>
             <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
         </Columns>
     </asp:GridView>
@@ -64,7 +64,7 @@
                    JOIN HorariosMaterias H ON M.id_materia = H.id_materia
                    WHERE H.dni_profesor = 12345678">
             <SelectParameters>
-             <asp:SessionParameter Name="DNIProfesor" SessionField="DNIProfesor" Type="Int32" />
+             <asp:SessionParameter Name="DNI" SessionField="DNI" Type="Int32" />
             </SelectParameters>
     </asp:SqlDataSource>
 

@@ -38,8 +38,19 @@
                 </li>
 	            </ul>
 	          </li>
-	          <li>
+	          <%--<li>
               <a href="CalendarioAlumnos.aspx">Calendario</a>
+	          </li>--%>
+              <li>
+	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Asignaciones</a>
+	            <ul class="collapse list-unstyled" id="Ul1">
+                <li>
+                    <a href="AsignarMaterias.aspx">Materias</a>
+                </li>
+                <li>
+                 <a href="PerfilProfesor.aspx">Horarios</a> 
+                </li>
+	            </ul>
 	          </li>
 	          <li>
               <a href="MisDatosAdmin.aspx">Mis Datos</a>
@@ -74,7 +85,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
-                <p> <%: Session["NombreAdmin"] ?? "Admin"%></p>
+                <p> <%: Session["Nombre"] ?? "Admin"%></p>
               </ul>
             </div>
           </div>

@@ -29,6 +29,7 @@ namespace Facun2._0
 
                 //ESCUELA
                 //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
+                //builder.DataSource = "DESKTOP-URR4FQN\\SQLEXPRESS";
 
                 //HUGO
                 //builder.DataSource = "DESKTOP-044COGN";
@@ -74,9 +75,9 @@ namespace Facun2._0
                             string nombre = readerAlumnos["Nombre"].ToString();
                             string apellido = readerAlumnos["Apellido"].ToString();
                             Session["DNI"] = txtDNI.Text;
-                            Session["NombreAlumno"] = nombre + " " + apellido;
+                            Session["Nombre"] = nombre + " " + apellido;
                             Session["Usuario"] = "alumno";
-                            Session["AlumnoDNI"] = txtDNI.Text;
+                            //Session["AlumnoDNI"] = txtDNI.Text;
                             Response.Redirect("InicioAlumno.aspx");
                         }
                     }
@@ -89,8 +90,8 @@ namespace Facun2._0
                             string tipo = readerProfesores["Tipo"].ToString();
                             string nombre = readerProfesores["Nombre"].ToString();
                             string apellido = readerProfesores["Apellido"].ToString();
-                            Session["DNIProfesor"] = txtDNI.Text;
-                            Session["NombreProfesor"] = nombre + " " + apellido;
+                            Session["DNI"] = txtDNI.Text;
+                            Session["Nombre"] = nombre + " " + apellido;
                             Session["Usuario"] = "profesor";
                             Response.Redirect("InicioProfesor.aspx");
                         }
@@ -104,8 +105,8 @@ namespace Facun2._0
                             string tipo = readerAdmin["Tipo"].ToString();
                             string nombre = readerAdmin["Nombre"].ToString();
                             string apellido = readerAdmin["Apellido"].ToString();
-                            Session["DNIAdmin"] = txtDNI.Text;
-                            Session["NombreAdmin"] = nombre + " " + apellido;
+                            Session["DNI"] = txtDNI.Text;
+                            Session["Nombre"] = nombre + " " + apellido;
                             Session["Usuario"] = "admin";
                             Response.Redirect("InicioAdmin.aspx");
                         }
