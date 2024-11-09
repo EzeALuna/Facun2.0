@@ -65,14 +65,14 @@ namespace Facun2._0
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                     //EZE
-                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
                     //builder.DataSource = "DESKTOP-URR4FQN\\SQLEXPRESS";
 
                     //HUGO
-                    //builder.DataSource = "DESKTOP-044COGN";
+                    builder.DataSource = "DESKTOP-044COGN";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -109,11 +109,12 @@ namespace Facun2._0
                         string script = String.Format("INSERT INTO Materias (nombre, descripcion, id_carrera, año, estado) VALUES('{0}', '{1}', {2}, '{3}', 'Activa')",
                                                         textNombre.Text, textDescripcion.Text, DDLCarrera.SelectedValue, DDLAño.SelectedValue );
 
-                        conn.Open();
+
+
 
                         //try
                         //{
-                            SqlCommand command = new SqlCommand(script, conn);
+                        SqlCommand command = new SqlCommand(script, connection);
 
                             int resp = command.ExecuteNonQuery();
 

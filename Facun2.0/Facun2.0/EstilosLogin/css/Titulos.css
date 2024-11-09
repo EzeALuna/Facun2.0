@@ -26,7 +26,7 @@
 .botton1
 {
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid #4756CA;
     background-color: #4756CA;
     text-shadow: 2px 2px 4px black;
@@ -79,7 +79,7 @@ color: #4756CA;
 .Celda
 {
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #4756CA;
     width: 300px;
     height: 25px;
@@ -89,4 +89,48 @@ color: #4756CA;
     font-family: Arial, Helvetica, sans-serif;
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.botton2
+{
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #4756CA;
+    background-color: #4756CA;
+    text-shadow: 2px 2px 4px black;
+    width: 70px;
+    height: 30px;
+    color: #FCFCFC;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.botton2:hover
+{
+background-color: #000;
+color: #4756CA;
+}
+
+.botton3
+{
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #4756CA;
+    background-color: #4756CA;
+    text-shadow: 2px 2px 4px black;
+    width: 280px;
+    height: 55px;
+    color: #FCFCFC;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.botton3:hover
+{
+background-color: #000;
+color: #4756CA;
 }

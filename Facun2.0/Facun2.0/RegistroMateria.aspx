@@ -12,6 +12,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
+
 	<link rel="stylesheet" href="EstilosLogin/css/RegistroLogin.css">
 
       <!-- SweetAlert2 CSS -->
@@ -104,9 +105,9 @@
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		                    </form>
                             <br />
-                            <p class="btn btn-outline-primary"><a href="PerfilMateria.aspx">Ver/editar materias</a></p>
+                            <p class="text-center"><a href="PerfilMateria.aspx">Ver/editar materias</a></p>
                             <br />
-                            <p class="btn btn-outline-danger"><a href="Login.aspx">Volver</a></p>
+                            <p class="text-center"><a href="Login.aspx">Volver</a></p>
 		        </div>
 		
 				</div>

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Content Include="AsignarMaterias.aspx" />
     <Content Include="CalendarioAlumnos.aspx" />
+    <Content Include="CalendarioProfe.aspx" />
     <Content Include="CargarNotas.aspx" />
     <Content Include="EstilosLogin\css\Titulos.css" />
     <Content Include="Inscripcion.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="CalendarioAlumnos.aspx.designer.cs">
       <DependentUpon>CalendarioAlumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarioProfe.aspx.cs">
+      <DependentUpon>CalendarioProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CalendarioProfe.aspx.designer.cs">
+      <DependentUpon>CalendarioProfe.aspx</DependentUpon>
     </Compile>
     <Compile Include="CargarNotas.aspx.cs">
       <DependentUpon>CargarNotas.aspx</DependentUpon>

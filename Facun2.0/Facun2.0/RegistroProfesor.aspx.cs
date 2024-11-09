@@ -62,14 +62,14 @@ namespace Facun2._0
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                     //EZE
-                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
                     //builder.DataSource = "DESKTOP-URR4FQN\\SQLEXPRESS";
 
                     //HUGO
-                    //builder.DataSource = "DESKTOP-044COGN";
+                    builder.DataSource = "DESKTOP-044COGN";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -102,16 +102,18 @@ namespace Facun2._0
                         }
 
 
-                        string script = String.Format("INSERT INTO Profesores (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}', {7}, '{8}')",
-                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'P');
+                        string script = "INSERT INTO Profesores (dni, Nombre, Apellido, email, contraseña, tipo)" +
+                                        "VALUES (@DNI, @Nombre, @Apellido, @Email, @Contraseña, 'A')";
 
-                        conn.Open();
+                        SqlCommand cmdProfe = new SqlCommand(script, connection);
+                        cmdProfe.Parameters.AddWithValue("@DNI", textDNI.Text);
+                        cmdProfe.Parameters.AddWithValue("@Nombre", textNombre.Text);
+                        cmdProfe.Parameters.AddWithValue("@Apellido", textApellido.Text);
+                        cmdProfe.Parameters.AddWithValue("@Email", textEmail.Text);
+                        cmdProfe.Parameters.AddWithValue("@Contraseña", textContraseña.Text);
 
-                        //try
-                        //{
-                            SqlCommand command = new SqlCommand(script, conn);
 
-                            int resp = command.ExecuteNonQuery();
+                            int resp = cmdProfe.ExecuteNonQuery();
 
                             if (resp > 0)
                             {
@@ -130,15 +132,15 @@ namespace Facun2._0
 
                                 lblTexto.ForeColor = System.Drawing.Color.Green;
                                 lblTexto.Focus();
+                                textDNI.Text = "";
                                 textNombre.Text = "";
                                 textApellido.Text = "";
                                 textContraseña.Text = "";
                                 textContraseña2.Text = "";
                                 textEmail.Text = "";
-                                textDNI.Text = "";
                                 //textTipo.Text = "";
-                                textNacimiento.Text = "";
-                                textTelefono.Text = "";
+                                //textNacimiento.Text = "";
+                                //textTelefono.Text = "";
                                 //DDLCarrera.SelectedValue = "";
                                 lblAlerta.Text = "";
                                 //Response.Redirect("Login.aspx");

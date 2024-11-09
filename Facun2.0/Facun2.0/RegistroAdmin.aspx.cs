@@ -61,14 +61,14 @@ namespace Facun2._0
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                     //EZE
-                    builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
+                    //builder.DataSource = "DESKTOP-QSS2PVA\\SQLEXPRESS";
 
                     //ESCUELA
                     //builder.DataSource = "DESKTOP-U48JRI6\\SQLEXPRESS";
                     //builder.DataSource = "DESKTOP-URR4FQN\\SQLEXPRESS";
 
                     //HUGO
-                    //builder.DataSource = "DESKTOP-044COGN";
+                    builder.DataSource = "DESKTOP-044COGN";
 
                     //Nombre de la base de datos
                     builder.InitialCatalog = "Facun2DB";
@@ -80,6 +80,8 @@ namespace Facun2._0
 
                     using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                     {
+                        try
+                        {
                         connection.Open();
 
                         // Primero, verificamos si el email o el DNI ya existen
@@ -97,42 +99,17 @@ namespace Facun2._0
                             return;
                         }
 
+                            string script =  "INSERT INTO Admin (dni, Nombre, Apellido, Email, contraseña, Tipo)" +
+                                              "VALUES (@DNI, @Nombre, @Apellido, @Email, @Contraseña, 'A')";
 
-                        string script = String.Format("INSERT INTO Admin (Nombre, Apellido, dni, fecha_nacimiento, direccion, email, contraseña, telefono, tipo, cargo) VALUES('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}', {7}, '{8}', '{9}')",
-                                                        textNombre.Text, textApellido.Text, textDNI.Text, textNacimiento.Text, textDireccion.Text, textEmail.Text, textContraseña.Text, textTelefono.Text, 'D', textCargo.Text);
+                            SqlCommand cmdAdmin = new SqlCommand(script, connection);
+                            cmdAdmin.Parameters.AddWithValue("@DNI", textDNI.Text);
+                            cmdAdmin.Parameters.AddWithValue("@Nombre", textNombre.Text);
+                            cmdAdmin.Parameters.AddWithValue("@Apellido", textApellido.Text);
+                            cmdAdmin.Parameters.AddWithValue("@Email", textEmail.Text);
+                            cmdAdmin.Parameters.AddWithValue("@Contraseña", textContraseña.Text);
 
-                        conn.Open();
-
-                        // Obtener las materias de la carrera seleccionada
-                        string obtenerMaterias = "SELECT id_materia FROM Materias WHERE id_carrera = @idCarrera";
-                        SqlCommand cmdMaterias = new SqlCommand(obtenerMaterias, connection);
-                        cmdMaterias.Parameters.AddWithValue("@idCarrera", DDLCarrera.SelectedValue);
-
-                        SqlDataReader reader = cmdMaterias.ExecuteReader();
-
-                        // Insertar una inscripción por cada materia obtenida
-                        while (reader.Read())
-                        {
-                            int idMateria = (int)reader["id_materia"];
-
-                            string insertarInscripcion = "INSERT INTO Inscripciones (dni_alumno, id_materia, estado) " +
-                                                         "VALUES (@dni, @idMateria, 'A cursar')";
-
-                            SqlCommand cmdInscripcion = new SqlCommand(insertarInscripcion, connection);
-                            cmdInscripcion.Parameters.AddWithValue("@dni", textDNI.Text);
-                            cmdInscripcion.Parameters.AddWithValue("@idMateria", idMateria);
-
-                            cmdInscripcion.ExecuteNonQuery();
-                        }
-
-                        reader.Close();
-
-
-                        try
-                        {
-                            SqlCommand command = new SqlCommand(script, conn);
-
-                            int resp = command.ExecuteNonQuery();
+                            int resp = cmdAdmin.ExecuteNonQuery();
 
                             if (resp > 0)
                             {
@@ -158,8 +135,8 @@ namespace Facun2._0
                                 textEmail.Text = "";
                                 textDNI.Text = "";
                                 //textTipo.Text = "";
-                                textNacimiento.Text = "";
-                                textTelefono.Text = "";
+                                //textNacimiento.Text = "";
+                                //textTelefono.Text = "";
                                 //DDLCarrera.SelectedValue = "";
                                 lblAlerta.Text = "";
 
