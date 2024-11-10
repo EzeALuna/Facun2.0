@@ -18,7 +18,7 @@ namespace Facun2._0
 
 
                 // Verifica el usuario 
-                if (Session["DNI"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+                if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
                 {
                     // Si no hay sesión
                     Response.Redirect("Login.aspx");
@@ -80,14 +80,14 @@ namespace Facun2._0
 }
 
 
-        //protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // Aquí puedes recargar los datos del GridView u otros controles
-        //    GridView1.DataBind(); // Esto recarga los datos en el GridView1
-        //    ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
-        //}
+        protected void ddlMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Aquí puedes recargar los datos del GridView u otros controles
+            GridView1.DataBind(); // Esto recarga los datos en el GridView1
+            ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
+        }
 
-            }
+    }
     }
        
         

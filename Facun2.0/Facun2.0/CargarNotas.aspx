@@ -5,7 +5,7 @@
 
 <form id="form1" runat="server">
 
-   <asp:DropDownList ID="ddlMaterias" runat="server" AutoPostBack="true"
+   <asp:DropDownList ID="ddlMaterias" runat="server" AutoPostBack="True"
     DataSourceID="SqlDataSourceMaterias" DataTextField="nombre" DataValueField="id_materia"
     OnSelectedIndexChanged="ddlMaterias_SelectedIndexChanged">
 </asp:DropDownList>
@@ -14,6 +14,7 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
         DataSourceID="SqlDataSourceNotas" EmptyDataText="No hay registros de datos para mostrar."
         CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="dni_alumno" HeaderText="DNI Alumno" />
             <asp:BoundField DataField="trimestre" HeaderText="Trimestre" />
@@ -21,6 +22,16 @@
             <asp:BoundField DataField="fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}"/>
             <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
         </Columns>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
     <h3>Ingresar Nueva Nota</h3>
@@ -59,12 +70,10 @@
 
     <asp:SqlDataSource ID="SqlDataSourceMaterias" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-        SelectCommand="SELECT M.id_materia, M.nombre 
-                   FROM Materias M
-                   JOIN HorariosMaterias H ON M.id_materia = H.id_materia
-                   WHERE H.dni_profesor = 12345678">
+        
+       SelectCommand="SELECT M.id_materia, M.nombre, H.dni_profesor FROM Materias AS M RIGHT OUTER JOIN HorariosMaterias AS H ON M.id_materia = H.id_materia WHERE (H.dni_profesor = @dni_profesor)">
             <SelectParameters>
-             <asp:SessionParameter Name="DNI" SessionField="DNI" Type="Int32" />
+             <asp:SessionParameter Name="dni_profesor" SessionField="dni" />
             </SelectParameters>
     </asp:SqlDataSource>
 

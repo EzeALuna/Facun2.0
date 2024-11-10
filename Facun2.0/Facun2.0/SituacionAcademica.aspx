@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<form id="form1" runat="server">
-</div>
+    <form id="form1" runat="server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
         EmptyDataText="No hay registros para mostrar." 
         DataKeyNames="id_inscripcion" CellPadding="4" ForeColor="#333333" 
@@ -43,16 +42,15 @@
     
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
-        SelectCommand="SELECT I.id_inscripcion, M.nombre AS NombreMateria, C.nombre AS NombreCarrera, H.dia, H.modulo, I.estado
-        FROM Inscripciones I 
-        JOIN Alumnos A ON I.dni_alumno = A.dni
-        LEFT JOIN Carreras C ON A.id_carrera = C.id_carrera
-        LEFT JOIN Materias M ON I.id_materia = M.id_materia
-        LEFT JOIN HorariosMaterias H ON H.id_materia = M.id_materia
-        WHERE A.dni = @dni"
+        SelectCommand="SELECT I.id_inscripcion, M.nombre AS NombreMateria, C.nombre AS NombreCarrera, H.dia, 
+        H.modulo, I.estado FROM Inscripciones AS I INNER JOIN Alumnos AS A ON I.dni_alumno = A.dni 
+        LEFT OUTER JOIN Carreras AS C ON A.id_carrera = C.id_carrera 
+        LEFT OUTER JOIN Materias AS M ON I.id_materia = M.id_materia 
+        LEFT OUTER JOIN HorariosMaterias AS H ON H.id_materia = M.id_materia WHERE A.dni = @dni"
+        
         UpdateCommand="UPDATE Inscripciones SET estado = @estado WHERE id_inscripcion = @id_inscripcion">
         <SelectParameters>
-            <asp:SessionParameter Name="dniAlumno" SessionField="dni" Type="String" />
+            <asp:SessionParameter Name="dni" SessionField="DNI" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="estado" Type="String" />

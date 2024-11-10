@@ -54,7 +54,11 @@
     <Content Include="CalendarioAlumnos.aspx" />
     <Content Include="CalendarioProfe.aspx" />
     <Content Include="CargarNotas.aspx" />
+    <Content Include="EstilosLogin\css\Nosotros.css" />
+    <Content Include="EstilosLogin\css\StyleSheet1.css" />
     <Content Include="EstilosLogin\css\Titulos.css" />
+    <Content Include="Estilos\images\HZZ.jpg" />
+    <Content Include="Estilos\images\RJ.jpeg" />
     <Content Include="Inscripcion.aspx" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="EstilosLogin\css\bootstrap\mixins\_screen-reader.css" />
@@ -94,6 +98,7 @@
     <Content Include="MisDatos.aspx" />
     <Content Include="MisDatosAdmin.aspx" />
     <Content Include="MisDatosProfe.aspx" />
+    <Content Include="NosotrosA.aspx" />
     <Content Include="PerfilAdmin.aspx" />
     <Content Include="PerfilAlumno.aspx" />
     <Content Include="PerfilProfesor.aspx" />
@@ -201,6 +206,13 @@
     </Compile>
     <Compile Include="MisDatosProfe.aspx.designer.cs">
       <DependentUpon>MisDatosProfe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NosotrosA.aspx.cs">
+      <DependentUpon>NosotrosA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NosotrosA.aspx.designer.cs">
+      <DependentUpon>NosotrosA.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaPrincipalAdmin.Master.cs">
       <DependentUpon>PaginaPrincipalAdmin.Master</DependentUpon>

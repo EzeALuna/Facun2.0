@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 
 namespace Facun2._0
@@ -13,7 +16,9 @@ namespace Facun2._0
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["CadenaConexionPP2024"].ConnectionString;
 
+            string queryy = "SELECT Fecha, Descripcion, Tipo FROM Calendario WHERE dni = " + Session["DNI"];
         }
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {

@@ -12,6 +12,7 @@
 		 <%--mensajebox--%>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="Estilos/css/style.css">
+         <link rel="stylesheet" href="EstilosLogin/css/StyleSheet1.css"> 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     </head>
@@ -37,7 +38,7 @@
 
 	        <div class="footer">
 	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy;<script>						                      document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://isfdyt46-bue.infd.edu.ar/sitio/" target="_blank">Ezequiel Luna</a>
+						  Copyright &copy;<script>						                      document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="NosotrosA.aspx" >L.R.S.Z</a>
 						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 	        </div>
 
@@ -60,7 +61,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
-                <p> <%: Session["Nombre"] ?? "Profe"%></p>
+                <p  class="hola"> Bienvenido <%: Session["Nombre"] ?? "Profe"%></p>
               </ul>
             </div>
           </div>
