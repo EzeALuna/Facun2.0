@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Facun2._0
 {
@@ -93,5 +96,29 @@ namespace Facun2._0
 //        //    ddlAlumnos.DataBind(); // Esto recarga los datos en el ddlAlumnos
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+              //abre base de datos
+              string connectionString = ConfigurationManager.ConnectionStrings["CadenaConexionPP2024"].ConnectionString;
+
+              string queryy = "SELECT * FROM HorariosMaterias WHERE id_materia = " + DropDownList3.Text;
+
+              using (SqlConnection connection = new SqlConnection(connectionString))
+              {
+                  connection.Open();
+                  //Guarda las variables asignadas en los atributos de SQL
+                  string query = "INSERT INTO HorariosMaterias (dni_profesor, id_materia, id_carrera, dia, observaciones) VALUES (@dni_profesor, @id_materia, @id_carrera, @dia, @observaciones)";
+                  SqlCommand command = new SqlCommand(query, connection);
+                  command.Parameters.AddWithValue("@dni_profesor", DropDownList2.Text);
+                  command.Parameters.AddWithValue("@id_materia", DropDownList3.Text);
+                  command.Parameters.AddWithValue("@id_carrera", DropDownList5.Text);
+                  command.Parameters.AddWithValue("@dia", DropDownList1.Text);
+                  command.Parameters.AddWithValue("@observaciones", TextBox1.Text);
+                  command.ExecuteNonQuery();
+                  Response.Redirect(Request.RawUrl);
+
+                  connection.Close();
+        }
+        }
     }
 }
