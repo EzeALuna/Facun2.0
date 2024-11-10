@@ -156,7 +156,7 @@
 		           
                     <asp:Label ID="lblTexto" runat="server" Text=""></asp:Label>
 		                    </form>
-                            <p class="text-center"><a href="Login.aspx">Volver</a></p>
+                            <p class="text-center"><a href="PerfilMateria.aspx">Volver</a></p>
 		         <%-- <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>--%>
 		        </div>
 		

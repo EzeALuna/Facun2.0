@@ -95,11 +95,11 @@
     LEFT JOIN Carreras C ON A.id_carrera = C.id_carrera
     LEFT JOIN Materias M ON I.id_materia = M.id_materia
     LEFT JOIN HorariosMaterias H ON H.id_materia = M.id_materia
-    WHERE A.dni = @dniAlumno"
+    WHERE A.dni = @DNI"
     UpdateCommand="UPDATE Inscripciones SET estado = @estado WHERE id_inscripcion = @id_inscripcion"
     DeleteCommand="DELETE FROM [Inscripciones] WHERE [id_inscripcion] = @id_inscripcion">
     <SelectParameters>
-        <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="String" /> 
+        <asp:SessionParameter Name="dni" SessionField="DNI" Type="String" /> 
     </SelectParameters>
     <UpdateParameters>
         <asp:Parameter Name="estado" Type="String" />
@@ -118,15 +118,15 @@ FROM Materias M
 JOIN Alumnos A ON A.id_carrera = M.id_carrera
 LEFT JOIN Correlativas C ON C.id_materia = M.id_materia
 LEFT JOIN Inscripciones I ON I.id_materia = C.id_materia_requisito AND I.dni_alumno = A.dni AND I.estado = 'Aprobado'
-WHERE A.dni = @dniAlumno
+WHERE A.dni = @DNI
     AND (C.id_materia_requisito IS NULL OR I.estado = 'Aprobado')
     AND M.id_materia NOT IN (
         SELECT id_materia
         FROM Inscripciones
-        WHERE dni_alumno = @dniAlumno
+        WHERE dni_alumno = @DNI
     );">
     <SelectParameters>
-        <asp:SessionParameter Name="dniAlumno" SessionField="AlumnoDNI" Type="Int32" /> 
+        <asp:SessionParameter Name="dni" SessionField="DNI" Type="Int32" /> 
     </SelectParameters>
 </asp:SqlDataSource>
 

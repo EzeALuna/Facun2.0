@@ -48,9 +48,9 @@
                 <li>
                  <a href="AsignarMaterias.aspx">Materias</a>
                 </li>
-                <li>
+<%--                <li>
                  <a href="PerfilProfesor.aspx">Horarios</a> 
-                </li>
+                </li>--%>
 	            </ul>
 	          </li>
 	          <li>

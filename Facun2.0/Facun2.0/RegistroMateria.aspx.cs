@@ -106,7 +106,7 @@ namespace Facun2._0
                         }
 
 
-                        string script = String.Format("INSERT INTO Materias (nombre, descripcion, id_carrera, año, estado) VALUES('{0}', '{1}', {2}, '{3}', 'Activa')",
+                        string script = String.Format("INSERT INTO Materias (nombre, descripcion, id_carrera, año) VALUES('{0}', '{1}', {2}, '{3}')",
                                                         textNombre.Text, textDescripcion.Text, DDLCarrera.SelectedValue, DDLAño.SelectedValue );
 
 

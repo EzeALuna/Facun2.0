@@ -107,7 +107,7 @@
                             <br />
                             <p class="text-center"><a href="PerfilMateria.aspx">Ver/editar materias</a></p>
                             <br />
-                            <p class="text-center"><a href="Login.aspx">Volver</a></p>
+                            <p class="text-center"><a href="PerfilMateria.aspx">Volver</a></p>
 		        </div>
 		
 				</div>

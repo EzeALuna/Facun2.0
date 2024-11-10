@@ -16,7 +16,7 @@ namespace Facun2._0
             if (!Page.IsPostBack)
             {
                 // Verifica el usuario 
-                if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+                if (Session["DNI"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
                 {
                     //// Si no hay sesión
                     Response.Redirect("Login.aspx");
@@ -47,8 +47,10 @@ namespace Facun2._0
                     }
                 }
             }
+
         }
 
+        
         protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Eliminar")
@@ -66,12 +68,15 @@ namespace Facun2._0
                     conn.Close();
                 }
 
+                GridView2.DataBind();
                 GridView1.DataBind();
+                
             }
+  
 
             if (e.CommandName == "Seleccionar")
             {
-                int dniAlumno = Convert.ToInt32(Session["AlumnoDNI"]);
+                int dniAlumno = Convert.ToInt32(Session["DNI"]);
                 int idMateria = Convert.ToInt32(e.CommandArgument);
 
                 if (idMateria > 0)
@@ -79,7 +84,7 @@ namespace Facun2._0
                     // Insertar materia en tabla Inscripciones 
                     //string dniAlumno = Session["dni"].ToString(); 
 
-                    string query = "INSERT INTO Inscripciones (dni_alumno, id_materia, estado) VALUES (@dniAlumno, @idMateria, 'Cursando')";
+                    string query = "INSERT INTO Inscripciones (dni_alumno, id_materia,fecha_inscripcion, estado) VALUES (@dniAlumno, @idMateria, getdate(), 'Cursando')";
 
                     using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Facun2DBConnectionString1"].ConnectionString))
                     {

@@ -14,7 +14,7 @@ namespace Facun2._0
               if (!Page.IsPostBack)
             {
                 // Verifica el usuario 
-                if (Session["Usuario"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
+                if (Session["DNI"] == null || string.IsNullOrEmpty(Session["Usuario"].ToString()))
                 {
                     // Si no hay sesión
                     Response.Redirect("Login.aspx");

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
-        EmptyDataText="No hay registros para mostrar." 
+        EmptyDataText="No estas cursando materias." 
         DataKeyNames="id_inscripcion" CellPadding="4" ForeColor="#333333" 
         GridLines="None">
         <AlternatingRowStyle BackColor="White" />
@@ -56,9 +56,9 @@
             <asp:Parameter Name="estado" Type="String" />
             <asp:Parameter Name="id_inscripcion" Type="Int32" />
         </UpdateParameters>
-        <SelectParameters>
-        <asp:SessionParameter Name="dni" SessionField="AlumnoDNI" Type="Int32" />
-    </SelectParameters>
+<%--        <SelectParameters>
+        <asp:SessionParameter Name="dni" SessionField="DNI" Type="Int32" />
+    </SelectParameters>--%>
     </asp:SqlDataSource>
     </form>
 </asp:Content>
