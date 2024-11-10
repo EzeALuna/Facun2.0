@@ -90,11 +90,13 @@ CREATE TABLE HorariosMaterias (
     id_horario INT PRIMARY KEY identity,
     dni_profesor INT,
     id_materia INT,
-    dia VARCHAR(10) CHECK (dia IN ('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes')),
+    Id_carrera INT,
+    dia VARCHAR(10),
     modulo INT CHECK (modulo IN (1, 2, 3, 4)),
-    carrera VARCHAR(20),
     observaciones VARCHAR(50),
-    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
+    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia),
+	FOREIGN KEY (dni_profesor) REFERENCES profesores (dni),
+	FOREIGN KEY (Id_carrera) REFERENCES Carreras (id_carrera)
 );
 
 CREATE TABLE Correlativas (
