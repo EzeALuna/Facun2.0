@@ -56,7 +56,13 @@
 	          <li>
               <a href="MisDatosAdmin.aspx">Mis Datos</a>
 	          </li>
+              <li>
+              <asp:HyperLink ID="btnDescargarPDF" runat="server" 
+                 NavigateUrl="Estilos/images/MUPI.pdf" Text="Manual de Usuario" 
+                 Target="_blank" />
+               </li>
 	          <li>
+
               <a href="Login.aspx">Salir</a>
               </li>
 	        </ul>
