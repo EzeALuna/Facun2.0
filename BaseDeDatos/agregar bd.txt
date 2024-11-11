@@ -1,0 +1,59 @@
+CREATE TABLE CalendarioProfe
+(
+id_Calendario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+dni INT NOT NULL,
+fecha DATETIME,
+tipo char(20),
+descripcion char(30),
+FOREIGN KEY (dni) REFERENCES Profesores(dni),
+)
+
+CREATE TABLE CalendarioAdmin
+(
+id_Calendario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+dni INT NOT NULL,
+fecha DATETIME,
+tipo char(20),
+descripcion char(30),
+FOREIGN KEY (dni) REFERENCES Admin(dni),
+)
+
+drop table HorariosMaterias
+
+-----------
+CREATE TABLE HorariosMaterias (
+    id_horario INT PRIMARY KEY identity,
+    dni_profesor INT,
+    id_materia INT,
+    Id_carrera INT,
+    dia VARCHAR(10),
+    modulo INT CHECK (modulo IN (1, 2, 3, 4)),
+    observaciones VARCHAR(50),
+    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia),
+	FOREIGN KEY (dni_profesor) REFERENCES profesores (dni),
+	FOREIGN KEY (Id_carrera) REFERENCES Carreras (id_carrera)
+);
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (12345678, 26, 1, 'Lunes', 1, 'Aula 101');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (78901245, 27, 1, 'Martes', 2, 'Aula 102');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (12345678, 30, 1, 'Miercoles', 1, 'Aula 103');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (89012356, 34, 1, 'Jueves', 3, 'Aula 104');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (56789023, 35, 1, 'Viernes', 4, 'Laboratorio');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (45678912, 36, 1, 'Lunes', 2, 'Laboratorio');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (45678912, 37, 1, 'Martes', 1, 'Aula 105');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
+VALUES (12345645, 28, 1, 'Miercoles', 4, 'Aula 106');

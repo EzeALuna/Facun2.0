@@ -9,9 +9,9 @@
         
     <div class="conteiner" align="center">
         <asp:Image ID="Image2" runat="server" EnableTheming="True"
-            ImageAlign="Left" ImageUrl="~/Estilos/images/logo.jpg" 
+            ImageAlign="Left" ImageUrl="~/Estilos/images/And.jpg" 
             CssClass="ima" />
-        <h3>Ezequiel Luna</h3>
+        <h3>Luna Ezequiel</h3>
         <p style="font-size: 11px">Tec. en Programacion</p>
     </div>
     <div class="conteiner" align="center">
@@ -29,7 +29,7 @@
         
     <div class="conteiner" align="center">
         <asp:Image ID="Image3" runat="server" EnableTheming="True" 
-            ImageAlign="Left"  ImageUrl="~/Estilos/images/logo.jpg" CssClass="ima"  />
+            ImageAlign="Left"  ImageUrl="~/Estilos/images/Jon.png" CssClass="ima"  />
         <h3>Segovia Jonathan</h3>
         <p style="font-size: 11px">Tec. en Programacion</p>
     </div>
