@@ -34,6 +34,21 @@ CREATE TABLE HorariosMaterias (
 	FOREIGN KEY (Id_carrera) REFERENCES Carreras (id_carrera)
 );
 
+INSERT INTO Alumnos (dni, nombre, apellido, email, contraseña, fecha_nacimiento, direccion, telefono, tipo, id_carrera)
+VALUES (12345678, 'Juan', 'Pérez', 'j.perez@gmail.com', '123', '2002-11-07', 'Calle 1, Ciudad de México', '555-1234', 'A', 1);
+
+INSERT INTO Profesores(nombre, apellido, dni, fecha_nacimiento, email, contraseña, telefono )
+VALUES ('DOGLIOTTI', 'MARIANO', 11111111, '11-11-1111', 'DOGLIOTTI@GAMIL.COM', 123, 1111111111);
+
+INSERT INTO Admin (dni, nombre, apellido, email, contraseña, fecha_nacimiento, direccion, telefono, tipo, cargo)
+VALUES (99999999, 'Raton', 'Pérez', 'Raton.perez@gmail.com', '123', '2002-11-07', 'Calle 1, Ciudad de México', '555-1234', 'A', 'Preceptor');
+
+INSERT INTO Inscripciones (dni_alumno, id_materia, fecha_inscripcion, estado)
+VALUES (12345678, 26, '2024-03-04', 'Cursando'), (12345678, 30, '2024-03-04', 'Cursando');
+
+INSERT INTO HorariosMaterias (dni_profesor, id_materia, id_carrera, dia, modulo, observaciones)
+VALUES (11111111, 26, 1, 'Viernes', 1, 'Suplencia'), (11111111, 33, 1, 'Martes', 4, 'Aula 106');
+
 INSERT INTO HorariosMaterias (dni_profesor, id_materia, Id_carrera, dia, modulo, observaciones) 
 VALUES (12345678, 26, 1, 'Lunes', 1, 'Aula 101');
 
