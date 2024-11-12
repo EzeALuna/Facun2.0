@@ -2,15 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<link rel="stylesheet" href="EstilosLogin/css/Titulos.css">
 <form id="form1" runat="server">
+<h3 class="Titulo" align="center">Carga de Notas</h3>
 
-   <asp:DropDownList ID="ddlMaterias" runat="server" AutoPostBack="True"
+   <asp:DropDownList  CssClass="Celda" ID="ddlMaterias" runat="server" AutoPostBack="True"
     DataSourceID="SqlDataSourceMaterias" DataTextField="nombre" DataValueField="id_materia"
     OnSelectedIndexChanged="ddlMaterias_SelectedIndexChanged">
 </asp:DropDownList>
-    <asp:Label ID="lblSelectedMateria" runat="server" Text='<%# ddlMaterias.SelectedValue %>'></asp:Label>
 
+    <asp:Label ID="lblSelectedMateria" runat="server" Text='<%# ddlMaterias.SelectedValue %>'></asp:Label>
+    <br /><br />
+    <div align="center">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
         DataSourceID="SqlDataSourceNotas" EmptyDataText="No hay registros de datos para mostrar."
         CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="dni_alumno,id_materia">
@@ -22,12 +25,15 @@
             <asp:BoundField DataField="fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}"/>
             <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
 
-            <asp:CommandField ShowDeleteButton="True" />
+            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" >
+
+            <ControlStyle CssClass="botton2" />
+            </asp:CommandField>
 
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#4756CA" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />
         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -44,22 +50,27 @@
 
 <SortedDescendingHeaderStyle BackColor="#4870BE"></SortedDescendingHeaderStyle>
     </asp:GridView>
-
-    <h3>Ingresar Nota</h3>
-    <label for="ddlAlumnos">Alumno:</label>
-    <asp:DropDownList ID="ddlAlumnos" runat="server" DataSourceID="SqlDataSourceAlumnos"
+    </div>
+    <div align="center">
+    <h3 class="Titulo2">Ingresar Nota</h3>
+    </div>
+    <div align="center">
+    <label CssClass="Letra" for="ddlAlumnos">Alumno:</label>
+    <asp:DropDownList CssClass="Celda" ID="ddlAlumnos" runat="server" DataSourceID="SqlDataSourceAlumnos"
         DataTextField="nombre_completo" DataValueField="dni_alumno" OnClick="btnInsertarNota_Click">
     </asp:DropDownList>
 
-    <label for="ddlTrimestre">Trimestre:</label>
-    <asp:DropDownList ID="ddlTrimestre" runat="server">
+    <label CssClass="Letra" for="ddlTrimestre">Trimestre:</label>
+    <asp:DropDownList CssClass="Celda" ID="ddlTrimestre" runat="server">
         <asp:ListItem>1er Trimestre</asp:ListItem>
         <asp:ListItem>2do Trimestre</asp:ListItem>
         <asp:ListItem>Final</asp:ListItem>
     </asp:DropDownList>
 
-    <label for="ddlNota">Nota:</label>
-    <asp:DropDownList ID="ddlNota" runat="server">
+        <br />
+
+    <label CssClass="Letra" for="ddlNota">Nota:</label>
+    <asp:DropDownList CssClass="Celda" ID="ddlNota" runat="server">
         <asp:ListItem Value="0">0</asp:ListItem>
         <asp:ListItem Value="1">1</asp:ListItem>
         <asp:ListItem Value="2">2</asp:ListItem>
@@ -73,11 +84,11 @@
         <asp:ListItem Value="10">10</asp:ListItem>
     </asp:DropDownList>
 
-    <label for="txtObservaciones">Observaciones:</label>
-    <asp:TextBox ID="txtObservaciones" runat="server"></asp:TextBox>
-
-    <asp:Button ID="btnAgregarNota" runat="server" Text="Agregar Nota" OnClick="btnAgregarNota_Click" />
-
+    <label CssClass="Letra" for="txtObservaciones">Observaciones:</label>
+    <asp:TextBox CssClass="Celda" ID="txtObservaciones" runat="server"></asp:TextBox>
+    <br />
+    <asp:Button CssClass="botton1" ID="btnAgregarNota" runat="server" Text="Agregar Nota" OnClick="btnAgregarNota_Click" />
+    </div>
 
     <asp:SqlDataSource ID="SqlDataSourceMaterias" runat="server" 
         ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"

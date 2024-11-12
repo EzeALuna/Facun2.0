@@ -2,14 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<link rel="stylesheet" href="EstilosLogin/css/Titulos.css">
 
     <form id="form1" runat="server">
-    <div class="w-100">
-    <h2 class="mb-4">Situacion Actual</h2>
+    <div>
+    <h3 class="Titulo" align="center">Situacion Actual</h3
     </div>
+    <div align="center">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
         EmptyDataText="No hay registros para mostrar." 
-        DataKeyNames="id_inscripcion" CellPadding="4" ForeColor="#333333" 
+        DataKeyNames="id_inscripcion" CellPadding="10" ForeColor="#333333" 
         GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -39,11 +41,13 @@
                     OnClientClick="return confirm('¿Está seguro de que desea anular la inscripción?');" />
             </ItemTemplate>
 
+            <ControlStyle CssClass="botton2" />
+
             </asp:TemplateField>
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#4756CA" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />
         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -52,16 +56,17 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    
-<br />
+    </div>
 <br />
     <div class="w-100">
-    <h2 class="mb-4">Inscripcion a materias</h2>
+    <h3 class="Titulo" align="center">Inscripcion a materias</h3>
     </div>
+
+    <div align="center">
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="id_materia"
         DataSourceID="SqlDataSource2" 
         EmptyDataText="No hay materias de datos para mostrar." 
-        OnRowCommand="GridView2_RowCommand" CellPadding="4" ForeColor="#333333" 
+        OnRowCommand="GridView2_RowCommand" CellPadding="10" ForeColor="#333333" 
         GridLines="None" >
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -73,11 +78,12 @@
                     <asp:Button ID="btnSeleccionar" runat="server" Text="Inscribirse" CommandName="Seleccionar"
                         CommandArgument='<%# Eval("id_materia") %>' />
                 </ItemTemplate>
+                <ControlStyle CssClass="botton2" />
             </asp:TemplateField>
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#4756CA" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />
         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -86,7 +92,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    
+    </div>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server"
     ConnectionString="<%$ ConnectionStrings:Facun2DBConnectionString1 %>"
     SelectCommand="SELECT I.id_inscripcion, M.nombre AS NombreMateria, C.nombre AS NombreCarrera, H.dia, H.modulo, I.estado

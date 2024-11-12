@@ -72,14 +72,18 @@ namespace Facun2._0
                     //builder.IntegratedSecurity = true;
                     //builder.PersistSecurityInfo = true;
 
+                    //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                    //builder.DataSource = "DESKTOP-044COGN";  // Ajusta según tu servidor
+                    //builder.InitialCatalog = "Facun2DB";
+                    //builder.IntegratedSecurity = true;
+                    //builder.PersistSecurityInfo = true;
+
+                    //escuela
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                    builder.DataSource = "DESKTOP-044COGN";  // Ajusta según tu servidor
+                    builder.DataSource = "DESKTOP-URR4FQN\\SQLEXPRESS";  // Ajusta según tu servidor
                     builder.InitialCatalog = "Facun2DB";
                     builder.IntegratedSecurity = true;
                     builder.PersistSecurityInfo = true;
-
-                    
-
 
                     try
                     {

@@ -2,10 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<link rel="stylesheet" href="EstilosLogin/css/Titulos.css">
     <form id="form1" runat="server">
+    <h3 class="Titulo" align="center">Sistuacion Academica</h3>
+
+    <div align="center">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
         EmptyDataText="No estas cursando materias." 
-        DataKeyNames="id_inscripcion" CellPadding="4" ForeColor="#333333" 
+        DataKeyNames="id_inscripcion" CellPadding="10" ForeColor="#333333" 
         GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -30,7 +34,7 @@
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#4756CA" Font-Bold="True" ForeColor="White" />
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />
         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -60,5 +64,6 @@
         <asp:SessionParameter Name="dni" SessionField="DNI" Type="Int32" />
     </SelectParameters>--%>
     </asp:SqlDataSource>
+    </div>
     </form>
 </asp:Content>
